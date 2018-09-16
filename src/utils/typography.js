@@ -1,19 +1,40 @@
 import Typography from "typography"
-import wordpress2013 from "typography-theme-wordpress-2013"
 
-wordpress2013.headerLineHeight = 1.1
-wordpress2013.overrideThemeStyles = () => {
-  return {
-    a: {
-      color: `rgb(60,99,243)`,
+const typography = new Typography({
+  baseFontSize: '16px',
+  baseLineHeight: 1.7,
+  googleFonts: [
+    {
+      name: 'Libre Franklin',
+      styles: ['400', '400i', '700', '700i', '900']
     },
-    h1: {
-      lineHeight: 1,
+    {
+      name: 'Cousine',
+      styles: ['400', '400i', '700']
+    }
+  ],
+  headerFontFamily: ['Libre Franklin', 'sans-serif'],
+  bodyFontFamily: ['Cousine', 'monospace'],
+  headerColor: 'black',
+  bodyColor: '#333',
+  headerWeight: 700,
+  bodyWeight: 400,
+  boldWeight: 700,
+  overrideStyles: ({adjustFontSizeTo, scale, rhythm }, options) => ({
+    'h1': {
+      fontSize: '4.2rem',
+      fontWeight: 900
     },
-  }
-}
-
-const typography = new Typography(wordpress2013)
+    'h2': {
+      fontSize: '2.6rem',
+      fontWeight: 900
+    },
+    'h3': {
+      fontSize: '1.6rem',
+      marginBottom: '0.74rem'
+    }
+  })
+});
 
 export const { rhythm, scale } = typography
 export default typography
