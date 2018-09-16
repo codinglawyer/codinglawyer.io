@@ -1,11 +1,20 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import ClockIcon from "react-icons/lib/fa/clock-o"
+import styled from 'react-emotion';
 
 import Layout from "../layouts"
 import PostIcons from "../components/PostIcons"
 
 import { rhythm } from "../utils/typography"
+
+const Title = styled.h1`
+  font-size: 4rem;
+  margin: 0 0 16px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+`;
 
 class Home extends Component {
   render() {
