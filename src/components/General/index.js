@@ -101,3 +101,13 @@ export const Break = styled.hr`
     margin: 1.11111rem 0 1.22222rem;
   }
 `
+
+export const Header = styled.h1`
+  margin: 0;
+`
+
+export const SubHeader = styled.div`
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+`

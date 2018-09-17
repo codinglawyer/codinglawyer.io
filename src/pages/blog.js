@@ -1,12 +1,14 @@
 /* eslint-disable */
 import React from "react"
 import { Link } from "gatsby"
+import { Header, SubHeader } from "../components/General"
 import { ClockIcon } from "react-icons/lib/fa"
 // import { Link, Timestamp } from '../../components/Misc';
 import { Box } from "../components/Layout"
 import { css } from "react-emotion"
 import { rhythm } from "../utils/typography"
 import PostIcons from "../components/PostIcons"
+import styled from "react-emotion"
 
 const linkStyles = css`
   box-shadow: none;
@@ -21,7 +23,8 @@ const BlogIndex = ({ data }) => {
         m={["3.5rem 0 0 0", "3.5rem 0 0 0", "3.5rem auto 0 auto"]}
         px={[3, 3, 0]}
       >
-        <h1>Blog</h1>
+        <Header>Blog</Header>
+        <SubHeader>Thoughts.</SubHeader>
         {/* <Box>
           {posts
             .filter(post => post.node.frontmatter.title.length > 0)
@@ -57,14 +60,13 @@ const BlogIndex = ({ data }) => {
           ))} */}
         </div>
         <hr />
-        <h1>Posts</h1>
         {data.allWordpressPost.edges.map(({ node }) => (
-          <div css={{ marginBottom: rhythm(2) }} key={node.slug}>
+          <div css={{ marginBottom: rhythm(2.5) }} key={node.slug}>
             <Link to={node.slug} css={{ textDecoration: `none` }}>
               <h3>{node.title}</h3>
             </Link>
             <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            <PostIcons node={node} />
+            <PostIcons node={node} concise />
           </div>
         ))}
       </Box>
