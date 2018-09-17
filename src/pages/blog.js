@@ -8,7 +8,6 @@ import { Box } from "../components/Layout"
 import { css } from "react-emotion"
 import { rhythm } from "../utils/typography"
 import PostIcons from "../components/PostIcons"
-import styled from "react-emotion"
 
 const linkStyles = css`
   box-shadow: none;
@@ -25,7 +24,7 @@ const BlogIndex = ({ data }) => {
       >
         <Header>Blog</Header>
         <SubHeader>Thoughts.</SubHeader>
-        {/* <Box>
+        {/* MARKDOWN <Box>
           {posts
             .filter(post => post.node.frontmatter.title.length > 0)
             .map(({ node: post }, index) => {
@@ -41,7 +40,7 @@ const BlogIndex = ({ data }) => {
             })}
         </Box> */}
         <div>
-          {/* <h1>Pages</h1>
+          {/* PAGES <h1>Pages</h1>
           {data.allWordpressPage.edges.map(({ node }) => (
             <div key={node.slug}>
               <Link to={node.slug} css={{ textDecoration: `none` }}>
@@ -66,7 +65,7 @@ const BlogIndex = ({ data }) => {
               <h3>{node.title}</h3>
             </Link>
             <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            <PostIcons node={node} concise />
+            <PostIcons node={node} concise marginTopNegative />
           </div>
         ))}
       </Box>

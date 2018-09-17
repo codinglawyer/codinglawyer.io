@@ -3,9 +3,18 @@ import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import PostIcons from "../components/PostIcons"
 import Img from "gatsby-image"
-import Layout from "../layouts"
-
+import { PostLayout } from "../layouts"
+import styled from "react-emotion"
 import { rhythm } from "../utils/typography"
+
+const HeaderPost = styled.h1`
+  font-size: 1.66667rem;
+  font-weight: 900;
+  @media (min-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+`
 
 class PostTemplate extends Component {
   render() {
@@ -13,11 +22,11 @@ class PostTemplate extends Component {
     console.log("CURRNET", post)
 
     return (
-      <Layout>
-        <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+      <PostLayout>
         <PostIcons node={post} css={{ marginBottom: rhythm(1 / 2) }} />
+        <HeaderPost dangerouslySetInnerHTML={{ __html: post.title }} />
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        {/* {post.acf &&
+        {/* IMAGE OPTIMIZATION {post.acf &&
           post.acf.page_builder_post &&
           post.acf.page_builder_post.map((layout, i) => {
             if (layout.__typename === `WordPressAcf_image_gallery`) {
@@ -52,7 +61,7 @@ class PostTemplate extends Component {
             }
             return null
           })} */}
-      </Layout>
+      </PostLayout>
     )
   }
 }
@@ -70,7 +79,6 @@ export const pageQuery = graphql`
       title
       content
       ...PostIcons
-
     }
     site {
       siteMetadata {
@@ -80,5 +88,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-
