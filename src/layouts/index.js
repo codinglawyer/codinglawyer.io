@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { rhythm } from "../utils/typography"
 
 const containerStyle = {
   maxWidth: 700,

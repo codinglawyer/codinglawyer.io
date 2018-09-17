@@ -17,16 +17,14 @@ import {
   ListItem,
   Ol,
 } from "../components/Home"
+import { injectGlobal } from "emotion"
 
-const messages = {
-  title: "David Kopal",
-  aka: "A.K.A.",
-  subtitle: "Coding lawyer",
-  invitation: "Hi, welcome to my blog!",
-  desc1: "Lawyer turned software engineer living in Prague. I make stuff at",
-  desc2:
-    "I’m passionate about sharing my experiences with the community via my blog and as a speaker at conferences and meetups. If I’m not giving a talk or learning new technologies, I keep myself busy by organizing ReasonML meetups in Prague, swinging kettlebells, and cooking.",
-}
+injectGlobal`
+  a {
+    text-decoration: none;
+  }
+`
+
 
 class Home extends Component {
   render() {
@@ -36,17 +34,19 @@ class Home extends Component {
         <div css={{ marginBottom: rhythm(1) }}>
           <Flex>
             <Col1>
-              <Title>{messages.title}</Title>
-              <Subtitle>{messages.aka}</Subtitle>
-              <Name>{messages.subtitle}</Name>
-              <Subtitle>{messages.invitation}</Subtitle>
+              <Title>David Kopal</Title>
+              <Subtitle>A.K.A.</Subtitle>
+              <Name>Coding lawyer</Name>
+              <Subtitle>Hi, welcome to my blog!</Subtitle>
             </Col1>
             <Col2>
               <Image />
             </Col2>
           </Flex>
           <Break />
-          <Description>{messages.desc1}</Description>
+          <Description>
+            Lawyer turned software engineer living in Prague. I make stuff at
+          </Description>
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -58,7 +58,55 @@ class Home extends Component {
               {"✨. "}
             </span>
           </a>
-          <Description>{messages.desc2}</Description>
+          <Description>
+            I’m passionate about sharing my experiences with the community via
+            my
+          </Description>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.blueberry.io/"
+          >
+            {" "}
+            <A>blog</A>
+            <span role="img" aria-labelledby="book">
+              {" "}
+            </span>
+          </a>
+          <Description>and as a </Description>
+
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.blueberry.io/"
+          >
+            {" "}
+            <A>speaker</A>
+            <span role="img" aria-labelledby="book">
+              {" "}
+            </span>
+          </a>
+          <Description>
+            at conferences and meetups. If I’m not giving a talk or learning new
+            technologies, I keep myself busy by organizing ReasonML
+          </Description>
+
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.blueberry.io/"
+          >
+            {" "}
+            <A>meetups</A>
+            <span role="img" aria-labelledby="book">
+              {" "}
+            </span>
+          </a>
+          <Description>
+            {" "}
+            in Prague, swinging kettlebells, and cooking
+          </Description>
+
           <Break />
           <div id="menu" className="slideout-menu" role="navigation">
             <div className="navigation">
@@ -134,4 +182,3 @@ class Home extends Component {
 }
 
 export default Home
-

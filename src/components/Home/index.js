@@ -12,7 +12,7 @@ export const A = styled.span`
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
   &:hover {
-    box-shadow: inset 0 -1px 0 #F85649
+    box-shadow: inset 0 -1px 0 #F85649;
     color: #F85649;
   }
 `
