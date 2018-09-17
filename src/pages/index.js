@@ -4,20 +4,9 @@ import { Box, Flex } from "../components/Layout"
 import Layout from "../layouts"
 import PostIcons from "../components/PostIcons"
 import { rhythm } from "../utils/typography"
-import {
-  Title,
-  Subtitle,
-  Name,
-  Col1,
-  Col2,
-  Image,
-  Break,
-  Description,
-  A,
-  ListItem,
-  Ol,
-} from "../components/Home"
+import { Image, A, ListItem, Ol } from "../components/General"
 import { injectGlobal } from "emotion"
+import AboutMe from "../components/Home/aboutMe"
 
 injectGlobal`
   a {
@@ -25,107 +14,29 @@ injectGlobal`
   }
 `
 
-
 class Home extends Component {
   render() {
     const data = this.props.data
     return (
       <Layout>
         <div css={{ marginBottom: rhythm(1) }}>
-          <Flex>
-            <Col1>
-              <Title>David Kopal</Title>
-              <Subtitle>A.K.A.</Subtitle>
-              <Name>Coding lawyer</Name>
-              <Subtitle>Hi, welcome to my blog!</Subtitle>
-            </Col1>
-            <Col2>
-              <Image />
-            </Col2>
-          </Flex>
-          <Break />
-          <Description>
-            Lawyer turned software engineer living in Prague. I make stuff at
-          </Description>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.blueberry.io/"
-          >
-            {" "}
-            <A>Blueberry</A>
-            <span role="img" aria-labelledby="book">
-              {"✨. "}
-            </span>
-          </a>
-          <Description>
-            I’m passionate about sharing my experiences with the community via
-            my
-          </Description>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.blueberry.io/"
-          >
-            {" "}
-            <A>blog</A>
-            <span role="img" aria-labelledby="book">
-              {" "}
-            </span>
-          </a>
-          <Description>and as a </Description>
-
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.blueberry.io/"
-          >
-            {" "}
-            <A>speaker</A>
-            <span role="img" aria-labelledby="book">
-              {" "}
-            </span>
-          </a>
-          <Description>
-            at conferences and meetups. If I’m not giving a talk or learning new
-            technologies, I keep myself busy by organizing ReasonML
-          </Description>
-
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.blueberry.io/"
-          >
-            {" "}
-            <A>meetups</A>
-            <span role="img" aria-labelledby="book">
-              {" "}
-            </span>
-          </a>
-          <Description>
-            {" "}
-            in Prague, swinging kettlebells, and cooking
-          </Description>
-
-          <Break />
+          <AboutMe />
           <div id="menu" className="slideout-menu" role="navigation">
             <div className="navigation">
               <Ol>
                 <ListItem>
                   <Link to="/blog">
                     <A>Blog</A>
-                    <span role="img" aria-labelledby="book">
-                      {` 📖`}
-                    </span>
+                    <span role="img" aria-labelledby="book" />
                   </Link>
+                  {` 📖`}
                 </ListItem>
                 <ListItem>
                   <Link to="/blog">
                     <A>Talks</A>
-                    <span role="img" aria-labelledby="speaking">
-                      {` 🗣`}
-                    </span>
+                    <span role="img" aria-labelledby="speaking" />
                   </Link>
+                  {` 🗣`}
                 </ListItem>
                 <ListItem>
                   <span>Get in touch with me via </span>
