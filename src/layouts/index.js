@@ -8,18 +8,20 @@ const containerStyle = {
   padding: rhythm(3 / 4),
 }
 
-class DefaultLayout extends React.Component {
-  render() {
-    return (
-      <div>
-        <div css={containerStyle}>{this.props.children}</div>
-      </div>
-    )
-  }
+const containerStylePost = {
+  maxWidth: 1000,
+  margin: `0 auto`,
+  padding: rhythm(3 / 4),
 }
 
-DefaultLayout.propTypes = {
-  location: PropTypes.object.isRequired,
-}
+export const Layout = ({ children }) => (
+  <div>
+    <div css={containerStyle}>{children}</div>
+  </div>
+)
 
-export default DefaultLayout
+export const PostLayout = ({ children }) => (
+  <div>
+    <div css={containerStylePost}>{children}</div>
+  </div>
+)

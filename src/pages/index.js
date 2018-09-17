@@ -1,18 +1,12 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import { Box, Flex } from "../components/Layout"
-import Layout from "../layouts"
+import { Layout } from "../layouts"
 import PostIcons from "../components/PostIcons"
 import { rhythm } from "../utils/typography"
 import { Image, A, ListItem, Ol } from "../components/General"
-import { injectGlobal } from "emotion"
 import AboutMe from "../components/Home/aboutMe"
-
-injectGlobal`
-  a {
-    text-decoration: none;
-  }
-`
+import "../assets/globalStyles"
 
 class Home extends Component {
   render() {
