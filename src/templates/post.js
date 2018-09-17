@@ -6,21 +6,12 @@ import Img from "gatsby-image"
 import { PostLayout } from "../layouts"
 import styled from "react-emotion"
 import { rhythm } from "../utils/typography"
-
-const HeaderPost = styled.h1`
-  font-size: 1.66667rem;
-  font-weight: 900;
-  @media (min-width: 768px) {
-    font-size: 2rem;
-    margin-bottom: 25px;
-  }
-`
+import { Break, Footer, HeaderPost } from "../components/General"
+import AboutMe from "../components/Home/aboutMe"
 
 class PostTemplate extends Component {
   render() {
     const post = this.props.data.wordpressPost
-    console.log("CURRNET", post)
-
     return (
       <PostLayout>
         <PostIcons node={post} css={{ marginBottom: rhythm(1 / 2) }} />
@@ -61,6 +52,9 @@ class PostTemplate extends Component {
             }
             return null
           })} */}
+        <Footer>
+          <AboutMe isFooter />
+        </Footer>
       </PostLayout>
     )
   }

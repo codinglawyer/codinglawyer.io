@@ -6,6 +6,7 @@ import PostIcons from "../components/PostIcons"
 import { rhythm } from "../utils/typography"
 import { Image, A, ListItem, Ol } from "../components/General"
 import AboutMe from "../components/Home/aboutMe"
+import Profile from "../components/Home/Profile"
 import "../assets/globalStyles"
 
 class Home extends Component {
@@ -14,6 +15,7 @@ class Home extends Component {
     return (
       <Layout>
         <div css={{ marginBottom: rhythm(1) }}>
+          <Profile />
           <AboutMe />
           <div id="menu" className="slideout-menu" role="navigation">
             <div className="navigation">

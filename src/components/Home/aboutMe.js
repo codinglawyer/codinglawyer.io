@@ -1,33 +1,18 @@
 import React, { Fragment } from "react"
 import { Flex } from "../Layout"
-import {
-  Title,
-  Subtitle,
-  Name,
-  Col1,
-  Col2,
-  Image,
-  Description,
-  Break,
-  A,
-} from "../General"
+import { Image, Description, Break, A, FooterImage } from "../General"
 
-const AboutMe = () => (
+const AboutMe = ({ isFooter }) => (
   <Fragment>
-    <Flex>
-      <Col1>
-        <Title>David Kopal</Title>
-        <Subtitle>A.K.A.</Subtitle>
-        <Name>Coding lawyer</Name>
-        <Subtitle>Hi, welcome to my blog!</Subtitle>
-      </Col1>
-      <Col2>
-        <Image />
-      </Col2>
-    </Flex>
     <Break />
+    {isFooter && (
+      <Fragment>
+        <FooterImage />
+        <Description>Hi, thanks for reading! I'm David.</Description>
+      </Fragment>
+    )}{" "}
     <Description>
-      Lawyer turned software engineer living in Prague. I make stuff at
+      I'm a lawyer turned software engineer living in Prague. I make stuff at
     </Description>{" "}
     <a
       target="_blank"

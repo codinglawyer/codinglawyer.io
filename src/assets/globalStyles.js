@@ -9,7 +9,7 @@ injectGlobal`
     font-size: 18px;
     line-height: 1.6;
   }
-  .markup--p-anchor {
+  .markup--p-anchor, em a {
     box-shadow: inset 0 -5px 0 rgba(0,96,193,0.25);
     color: black;
     -webkit-transition: box-shadow .4s ease-in-out;
