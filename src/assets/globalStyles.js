@@ -20,6 +20,7 @@ injectGlobal`
     background-color: rgba(0, 0, 0, 0.05);
     font-size: 18px;
     line-height: 1.6;
+    overflow-x: scroll;
   }
   .markup--p-anchor, em a {
     box-shadow: inset 0 -5px 0 rgba(0,96,193,0.25);
