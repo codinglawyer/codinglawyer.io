@@ -15,6 +15,7 @@ injectGlobal`
   }
   a {
     text-decoration: none;
+    color: black;
   }
   .graf--pre {
     background-color: rgba(0, 0, 0, 0.05);
