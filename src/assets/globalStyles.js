@@ -1,6 +1,18 @@
 import { injectGlobal } from "emotion"
 
 injectGlobal`
+  h1 {
+    font-size: 4.2rem;
+    font-weight: 900;
+  }
+  h2 {
+    font-size: 2.6rem;
+    fontWeight: 900;
+  }
+  h3 {
+    fonts-ize: 1.6rem;
+    margin-bottom: 0.74rem;
+  }
   a {
     text-decoration: none;
   }
