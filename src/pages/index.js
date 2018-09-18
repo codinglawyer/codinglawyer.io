@@ -28,7 +28,7 @@ class Home extends Component {
                   {` 📖`}
                 </ListItem>
                 <ListItem>
-                  <Link to="/blog">
+                  <Link to="/talks">
                     <A>Talks</A>
                     <span role="img" aria-labelledby="speaking" />
                   </Link>
