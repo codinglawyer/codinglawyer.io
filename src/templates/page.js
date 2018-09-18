@@ -1,19 +1,22 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import PostIcons from "../components/PostIcons"
-import { Layout } from "../layouts"
-
+import { PostLayout } from "../layouts"
+import { Header, SubHeader } from "../components/General"
 import { rhythm } from "../utils/typography"
 
 class PageTemplate extends Component {
   render() {
     const currentPage = this.props.data.wordpressPage
     return (
-      <Layout>
-        <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
-        <PostIcons node={currentPage} css={{ marginBottom: rhythm(1 / 2) }} />
+      <PostLayout>
+        <Header>Talks</Header>
+        <SubHeader css={{ marginBottom: rhythm(1 / 2) }}>
+          Spoken thoughts.
+        </SubHeader>
+        {/* <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} /> */}
         <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
-      </Layout>
+      </PostLayout>
     )
   }
 }

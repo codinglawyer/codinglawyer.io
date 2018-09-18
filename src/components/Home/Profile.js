@@ -16,7 +16,7 @@ const Profile = () => (
         <Title>David Kopal</Title>
         <Subtitle>A.K.A.</Subtitle>
         <Name>Coding lawyer</Name>
-        <Subtitle>Hi, welcome to my blog!</Subtitle>
+        <Subtitle>Hi👋, welcome to my site!</Subtitle>
       </Col1>
       <Col2>
         <Image />

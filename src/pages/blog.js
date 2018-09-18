@@ -23,7 +23,7 @@ const BlogIndex = ({ data }) => {
         px={[3, 3, 0]}
       >
         <Header>Blog</Header>
-        <SubHeader>Thoughts.</SubHeader>
+        <SubHeader>Written thoughts.</SubHeader>
         {/* MARKDOWN <Box>
           {posts
             .filter(post => post.node.frontmatter.title.length > 0)

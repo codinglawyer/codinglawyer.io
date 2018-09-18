@@ -11,8 +11,17 @@ const AboutMe = ({ isFooter }) => (
         <Description>Hi, thanks for reading! I'm David.</Description>
       </Fragment>
     )}{" "}
+    <Description>I'm a</Description>{" "}
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.blueberry.io/"
+    >
+      <A>lawyer</A>
+      <span role="img" aria-labelledby="book" />
+    </a>{" "}
     <Description>
-      I'm a lawyer turned software engineer living in Prague. I make stuff at
+      turned software engineer living in Prague. I make stuff at
     </Description>{" "}
     <a
       target="_blank"
