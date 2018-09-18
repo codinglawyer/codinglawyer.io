@@ -11,7 +11,6 @@ const slash = require(`slash`)
 // Will create pages for Wordpress posts (route : /post/{slug})
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  console.log("CREATE", actions)
   return new Promise((resolve, reject) => {
     // The “graphql” function allows us to run arbitrary
     // queries against the local Wordpress graphql schema. Think of
@@ -101,9 +100,42 @@ exports.createPages = ({ graphql, actions }) => {
               },
             })
           })
+        })
+      })
+      // ==== END POSTS ====
+      .then(() => {
+        graphql(
+          `
+            {
+              allWordpressTag {
+                edges {
+                  node {
+                    id
+                    slug
+                    count
+                    name
+                  }
+                }
+              }
+            }
+          `
+        ).then(result => {
+          if (result.errors) {
+            reject(result.errors)
+          }
+          const postTemplate = path.resolve(`./src/templates/post.js`)
+          console.log("RESUlt", result)
+          // _.each(result.data.allWordpressTag.edges, edge => {
+          //   createPage({
+          //     path: edge.node.slug,
+          //     component: slash(postTemplate),
+          //     context: {
+          //       id: edge.node.id,
+          //     },
+          //   })
+          // })
           resolve()
         })
       })
-    // ==== END POSTS ====
   })
 }
