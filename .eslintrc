@@ -1,0 +1,13 @@
+{
+    "parser": "babel-eslint",
+    "extends": ["airbnb", "prettier"],
+    "plugins": [
+      "react", "prettier"
+    ],
+    "rules":{
+        "prettier/prettier": "error",
+        "semi": 0,
+        "react/jsx-filename-extension": 0,
+        "react/jsx-closing-bracket-location": 0
+    }
+  }
