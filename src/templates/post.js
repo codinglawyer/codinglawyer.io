@@ -1,25 +1,20 @@
-import React, { Component } from 'react'
-import { graphql } from 'gatsby'
+import React from 'react'
 import PropTypes from 'prop-types'
-import PostIcons from '../components/PostIcons'
-import Img from 'gatsby-image'
-import { PostLayout } from '../layouts'
-import styled from 'react-emotion'
+import { graphql } from 'gatsby'
 import { rhythm } from '../utils/typography'
-import { Break, Footer, HeaderPost } from '../components/General'
+import { Footer, HeaderPost } from '../components/General'
 import AboutMe from '../components/Home/aboutMe'
+import PostIcons from '../components/PostIcons'
+import { PostLayout } from '../layouts'
 
-class PostTemplate extends Component {
-  render() {
-    const post = this.props.data.wordpressPost
-    return (
-      <PostLayout>
-        <PostIcons node={post} css={{ marginBottom: rhythm(1 / 2) }} />
-        <HeaderPost dangerouslySetInnerHTML={{ __html: post.title }} />
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        {/* IMAGE OPTIMIZATION {post.acf &&
-          post.acf.page_builder_post &&
-          post.acf.page_builder_post.map((layout, i) => {
+const PostTemplate = ({ data: { wordpressPost } }) => (
+  <PostLayout>
+    <PostIcons node={wordpressPost} css={{ marginBottom: rhythm(1 / 2) }} />
+    <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
+    <div dangerouslySetInnerHTML={{ __html: wordpressPost.content }} />
+    {/* IMAGE OPTIMIZATION {wordpressPost.acf &&
+          wordpressPost.acf.page_builder_post &&
+          wordpressPost.acf.page_builder_post.map((layout, i) => {
             if (layout.__typename === `WordPressAcf_image_gallery`) {
               return (
                 <div key={`${i} image-gallery`}>
@@ -52,17 +47,18 @@ class PostTemplate extends Component {
             }
             return null
           })} */}
-        <Footer>
-          <AboutMe isFooter />
-        </Footer>
-      </PostLayout>
-    )
-  }
-}
+    <Footer>
+      <AboutMe isFooter />
+    </Footer>
+  </PostLayout>
+)
 
 PostTemplate.propTypes = {
-  data: PropTypes.object.isRequired,
-  edges: PropTypes.array,
+  data: { wordpressPost: PropTypes.object },
+}
+
+PostTemplate.defaultProps = {
+  data: {},
 }
 
 export default PostTemplate

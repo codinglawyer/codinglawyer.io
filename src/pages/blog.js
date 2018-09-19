@@ -1,11 +1,9 @@
-/* eslint-disable */
 import React from 'react'
-import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
 import { Header, SubHeader, Break, A } from '../components/General'
-import { ClockIcon } from 'react-icons/lib/fa'
 // import { Link, Timestamp } from '../../components/Misc';
 import { Box } from '../components/Layout'
-import { css } from 'react-emotion'
 import { rhythm } from '../utils/typography'
 import PostIcons from '../components/PostIcons'
 
@@ -95,5 +93,16 @@ export const pageQuery = graphql`
     }
   }
 `
+
+BlogIndex.propTypes = {
+  data: {
+    allWordpressTag: PropTypes.Object,
+    allWordpressPost: PropTypes.Object,
+  },
+}
+
+BlogIndex.defaultProps = {
+  data: {},
+}
 
 export default BlogIndex

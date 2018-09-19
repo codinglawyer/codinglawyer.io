@@ -25,3 +25,11 @@ export const PostLayout = ({ children }) => (
     <div css={containerStylePost}>{children}</div>
   </div>
 )
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+PostLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+}

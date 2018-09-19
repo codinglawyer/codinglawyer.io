@@ -1,13 +1,14 @@
 {
-    "parser": "babel-eslint",
-    "extends": ["airbnb", "prettier"],
-    "plugins": [
-      "react", "prettier"
-    ],
-    "rules":{
-        "prettier/prettier": "error",
-        "semi": 0,
-        "react/jsx-filename-extension": 0,
-        "react/jsx-closing-bracket-location": 0
-    }
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "semi": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-closing-bracket-location": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/no-danger": 0,
+    "react/forbid-prop-types": 0
   }
+}

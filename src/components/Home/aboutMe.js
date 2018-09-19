@@ -1,17 +1,17 @@
 import React, { Fragment } from 'react'
-import { Flex } from '../Layout'
-import { Image, Description, Break, A, FooterImage } from '../General'
+import PropTypes from 'prop-types'
+import { Description, Break, A, FooterImage } from '../General'
 
-const AboutMe = ({ isFooter }) => (
+const AboutMe = ({ isFooter = false }) => (
   <Fragment>
     <Break />
     {isFooter && (
       <Fragment>
         <FooterImage />
-        <Description>Hi, thanks for reading! I'm David.</Description>
+        <Description>Hi, thanks for reading! I&apos;m David.</Description>
       </Fragment>
     )}{' '}
-    <Description>I'm a</Description>{' '}
+    <Description>I&apos;m a</Description>{' '}
     <a
       target="_blank"
       rel="noopener noreferrer"
@@ -27,9 +27,11 @@ const AboutMe = ({ isFooter }) => (
       rel="noopener noreferrer"
       href="https://www.blueberry.io/">
       <A>Blueberry</A>
-      <span role="img" aria-labelledby="book" />
     </a>
-    {'✨. '}
+    <span role="img" aria-label="Sparkles">
+      ✨
+    </span>
+    {'. '}
     <Description>
       I’m passionate about sharing my experiences with the community via my
     </Description>{' '}
@@ -60,5 +62,13 @@ const AboutMe = ({ isFooter }) => (
     <Break />
   </Fragment>
 )
+
+AboutMe.propTypes = {
+  isFooter: PropTypes.bool,
+}
+
+AboutMe.defaultProps = {
+  isFooter: false,
+}
 
 export default AboutMe

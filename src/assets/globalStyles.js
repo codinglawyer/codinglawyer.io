@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { injectGlobal } from 'emotion'
 
 injectGlobal`

@@ -9,7 +9,13 @@ const Profile = () => (
         <Title>David Kopal</Title>
         <Subtitle>A.K.A.</Subtitle>
         <Name>coding lawyer</Name>
-        <Subtitle>Hi👋, welcome to my site!</Subtitle>
+        <Subtitle>
+          Hi
+          <span role="img" aria-label="Wave">
+            👋
+          </span>
+          , welcome to my site!
+        </Subtitle>
       </Col1>
       <Col2>
         <Image />

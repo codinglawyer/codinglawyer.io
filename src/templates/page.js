@@ -1,24 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import PostIcons from '../components/PostIcons'
 import { PostLayout } from '../layouts'
 import { Header, SubHeader } from '../components/General'
 import { rhythm } from '../utils/typography'
 
-class PageTemplate extends Component {
-  render() {
-    const currentPage = this.props.data.wordpressPage
-    return (
-      <PostLayout>
-        <Header>Talks</Header>
-        <SubHeader css={{ marginBottom: rhythm(1 / 2) }}>
-          Spoken thoughts.
-        </SubHeader>
-        {/* <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} /> */}
-        <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
-      </PostLayout>
-    )
-  }
+const PageTemplate = ({ data: { wordpressPage } }) => (
+  <PostLayout>
+    <Header>Talks</Header>
+    <SubHeader css={{ marginBottom: rhythm(1 / 2) }}>
+      Spoken thoughts.
+    </SubHeader>
+    {/* <h1 dangerouslySetInnerHTML={{ __html: wordpressPage.title }} /> */}
+    <div dangerouslySetInnerHTML={{ __html: wordpressPage.content }} />
+  </PostLayout>
+)
+
+PageTemplate.propTypes = {
+  data: { wordpressPage: PropTypes.object },
+}
+
+PageTemplate.defaultProps = {
+  data: {},
 }
 
 export default PageTemplate

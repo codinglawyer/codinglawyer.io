@@ -1,12 +1,13 @@
-import { graphql } from 'gatsby'
 import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 import ClockIcon from 'react-icons/lib/fa/clock-o'
 import TagIcon from 'react-icons/lib/fa/tag'
-import OpenIcon from 'react-icons/lib/fa/folder-open'
+// import OpenIcon from 'react-icons/lib/fa/folder-open'
 
 import { rhythm } from '../utils/typography'
 
-export default ({
+const PostIcons = ({
   node,
   displayTags = false,
   marginTopNegative = false,
@@ -55,3 +56,18 @@ export const query = graphql`
     }
   }
 `
+
+PostIcons.propTypes = {
+  node: PropTypes.object.isRequired,
+  displayTags: PropTypes.bool,
+  marginTopNegative: PropTypes.bool,
+  className: PropTypes.string,
+}
+
+PostIcons.defaultProps = {
+  displayTags: false,
+  marginTopNegative: false,
+  className: ``,
+}
+
+export default PostIcons
