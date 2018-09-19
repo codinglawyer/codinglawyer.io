@@ -1,10 +1,10 @@
-import { graphql } from "gatsby"
-import React from "react"
-import ClockIcon from "react-icons/lib/fa/clock-o"
-import TagIcon from "react-icons/lib/fa/tag"
-import OpenIcon from "react-icons/lib/fa/folder-open"
+import { graphql } from 'gatsby'
+import React from 'react'
+import ClockIcon from 'react-icons/lib/fa/clock-o'
+import TagIcon from 'react-icons/lib/fa/tag'
+import OpenIcon from 'react-icons/lib/fa/folder-open'
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from '../utils/typography'
 
 export default ({
   node,
@@ -18,8 +18,7 @@ export default ({
         ? { marginTop: rhythm(-1 / 2) }
         : { marginTop: rhythm(2) }
     }
-    className={className}
-  >
+    className={className}>
     <span style={{ marginRight: rhythm(1) }}>
       <ClockIcon size={14} style={{ position: `relative`, bottom: 1 }} />
       {` `}

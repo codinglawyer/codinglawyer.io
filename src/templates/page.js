@@ -1,9 +1,9 @@
-import React, { Component } from "react"
-import { graphql } from "gatsby"
-import PostIcons from "../components/PostIcons"
-import { PostLayout } from "../layouts"
-import { Header, SubHeader } from "../components/General"
-import { rhythm } from "../utils/typography"
+import React, { Component } from 'react'
+import { graphql } from 'gatsby'
+import PostIcons from '../components/PostIcons'
+import { PostLayout } from '../layouts'
+import { Header, SubHeader } from '../components/General'
+import { rhythm } from '../utils/typography'
 
 class PageTemplate extends Component {
   render() {

@@ -1,13 +1,13 @@
 /* eslint-disable */
-import React from "react"
-import { Link } from "gatsby"
-import { Header, SubHeader } from "../components/General"
-import { ClockIcon } from "react-icons/lib/fa"
+import React from 'react'
+import { Link } from 'gatsby'
+import { Header, SubHeader } from '../components/General'
+import { ClockIcon } from 'react-icons/lib/fa'
 // import { Link, Timestamp } from '../../components/Misc';
-import { Box } from "../components/Layout"
-import { css } from "react-emotion"
-import { rhythm } from "../utils/typography"
-import PostIcons from "../components/PostIcons"
+import { Box } from '../components/Layout'
+import { css } from 'react-emotion'
+import { rhythm } from '../utils/typography'
+import PostIcons from '../components/PostIcons'
 
 const linkStyles = css`
   box-shadow: none;
@@ -15,14 +15,13 @@ const linkStyles = css`
 
 const Talks = ({ data }) => {
   // const { edges: posts } = data.allMarkdownRemark;
-  console.log("DATA", data)
+  console.log('DATA', data)
   return (
     <Box>
       <Box
         width={[1, 1, 720]}
-        m={["3.5rem 0 0 0", "3.5rem 0 0 0", "3.5rem auto 0 auto"]}
-        px={[3, 3, 0]}
-      >
+        m={['3.5rem 0 0 0', '3.5rem 0 0 0', '3.5rem auto 0 auto']}
+        px={[3, 3, 0]}>
         <Header>Talks</Header>
         <SubHeader>Spoken thoughts.</SubHeader>
         <div>

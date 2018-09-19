@@ -1,21 +1,20 @@
 /* eslint-disable */
-import React from "react"
-import { Link } from "gatsby"
-import { Header, SubHeader, Break, A } from "../components/General"
-import { ClockIcon } from "react-icons/lib/fa"
+import React from 'react'
+import { Link } from 'gatsby'
+import { Header, SubHeader, Break, A } from '../components/General'
+import { ClockIcon } from 'react-icons/lib/fa'
 // import { Link, Timestamp } from '../../components/Misc';
-import { Box } from "../components/Layout"
-import { css } from "react-emotion"
-import { rhythm } from "../utils/typography"
-import PostIcons from "../components/PostIcons"
+import { Box } from '../components/Layout'
+import { css } from 'react-emotion'
+import { rhythm } from '../utils/typography'
+import PostIcons from '../components/PostIcons'
 
 const BlogIndex = ({ data: { allWordpressTag, allWordpressPost } }) => (
   <Box>
     <Box
       width={[1, 1, 720]}
-      m={["3.5rem 0 0 0", "3.5rem 0 0 0", "3.5rem auto 0 auto"]}
-      px={[3, 3, 0]}
-    >
+      m={['3.5rem 0 0 0', '3.5rem 0 0 0', '3.5rem auto 0 auto']}
+      px={[3, 3, 0]}>
       <Header>Blog</Header>
       <SubHeader>Written thoughts.</SubHeader>
       {/* MARKDOWN <Box>
@@ -41,8 +40,7 @@ const BlogIndex = ({ data: { allWordpressTag, allWordpressPost } }) => (
               css={{
                 marginRight: `15px`,
                 fontSize: `14px`,
-              }}
-            >
+              }}>
               <span>{node.name}</span> <span>{node.count}</span>
             </A>
           </Link>

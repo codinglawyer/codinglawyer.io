@@ -1,5 +1,5 @@
-import styled from "react-emotion"
-import profilePhoto from "../../assets/images/profile.png"
+import styled from 'react-emotion'
+import profilePhoto from '../../assets/images/profile.png'
 
 export const ListItem = styled.li`
   cursor: default;
@@ -42,7 +42,7 @@ export const Title = styled.h1`
 `
 
 export const Subtitle = styled.h2`
-  font-family: "Cousine", monospace;
+  font-family: 'Cousine', monospace;
   font-size: 1.22222rem;
   font-weight: 400;
   margin: 0 0 20px;

@@ -1,13 +1,6 @@
-import React, { Fragment } from "react"
-import { Flex } from "../Layout"
-import {
-  Title,
-  Subtitle,
-  Name,
-  Col1,
-  Col2,
-  Image,
-} from "../General"
+import React, { Fragment } from 'react'
+import { Flex } from '../Layout'
+import { Title, Subtitle, Name, Col1, Col2, Image } from '../General'
 
 const Profile = () => (
   <Fragment>

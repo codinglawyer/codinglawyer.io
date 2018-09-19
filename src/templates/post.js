@@ -1,13 +1,13 @@
-import React, { Component } from "react"
-import { graphql } from "gatsby"
-import PropTypes from "prop-types"
-import PostIcons from "../components/PostIcons"
-import Img from "gatsby-image"
-import { PostLayout } from "../layouts"
-import styled from "react-emotion"
-import { rhythm } from "../utils/typography"
-import { Break, Footer, HeaderPost } from "../components/General"
-import AboutMe from "../components/Home/aboutMe"
+import React, { Component } from 'react'
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import PostIcons from '../components/PostIcons'
+import Img from 'gatsby-image'
+import { PostLayout } from '../layouts'
+import styled from 'react-emotion'
+import { rhythm } from '../utils/typography'
+import { Break, Footer, HeaderPost } from '../components/General'
+import AboutMe from '../components/Home/aboutMe'
 
 class PostTemplate extends Component {
   render() {

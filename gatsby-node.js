@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
-      `
+      `,
     )
       .then(result => {
         if (result.errors) {
@@ -80,14 +80,14 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-          `
+          `,
         ).then(result => {
           if (result.errors) {
             console.log(result.errors)
             reject(result.errors)
           }
           const postTemplate = path.resolve(`./src/templates/post.js`)
-          console.log("RESUlt", result)
+          console.log('RESUlt', result)
           // We want to create a detailed page for each
           // post node. We'll just use the Wordpress Slug for the slug.
           // The Post ID is prefixed with 'POST_'
@@ -118,13 +118,13 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-          `
+          `,
         ).then(result => {
           if (result.errors) {
             reject(result.errors)
           }
           const postTemplate = path.resolve(`./src/templates/post.js`)
-          console.log("RESUlt", result)
+          console.log('RESUlt', result)
           // _.each(result.data.allWordpressTag.edges, edge => {
           //   createPage({
           //     path: edge.node.slug,

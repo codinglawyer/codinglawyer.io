@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `David Kopal website`,
-    subtitle: 'coding lawyer'
+    subtitle: 'coding lawyer',
   },
   plugins: [
     // https://public-api.wordpress.com/wp/v2/sites/gatsbyjsexamplewordpress.wordpress.com/pages/
