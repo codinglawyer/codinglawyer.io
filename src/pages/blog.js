@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from "react"
 import { Link } from "gatsby"
-import { Header, SubHeader, StyledLink } from "../components/General"
+import { Header, SubHeader, Break, A } from "../components/General"
 import { ClockIcon } from "react-icons/lib/fa"
 // import { Link, Timestamp } from '../../components/Misc';
 import { Box } from "../components/Layout"
@@ -33,14 +33,19 @@ const BlogIndex = ({ data: { allWordpressTag, allWordpressPost } }) => (
               );
             })}
         </Box> */}
-      <hr />
-      <div css={{ marginBottom: `3rem`, marginTop: `3.2rem` }}>
+      <Break />
+      <div css={{ marginBottom: `3rem` }}>
         {allWordpressTag.edges.map(({ node }) => (
-          <StyledLink>
-            <Link to={node.slug}>
+          <Link to={node.slug}>
+            <A
+              css={{
+                marginRight: `15px`,
+                fontSize: `14px`,
+              }}
+            >
               <span>{node.name}</span> <span>{node.count}</span>
-            </Link>
-          </StyledLink>
+            </A>
+          </Link>
         ))}
       </div>
       {allWordpressPost.edges.map(({ node }) => (
@@ -69,7 +74,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allWordpressPost(sort: { fields: [date] }) {
+    allWordpressPost(sort: { fields: [date], order: DESC }) {
       edges {
         node {
           title

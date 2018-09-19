@@ -154,15 +154,3 @@ export const Footer = styled.footer`
     padding-bottom: 200px;
   }
 `
-
-export const StyledLink = styled.span`
-  margin-right: 15px;
-  font-size: 14px;
-  box-shadow: inset 0 -5px 0 rgba(0, 96, 193, 0.25);
-  color: black;
-  -webkit-transition: box-shadow 0.4s ease-in-out;
-  transition: box-shadow 0.4s ease-in-out;
-  &:hover {
-    box-shadow: inset 0 -300px 0 rgba(0, 96, 193, 0.25);
-  }
-`
