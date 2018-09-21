@@ -123,17 +123,18 @@ exports.createPages = ({ graphql, actions }) => {
           if (result.errors) {
             reject(result.errors)
           }
-          const postTemplate = path.resolve(`./src/templates/post.js`)
-          console.log('RESUlt', result)
-          // _.each(result.data.allWordpressTag.edges, edge => {
-          //   createPage({
-          //     path: edge.node.slug,
-          //     component: slash(postTemplate),
-          //     context: {
-          //       id: edge.node.id,
-          //     },
-          //   })
-          // })
+          const tagTemplate = path.resolve(`./src/templates/tag.js`)
+          console.log('RESULT', result)
+          _.each(result.data.allWordpressTag.edges, edge => {
+            createPage({
+              path: edge.node.slug,
+              component: slash(tagTemplate),
+              context: {
+                id: edge.node.id,
+                name: edge.node.name,
+              },
+            })
+          })
           resolve()
         })
       })
