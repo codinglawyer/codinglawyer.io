@@ -5,10 +5,10 @@ import { rhythm } from '../utils/typography'
 import { Footer, HeaderPost } from '../components/General'
 import AboutMe from '../components/Home/aboutMe'
 import PostIcons from '../components/PostIcons'
-import { PostLayout } from '../layouts'
+import Layout from '../layouts'
 
 const PostTemplate = ({ data: { wordpressPost } }) => (
-  <PostLayout>
+  <Layout isPost>
     <PostIcons node={wordpressPost} css={{ marginBottom: rhythm(1 / 2) }} />
     <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
     <div dangerouslySetInnerHTML={{ __html: wordpressPost.content }} />
@@ -50,7 +50,7 @@ const PostTemplate = ({ data: { wordpressPost } }) => (
     <Footer>
       <AboutMe isFooter />
     </Footer>
-  </PostLayout>
+  </Layout>
 )
 
 PostTemplate.propTypes = {

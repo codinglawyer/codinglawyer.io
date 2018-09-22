@@ -1,19 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { PostLayout } from '../layouts'
-import { Header, SubHeader } from '../components/General'
+import Layout from '../layouts'
+import { Header, SubHeader, Break } from '../components/General'
 import { rhythm } from '../utils/typography'
 
 const PageTemplate = ({ data: { wordpressPage } }) => (
-  <PostLayout>
+  <Layout isPost>
     <Header>Talks</Header>
     <SubHeader css={{ marginBottom: rhythm(1 / 2) }}>
       Spoken thoughts.
     </SubHeader>
+    <Break />
     {/* <h1 dangerouslySetInnerHTML={{ __html: wordpressPage.title }} /> */}
     <div dangerouslySetInnerHTML={{ __html: wordpressPage.content }} />
-  </PostLayout>
+  </Layout>
 )
 
 PageTemplate.propTypes = {

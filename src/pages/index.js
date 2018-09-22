@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Layout } from '../layouts'
+import Layout from '../layouts'
 import { rhythm } from '../utils/typography'
 import { A, ListItem, Ol } from '../components/General'
 import AboutMe from '../components/Home/aboutMe'

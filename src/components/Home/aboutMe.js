@@ -33,7 +33,7 @@ const AboutMe = ({ isFooter = false }) => (
     </span>
     {'. '}
     <Description>
-      I’m passionate about sharing my experiences with the community via my
+      I&apos;m passionate about sharing my experiences with the community via my
     </Description>{' '}
     <a
       target="_blank"
@@ -49,8 +49,8 @@ const AboutMe = ({ isFooter = false }) => (
       <A>speaker</A>
     </a>{' '}
     <Description>
-      at conferences and meetups. If I’m not giving a talk or learning new
-      technologies, I keep myself busy by organizing ReasonML
+      at conferences and meetups. If I&apos;m not spending time with my lovely
+      girlfriend, I keep myself busy by organizing ReasonML
     </Description>{' '}
     <a
       target="_blank"

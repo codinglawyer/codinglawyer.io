@@ -128,7 +128,7 @@ export const Header = styled.h1`
 `
 
 export const SubHeader = styled.div`
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: rgb(0, 0, 0);
 `
@@ -144,13 +144,10 @@ export const HeaderPost = styled.h1`
 
 export const Footer = styled.footer`
   color: #767676;
-  padding-bottom: 50px;
+`
 
-  @media (min-width: 768px) {
-    padding-bottom: 50px;
-  }
-
-  @media (min-width: 1024px) {
-    padding-bottom: 200px;
-  }
+export const Signature = styled.div`
+  text-align: center;
+  margin: 2.2rem 0;
+  font-size: 0.8rem;
 `
