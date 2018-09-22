@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { Header, SubHeader, Break, A } from '../General'
+import { Header, SubHeader, Break, A, Tags } from '../General'
 // import { Link, Timestamp } from '../../Misc';
 import { rhythm } from '../../utils/typography'
 import PostIcons from '../PostIcons'
@@ -33,7 +33,7 @@ const PostList = ({
             })}
         </Box> */}
     <Break />
-    <div css={{ marginBottom: `3rem` }}>
+    <Tags>
       {withTags && (
         <Fragment>
           {data.allWordpressTag.edges.map(({ node }) => (
@@ -49,7 +49,7 @@ const PostList = ({
           ))}
         </Fragment>
       )}
-    </div>
+    </Tags>
     {data.allWordpressPost.edges.map(({ node }) => (
       <div css={{ marginBottom: rhythm(2.5) }} key={node.slug}>
         <Link to={node.slug} css={{ textDecoration: `none` }}>

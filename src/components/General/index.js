@@ -151,3 +151,13 @@ export const Signature = styled.div`
   margin: 2.2rem 0;
   font-size: 0.8rem;
 `
+
+export const Tags = styled.div`
+  margin-bottom: 3rem;
+  @media (min-width: 320px) {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    display: block;
+  }
+`
