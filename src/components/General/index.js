@@ -22,6 +22,22 @@ export const Ol = styled.ol`
   margin: 0;
 `
 
+export const Li = styled.li`
+  font-size: 1.4rem;
+  border-top: 2px solid #333;
+  padding: 1.5rem 0;
+  margin: 0;
+`
+export const OlNav = styled.ol`
+  list-style: decimal-leading-zero inside;
+  margin: 0;
+  width: 750px;
+
+  ${Li}:last-child {
+    border-bottom: 2px solid #333;
+  }
+`
+
 export const Container = styled.div`
   margin: 0 auto;
 
@@ -159,5 +175,40 @@ export const Tags = styled.div`
   }
   @media (min-width: 768px) {
     display: block;
+  }
+`
+
+export const InviteMeBtn = styled.a`
+  border: 2px solid #000;
+  border-bottom-width: 7px;
+  box-shadow: inset 0 -1px 0 #000, 5px 5px 0 rgba(0, 96, 193, 0.25),
+    -5px -5px 0 rgba(0, 96, 193, 0.25);
+  color: #000;
+  display: inline-block;
+  font-weight: bold;
+  overflow: hidden;
+  padding: 5px 4px 2px;
+  position: relative;
+  transition: box-shadow 0.4s ease-in-out;
+
+  &:before,
+  &:after {
+    content: '▶';
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    top: 1px;
+    width: 26px;
+  }
+
+  &:after {
+    content: '◀';
+  }
+
+  &:hover {
+    box-shadow: inset 0 -300px 0 #fff, 5px 5px 0 rgba(0, 96, 193, 0.25),
+      -5px -5px 0 rgba(0, 96, 193, 0.25);
+    border-bottom-width: 7px;
+    padding-bottom: 2px;
   }
 `
