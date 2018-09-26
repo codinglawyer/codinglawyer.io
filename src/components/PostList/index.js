@@ -63,10 +63,10 @@ const PostList = ({
 )
 
 PostList.propTypes = {
-  data: {
-    allWordpressTag: PropTypes.object,
+  data: PropTypes.shape({
     allWordpressPost: PropTypes.object,
-  },
+    allWordpressTag: PropTypes.object,
+  }),
   header: PropTypes.string,
   subHeader: PropTypes.string,
   headerSize: PropTypes.object,

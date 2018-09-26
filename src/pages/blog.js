@@ -45,10 +45,10 @@ export const pageQuery = graphql`
 `
 
 BlogIndex.propTypes = {
-  data: {
-    allWordpressTag: PropTypes.object,
+  data: PropTypes.shape({
     allWordpressPost: PropTypes.object,
-  },
+    allWordpressTag: PropTypes.object,
+  }),
 }
 
 BlogIndex.defaultProps = {

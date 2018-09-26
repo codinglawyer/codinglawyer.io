@@ -54,7 +54,9 @@ const PostTemplate = ({ data: { wordpressPost } }) => (
 )
 
 PostTemplate.propTypes = {
-  data: { wordpressPost: PropTypes.object },
+  data: PropTypes.shape({
+    wordpressPost: PropTypes.object,
+  }),
 }
 
 PostTemplate.defaultProps = {
