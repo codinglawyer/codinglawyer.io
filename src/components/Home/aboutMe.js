@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Description, Break, A, FooterImage } from '../General'
+import { Description, Break, A } from '../General'
+import { FooterImage } from './styles'
 
 const AboutMe = ({ isFooter = false }) => (
   <Fragment>

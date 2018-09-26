@@ -1,32 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import HamburgerMenu from 'react-hamburger-menu'
 import { withState } from 'recompose'
 import { push as Menu } from 'react-burger-menu'
-import HamburgerMenu from 'react-hamburger-menu'
-import { Li, OlNav } from '../General'
-
-const styles = {
-  bmCrossButton: {
-    height: '24px',
-    width: '24px',
-  },
-  bmMenu: {
-    padding: '2.5em 1.5em 0',
-    fontSize: '1.15em',
-  },
-  bmItemList: {
-    padding: '0.8em',
-  },
-  bmItem: {
-    display: 'inline-block',
-  },
-  bmMenuWrap: {
-    marginTop: '100px',
-  },
-}
+import { NavLi, OlNav, styles } from './styles'
 
 const Navigation = ({ children, isMenuOpen, setIsMenuOpen }) => (
-  <div>
+  <div css={{ fontFamily: ['Cousine', 'monospace'] }}>
     <Menu
       isOpen={isMenuOpen}
       customBurgerIcon={false}
@@ -37,7 +17,7 @@ const Navigation = ({ children, isMenuOpen, setIsMenuOpen }) => (
       styles={styles}
       pageWrapId="page-wrap">
       <OlNav>
-        <Li>
+        <NavLi>
           <a
             onClick={() => setIsMenuOpen(false)}
             id="home"
@@ -45,8 +25,8 @@ const Navigation = ({ children, isMenuOpen, setIsMenuOpen }) => (
             href="/">
             Index
           </a>
-        </Li>
-        <Li>
+        </NavLi>
+        <NavLi>
           <a
             onClick={() => setIsMenuOpen(false)}
             id="home"
@@ -54,9 +34,9 @@ const Navigation = ({ children, isMenuOpen, setIsMenuOpen }) => (
             href="/blog">
             Blog
           </a>
-        </Li>
+        </NavLi>
 
-        <Li>
+        <NavLi>
           <a
             onClick={() => setIsMenuOpen(false)}
             id="home"
@@ -64,7 +44,7 @@ const Navigation = ({ children, isMenuOpen, setIsMenuOpen }) => (
             href="/talks">
             Talks
           </a>
-        </Li>
+        </NavLi>
       </OlNav>
     </Menu>
     <div

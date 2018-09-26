@@ -14,7 +14,7 @@ const typography = new Typography({
     },
   ],
   headerFontFamily: ['Libre Franklin', 'sans-serif'],
-  bodyFontFamily: ['Cousine', 'monospace'],
+  bodyFontFamily: ['Linux Libertine'],
   headerColor: 'black',
   bodyColor: '#333',
   headerWeight: 700,

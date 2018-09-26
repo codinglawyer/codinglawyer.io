@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Header, SubHeader, Break, A, Tags } from '../General'
-// import { Link, Timestamp } from '../../Misc';
 import { rhythm } from '../../utils/typography'
 import PostIcons from '../PostIcons'
 import Layout from '../../layouts'

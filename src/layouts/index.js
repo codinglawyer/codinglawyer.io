@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Navigation from '../components/Navigation'
-import { Signature } from '../components/General'
 import { rhythm } from '../utils/typography'
+import { Signature } from './styles'
 import '../assets/globalStyles'
 
 const containerStyle = {

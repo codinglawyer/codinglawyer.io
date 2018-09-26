@@ -1,13 +1,15 @@
 import React, { Fragment } from 'react'
 import { Flex } from '../Layout'
-import { Title, Subtitle, Name, Col1, Col2, Image } from '../General'
+import { Title, Subtitle, Name, Col1, Col2, Image } from './styles'
 
 const Profile = () => (
   <Fragment>
     <Flex>
+      <Col2>
+        <Image />
+      </Col2>
       <Col1>
         <Title>David Kopal</Title>
-        <Subtitle>A.K.A.</Subtitle>
         <Name>coding lawyer</Name>
         <Subtitle>
           Hi
@@ -17,9 +19,6 @@ const Profile = () => (
           , welcome to my site!
         </Subtitle>
       </Col1>
-      <Col2>
-        <Image />
-      </Col2>
     </Flex>
   </Fragment>
 )
