@@ -20,18 +20,8 @@ const AboutMe = ({ isFooter = false }) => (
       <span role="img" aria-labelledby="book" />
     </a>{' '}
     <Description>
-      turned software engineer living in Prague. I make stuff at
+      turned software engineer living in Czech Republic.
     </Description>{' '}
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://www.blueberry.io/">
-      <A>Blueberry</A>
-    </a>
-    <span role="img" aria-label="Sparkles">
-      ✨
-    </span>
-    {'. '}
     <Description>
       I&apos;m passionate about sharing my experiences with the community via my
     </Description>{' '}
@@ -58,7 +48,29 @@ const AboutMe = ({ isFooter = false }) => (
       href="https://www.blueberry.io/">
       <A>meetups</A>
     </a>{' '}
-    <Description> in Prague, swinging kettlebells, and cooking.</Description>
+    <Description>
+      {' '}
+      in Prague, swinging kettlebells, and cooking. I&apos;m a top-contributor
+      to
+    </Description>{' '}
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.blueberry.io/">
+      <A>Free Code Camp</A>
+    </a>
+    {'. '}
+    <Description>I make stuff at</Description>{' '}
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.blueberry.io/">
+      <A>Blueberry</A>
+    </a>
+    <span role="img" aria-label="Sparkles">
+      ✨
+    </span>
+    {'. '}
     <Break />
   </Fragment>
 )
