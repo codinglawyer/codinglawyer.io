@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../layouts'
-import { Header, SubHeader, Break } from '../components/General'
+import { Header, SubHeader, Break, InviteMeBtn } from '../components/General'
 import { rhythm } from '../utils/typography'
 
 const PageTemplate = ({ data: { wordpressPage } }) => (
@@ -12,13 +12,22 @@ const PageTemplate = ({ data: { wordpressPage } }) => (
       Spoken thoughts.
     </SubHeader>
     <Break />
+    <div css={{ textAlign: `center` }}>
+      <div css={{ marginBottom: `1.5rem` }}>
+        Interested in having me to speak at your event?
+      </div>
+      <InviteMeBtn href="mailto:kopaldvd@gmail.com">Invite me</InviteMeBtn>
+    </div>
+    <div css={{ marginBottom: `3rem` }} />
     {/* <h1 dangerouslySetInnerHTML={{ __html: wordpressPage.title }} /> */}
     <div dangerouslySetInnerHTML={{ __html: wordpressPage.content }} />
   </Layout>
 )
 
 PageTemplate.propTypes = {
-  data: { wordpressPage: PropTypes.object },
+  data: PropTypes.shape({
+    wordpressPage: PropTypes.object,
+  }),
 }
 
 PageTemplate.defaultProps = {
