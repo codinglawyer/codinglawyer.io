@@ -4,7 +4,7 @@ import { Description, Break, A } from '../General'
 import { FooterImage } from './styles'
 
 const AboutMe = ({ isFooter = false }) => (
-  <Fragment>
+  <div css={{ fontSize: '1.3rem' }}>
     <Break />
     {isFooter && (
       <Fragment>
@@ -73,7 +73,7 @@ const AboutMe = ({ isFooter = false }) => (
     </span>
     {'. '}
     <Break />
-  </Fragment>
+  </div>
 )
 
 AboutMe.propTypes = {

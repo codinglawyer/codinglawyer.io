@@ -20,7 +20,7 @@ const Navigation = ({ children, isMenuOpen, setIsMenuOpen }) => (
         <NavLi>
           <a
             onClick={() => setIsMenuOpen(false)}
-            id="home"
+            id="index"
             className="menu-item"
             href="/">
             Index
@@ -29,20 +29,28 @@ const Navigation = ({ children, isMenuOpen, setIsMenuOpen }) => (
         <NavLi>
           <a
             onClick={() => setIsMenuOpen(false)}
-            id="home"
+            id="blog"
             className="menu-item"
             href="/blog">
             Blog
           </a>
         </NavLi>
-
         <NavLi>
           <a
             onClick={() => setIsMenuOpen(false)}
-            id="home"
+            id="talks"
             className="menu-item"
             href="/talks">
             Talks
+          </a>
+        </NavLi>
+        <NavLi>
+          <a
+            onClick={() => setIsMenuOpen(false)}
+            id="about"
+            className="menu-item"
+            href="/about">
+            About me
           </a>
         </NavLi>
       </OlNav>
