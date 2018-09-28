@@ -1,58 +1,63 @@
 import styled from 'react-emotion'
+import { css } from 'emotion'
+import mq from '../../utils/styling'
 import profilePhoto from '../../assets/images/profile.png'
 
 export const Title = styled.h1`
-  font-size: 3.5em;
-  margin: 0 0 16px;
+  font-size: 2rem;
+  margin: 0 0 10px;
   font-weight: 900;
   line-height: 1;
-  text-align: right;
+  text-align: left;
+  ${mq.large(css`
+    font-size: 3.5rem;
+    margin: 0 0 16px;
+  `)};
 `
 
 export const Subtitle = styled.h2`
   font-family: 'Cousine', monospace;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
-  margin: 0 0 20px;
-  text-align: right;
-
-  @media (min-width: 768px) {
+  margin: 0 0 10px;
+  text-align: left;
+  ${mq.large(css`
     font-size: 1.2rem;
-  }
+    margin: 0 0 16px;
+  `)};
 `
 
 export const Name = styled.h2`
-  font-size: 1.5rem;
-  text-align: right;
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  text-align: left;
   font-family: 'Cousine', monospace;
   font-weight: 200;
+  ${mq.large(css`
+    font-size: 1.5rem;
+    margin: 0 0 16px;
+  `)};
 `
 
-export const Col1 = styled.div`
+export const TextContainer = styled.div`
   flex: 70%;
 `
 
-export const Col2 = styled.div`
+export const PictureContainer = styled.div`
   flex: 30%;
 `
 
 export const Image = styled.div`
   background-image: url(${profilePhoto});
-  height: 180px;
-  width: 180px;
+  height: 120px;
+  padding-top: 6px;
+  width: 120px;
   background-size: cover;
   border-radius: 50%;
-  @media (min-width: $ds-breakpoint-iphone6-width) {
-    height: 120px;
-    padding-top: 6px;
-    width: 120px;
-  }
-
-  @media (min-width: $ds-breakpoint-tablet) {
-    height: 140px;
-    padding-top: 20px;
-    width: 140px;
-  }
+  ${mq.large(css`
+    height: 180px;
+    width: 180px;
+  `)};
 `
 
 export const FooterImage = styled.div`

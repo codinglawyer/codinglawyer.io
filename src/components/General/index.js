@@ -1,4 +1,6 @@
 import styled from 'react-emotion'
+import { css } from 'emotion'
+import mq from '../../utils/styling'
 
 export const Ol = styled.ol`
   list-style: decimal-leading-zero inside;
@@ -26,16 +28,14 @@ export const Description = styled.span`
 `
 
 export const Break = styled.hr`
-  border: 0;
-  margin: 0 0 1.11111rem;
+  margin: 0.5rem 0 0.5rem;
   max-width: 100%;
   height: 20px;
   overflow: hidden;
   position: relative;
-
-  @media (min-width: 768px) {
-    margin: 1.11111rem 0 1.22222rem;
-  }
+  ${mq.large(css`
+    margin: 1.1rem 0 1.2rem;
+  `)};
 `
 
 export const Header = styled.h1`

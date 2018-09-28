@@ -1,16 +1,20 @@
 import React, { Fragment } from 'react'
 import { Flex } from '../Layout'
-import { Title, Subtitle, Name, Col1, Col2, Image } from './styles'
+import {
+  Title,
+  Subtitle,
+  Name,
+  TextContainer,
+  PictureContainer,
+  Image,
+} from './styles'
 
 const Profile = () => (
   <Fragment>
     <Flex>
-      <Col2>
-        <Image />
-      </Col2>
-      <Col1>
+      <TextContainer>
         <Title>David Kopal</Title>
-        <Name>coding lawyer</Name>
+        <Name>[coding lawyer]</Name>
         <Subtitle>
           Hi
           <span role="img" aria-label="Wave">
@@ -18,7 +22,10 @@ const Profile = () => (
           </span>
           , welcome to my site!
         </Subtitle>
-      </Col1>
+      </TextContainer>
+      <PictureContainer>
+        <Image />
+      </PictureContainer>
     </Flex>
   </Fragment>
 )
