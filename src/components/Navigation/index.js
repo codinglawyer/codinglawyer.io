@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import HamburgerMenu from 'react-hamburger-menu'
 import { withState } from 'recompose'
 import { push as Menu } from 'react-burger-menu'
-import { NavLi, OlNav, styles } from './styles'
+import { NavLi, OlNav, OuterContainer, InnerContainer, styles } from './styles'
 
-const Navigation = ({ children, isMenuOpen, setIsMenuOpen }) => (
-  <div css={{ fontFamily: ['Cousine', 'monospace'] }}>
+const Navigation = ({ children, isIndex, isMenuOpen, setIsMenuOpen }) => (
+  <div>
     <Menu
       isOpen={isMenuOpen}
       customBurgerIcon={false}
@@ -55,23 +55,22 @@ const Navigation = ({ children, isMenuOpen, setIsMenuOpen }) => (
         </NavLi>
       </OlNav>
     </Menu>
-    <div
-      css={{
-        position: 'absolute',
-        left: '36px',
-        top: '36px',
-      }}>
-      <HamburgerMenu
-        isOpen={isMenuOpen}
-        menuClicked={() => setIsMenuOpen(!isMenuOpen)}
-        width={35}
-        height={30}
-        strokeWidth={7}
-        color="black"
-        borderRadius={1}
-        animationDuration={0.5}
-      />
-    </div>
+    {!isIndex && (
+      <OuterContainer>
+        <InnerContainer>
+          <HamburgerMenu
+            isOpen={isMenuOpen}
+            menuClicked={() => setIsMenuOpen(!isMenuOpen)}
+            width={35}
+            height={30}
+            strokeWidth={7}
+            color="black"
+            borderRadius={1}
+            animationDuration={0.5}
+          />
+        </InnerContainer>
+      </OuterContainer>
+    )}
     <main id="page-wrap">{children}</main>
   </div>
 )
@@ -80,6 +79,11 @@ Navigation.propTypes = {
   children: PropTypes.node.isRequired,
   isMenuOpen: PropTypes.bool.isRequired,
   setIsMenuOpen: PropTypes.func.isRequired,
+  isIndex: PropTypes.bool,
+}
+
+Navigation.defaultProps = {
+  isIndex: false,
 }
 
 export default withState('isMenuOpen', 'setIsMenuOpen', false)(Navigation)

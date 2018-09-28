@@ -17,8 +17,8 @@ const containerStylePost = {
   padding: rhythm(3 / 4),
 }
 
-const Layout = ({ isPost = false, children }) => (
-  <Navigation>
+const Layout = ({ isPost = false, isIndex = false, children }) => (
+  <Navigation isIndex={isIndex}>
     <div>
       {isPost ? (
         <div css={containerStylePost}>{children}</div>
@@ -38,11 +38,13 @@ const Layout = ({ isPost = false, children }) => (
 
 Layout.propTypes = {
   isPost: PropTypes.bool,
+  isIndex: PropTypes.bool,
   children: PropTypes.node.isRequired,
 }
 
 Layout.defaultProps = {
   isPost: false,
+  isIndex: false,
 }
 
 export default Layout
