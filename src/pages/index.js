@@ -2,18 +2,54 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../layouts'
 import { rhythm } from '../utils/typography'
-import { A, Li, Ol } from '../components/General'
-import AboutMe from '../components/Home/aboutMe'
+import { A, Li, Ol, Break } from '../components/General'
 import Profile from '../components/Home/Profile'
 import '../assets/globalStyles'
 
 const Home = () => (
-  <Layout>
+  <Layout isIndex>
     <div
       css={{ marginBottom: rhythm(1), fontFamily: ['Cousine', 'monospace'] }}>
       <Profile />
       <div css={{ fontSize: '1.2rem' }}>
-        <AboutMe />
+        <Break />
+        <div>
+          <span role="img" aria-labelledby="Shirt">
+            👔
+          </span>{' '}
+          former lawyer
+        </div>
+        <div>
+          <span role="img" aria-labelledby="Laptop">
+            💻
+          </span>{' '}
+          software engineer
+        </div>
+        <div>
+          <span role="img" aria-labelledby="Head">
+            🗣
+          </span>{' '}
+          speaker
+        </div>
+        <div>
+          <span role="img" aria-labelledby="Book">
+            📖
+          </span>{' '}
+          blogger
+        </div>
+        <div>
+          <span role="img" aria-labelledby="Worker">
+            👷
+          </span>{' '}
+          ReasonML meetup organizer
+        </div>
+        <div>
+          <span role="img" aria-labelledby="Construction">
+            🏗
+          </span>{' '}
+          FreeCodeCamp top contributor
+        </div>
+        <Break />
         <div id="menu" className="slideout-menu" role="navigation">
           <div className="navigation">
             <Ol>
@@ -21,27 +57,19 @@ const Home = () => (
                 <Link to="/blog">
                   <A>Blog</A>
                 </Link>
-                {` `}
-                <span role="img" aria-labelledby="Book">
-                  📖
-                </span>
               </Li>
               <Li>
                 <Link to="/talks">
                   <A>Talks</A>
                 </Link>
-                {` `}
-                <span role="img" aria-labelledby="Speaking head">
-                  🗣
-                </span>
+              </Li>
+              <Li>
+                <Link to="/about">
+                  <A>About me</A>
+                </Link>
               </Li>
               <Li>
                 <span>Get in touch with me via </span>
-                {` `}
-                <span role="img" aria-labelledby="Mailbox">
-                  📬
-                </span>
-                {` `}
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
