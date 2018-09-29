@@ -54,15 +54,16 @@ const PostList = ({
         </Fragment>
       )}
     </Tags>
-    {data.allWordpressPost.edges.map(({ node }) => (
-      <PostSnippet key={node.slug}>
-        <Link to={node.slug} css={{ textDecoration: `none` }}>
-          <h3>{node.title}</h3>
-        </Link>
-        <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-        <PostIcons node={node} concise marginTopNegative />
-      </PostSnippet>
-    ))}
+    {data.allWordpressPost &&
+      data.allWordpressPost.edges.map(({ node }) => (
+        <PostSnippet key={node.slug}>
+          <Link to={node.slug} css={{ textDecoration: `none` }}>
+            <h3>{node.title}</h3>
+          </Link>
+          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+          <PostIcons node={node} concise marginTopNegative />
+        </PostSnippet>
+      ))}
   </Layout>
 )
 
