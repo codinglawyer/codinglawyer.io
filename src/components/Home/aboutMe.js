@@ -16,7 +16,7 @@ const AboutMe = ({ isFooter = false }) => (
     <a
       target="_blank"
       rel="noopener noreferrer"
-      href="https://www.blueberry.io/">
+      href="/stopped-lawyer-became-developer-awesome-2">
       <A>lawyer</A>
       <span role="img" aria-labelledby="book" />
     </a>{' '}
@@ -26,17 +26,11 @@ const AboutMe = ({ isFooter = false }) => (
     <Description>
       I&apos;m passionate about sharing my experiences with the community via my
     </Description>{' '}
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://www.blueberry.io/">
+    <a target="_blank" rel="noopener noreferrer" href="/blog">
       <A>blog</A>
     </a>{' '}
     <Description>and as a </Description>{' '}
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="https://www.blueberry.io/">
+    <a target="_blank" rel="noopener noreferrer" href="/talks">
       <A>speaker</A>
     </a>{' '}
     <Description>
@@ -46,7 +40,7 @@ const AboutMe = ({ isFooter = false }) => (
     <a
       target="_blank"
       rel="noopener noreferrer"
-      href="https://www.blueberry.io/">
+      href="https://www.meetup.com/Reason-Prague">
       <A>meetups</A>
     </a>{' '}
     <Description>
@@ -57,7 +51,7 @@ const AboutMe = ({ isFooter = false }) => (
     <a
       target="_blank"
       rel="noopener noreferrer"
-      href="https://www.blueberry.io/">
+      href="https://www.freecodecamp.org/">
       <A>Free Code Camp</A>
     </a>
     {'. '}
