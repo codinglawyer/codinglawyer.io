@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { rhythm } from '../utils/typography'
 import { Footer, HeaderPost, Container } from '../components/General'
-import AboutMe from '../components/Home/aboutMe'
+import About from '../components/Home/About'
 import PostIcons from '../components/PostIcons'
 import Layout from '../layouts'
 
@@ -49,7 +49,7 @@ const PostTemplate = ({ data: { wordpressPost } }) => (
             return null
           })} */}
       <Footer>
-        <AboutMe isFooter />
+        <About isFooter />
       </Footer>
     </Container>
   </Layout>

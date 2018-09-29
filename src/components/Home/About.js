@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Description, Break, A } from '../General'
 import { FooterImage } from './styles'
 
-const AboutMe = ({ isFooter = false }) => (
+const About = ({ isFooter = false }) => (
   <div>
     <Break />
     {isFooter && (
@@ -70,12 +70,12 @@ const AboutMe = ({ isFooter = false }) => (
   </div>
 )
 
-AboutMe.propTypes = {
+About.propTypes = {
   isFooter: PropTypes.bool,
 }
 
-AboutMe.defaultProps = {
+About.defaultProps = {
   isFooter: false,
 }
 
-export default AboutMe
+export default About
