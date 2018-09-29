@@ -6,7 +6,7 @@ import Layout from '../layouts'
 const AboutTemplate = () => (
   <Layout isPost>
     <Container>
-      <Header> About me</Header>
+      <Header>About me</Header>
       <About />
     </Container>
   </Layout>

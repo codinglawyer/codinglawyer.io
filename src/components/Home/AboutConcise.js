@@ -47,24 +47,24 @@ const AboutConcise = () => (
       <span role="img" aria-labelledby="Worker">
         👷
       </span>{' '}
-      ReasonML{' '}
+      ReasonML meetup{' '}
       <a
         target="_blank"
         rel="noopener noreferrer"
         href="https://www.meetup.com/Reason-Prague">
-        <A>meetup organizer</A>
+        <A>organizer</A>
       </a>{' '}
     </div>
     <div>
       <span role="img" aria-labelledby="Construction">
         🏗
       </span>{' '}
-      FreeCodeCamp{' '}
+      FreeCodeCamp top{' '}
       <a
         target="_blank"
         rel="noopener noreferrer"
         href="https://www.freecodecamp.org/">
-        <A>top contributor</A>
+        <A>contributor</A>
       </a>
     </div>
   </Fragment>
