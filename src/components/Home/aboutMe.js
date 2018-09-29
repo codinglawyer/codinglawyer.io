@@ -45,7 +45,7 @@ const AboutMe = ({ isFooter = false }) => (
     </a>{' '}
     <Description>
       {' '}
-      in Prague, swinging kettlebells, and cooking. I&apos;m a top-contributor
+      in Prague, swinging kettlebells, and cooking. I&apos;m a top contributor
       to
     </Description>{' '}
     <a

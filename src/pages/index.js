@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../layouts'
+import AboutConcise from '../components/Home/AboutConcise'
 import { rhythm } from '../utils/typography'
 import { A, Li, Ol, Break, Container } from '../components/General'
 import Profile from '../components/Home/Profile'
@@ -16,42 +17,7 @@ const Home = () => (
       <Profile />
       <Container>
         <Break />
-        <div>
-          <span role="img" aria-labelledby="Shirt">
-            👔
-          </span>{' '}
-          former lawyer
-        </div>
-        <div>
-          <span role="img" aria-labelledby="Laptop">
-            💻
-          </span>{' '}
-          software engineer
-        </div>
-        <div>
-          <span role="img" aria-labelledby="Head">
-            🗣
-          </span>{' '}
-          speaker
-        </div>
-        <div>
-          <span role="img" aria-labelledby="Book">
-            📖
-          </span>{' '}
-          blogger
-        </div>
-        <div>
-          <span role="img" aria-labelledby="Worker">
-            👷
-          </span>{' '}
-          ReasonML meetup organizer
-        </div>
-        <div>
-          <span role="img" aria-labelledby="Construction">
-            🏗
-          </span>{' '}
-          FreeCodeCamp top contributor
-        </div>
+        <AboutConcise />
         <Break />
         <div id="menu" className="slideout-menu" role="navigation">
           <div className="navigation">
