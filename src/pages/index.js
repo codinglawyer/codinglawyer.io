@@ -2,16 +2,19 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../layouts'
 import { rhythm } from '../utils/typography'
-import { A, Li, Ol, Break } from '../components/General'
+import { A, Li, Ol, Break, Container } from '../components/General'
 import Profile from '../components/Home/Profile'
 import '../assets/globalStyles'
 
 const Home = () => (
   <Layout isIndex>
     <div
-      css={{ marginBottom: rhythm(1), fontFamily: ['Cousine', 'monospace'] }}>
+      css={{
+        marginBottom: rhythm(1),
+        fontFamily: ['Cousine', 'monospace'],
+      }}>
       <Profile />
-      <div css={{ fontSize: '1.2rem' }}>
+      <Container>
         <Break />
         <div>
           <span role="img" aria-labelledby="Shirt">
@@ -108,7 +111,7 @@ const Home = () => (
             </Ol>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   </Layout>
 )

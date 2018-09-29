@@ -12,7 +12,7 @@ const containerStyle = {
 }
 
 const containerStylePost = {
-  maxWidth: 1000,
+  maxWidth: 800,
   margin: `0 auto`,
   padding: rhythm(3 / 4),
 }

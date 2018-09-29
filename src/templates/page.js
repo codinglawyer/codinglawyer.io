@@ -13,7 +13,7 @@ const PageTemplate = ({ data: { wordpressPage } }) => (
     </SubHeader>
     <Break />
     <div css={{ textAlign: `center` }}>
-      <div css={{ marginBottom: `1.5rem` }}>
+      <div css={{ marginBottom: `1.5rem`, fontSize: `1.3rem` }}>
         Interested in having me to speak at your event?
       </div>
       <StyledBtn href="mailto:kopaldvd@gmail.com">Invite me</StyledBtn>

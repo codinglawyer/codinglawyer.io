@@ -7,9 +7,6 @@ export const styles = {
     height: '24px',
     width: '24px',
   },
-  bmMenu: {
-    fontSize: '1.15em',
-  },
   bmItem: {
     display: 'inline-block',
   },
@@ -20,12 +17,15 @@ export const styles = {
 }
 
 export const NavLi = styled.li`
-  font-size: 1.4rem;
   border-top: 2px solid #333;
-  padding: 1.5rem 0;
+  padding: 0.8rem 0;
   margin: 0;
+  ${mq.large(css`
+    padding: 1.5rem 0;
+  `)};
 `
 export const OlNav = styled.ol`
+  font-size: 1.2rem;
   list-style: decimal-leading-zero inside;
   margin: 0;
   width: 750px;

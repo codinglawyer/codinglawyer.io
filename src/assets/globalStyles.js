@@ -33,4 +33,8 @@ injectGlobal`
       box-shadow: inset 0 -300px 0 rgba(0,96,193,0.25);
     }
   }
+
+  .graf--figure, a, img {
+    height: auto
+  }
 `

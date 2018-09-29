@@ -4,37 +4,36 @@ import mq from '../../utils/styling'
 import profilePhoto from '../../assets/images/profile.png'
 
 export const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.4rem;
   margin: 0 0 10px;
   font-weight: 900;
-  line-height: 1;
   text-align: left;
   ${mq.large(css`
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     margin: 0 0 16px;
   `)};
 `
 
 export const Subtitle = styled.h2`
   font-family: 'Cousine', monospace;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 400;
   margin: 0 0 10px;
   text-align: left;
   ${mq.large(css`
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 0 0 16px;
   `)};
 `
 
 export const Name = styled.h2`
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   margin: 0 0 10px;
   text-align: left;
   font-family: 'Cousine', monospace;
   font-weight: 200;
   ${mq.large(css`
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin: 0 0 16px;
   `)};
 `
@@ -71,7 +70,7 @@ export const FooterImage = styled.div`
 
   @media (min-width: 768px) {
     height: 100px;
-    margin: 0 20px 30px 0;
+    margin: 0 0 30px 0;
     width: 100px;
   }
 

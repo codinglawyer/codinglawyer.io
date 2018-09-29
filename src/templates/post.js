@@ -2,17 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { rhythm } from '../utils/typography'
-import { Footer, HeaderPost } from '../components/General'
+import { Footer, HeaderPost, Container } from '../components/General'
 import AboutMe from '../components/Home/aboutMe'
 import PostIcons from '../components/PostIcons'
 import Layout from '../layouts'
 
 const PostTemplate = ({ data: { wordpressPost } }) => (
   <Layout isPost>
-    <PostIcons node={wordpressPost} css={{ marginBottom: rhythm(1 / 2) }} />
-    <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
-    <div dangerouslySetInnerHTML={{ __html: wordpressPost.content }} />
-    {/* IMAGE OPTIMIZATION {wordpressPost.acf &&
+    <Container>
+      <PostIcons node={wordpressPost} css={{ marginBottom: rhythm(1 / 2) }} />
+      <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
+      <div dangerouslySetInnerHTML={{ __html: wordpressPost.content }} />
+      {/* IMAGE OPTIMIZATION {wordpressPost.acf &&
           wordpressPost.acf.page_builder_post &&
           wordpressPost.acf.page_builder_post.map((layout, i) => {
             if (layout.__typename === `WordPressAcf_image_gallery`) {
@@ -47,9 +48,10 @@ const PostTemplate = ({ data: { wordpressPost } }) => (
             }
             return null
           })} */}
-    <Footer>
-      <AboutMe isFooter />
-    </Footer>
+      <Footer>
+        <AboutMe isFooter />
+      </Footer>
+    </Container>
   </Layout>
 )
 

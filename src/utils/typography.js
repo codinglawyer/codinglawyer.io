@@ -1,8 +1,8 @@
 import Typography from 'typography'
 
 const typography = new Typography({
-  baseFontSize: '17px',
-  baseLineHeight: 1.7,
+  baseFontSize: '24px',
+  baseLineHeight: '36px',
   googleFonts: [
     {
       name: 'Libre Franklin',

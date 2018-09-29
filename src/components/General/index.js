@@ -2,6 +2,15 @@ import styled from 'react-emotion'
 import { css } from 'emotion'
 import mq from '../../utils/styling'
 
+export const Container = styled.div`
+  font-size: 0.9rem;
+  line-height: 30px;
+  ${mq.large(css`
+    font-size: 1rem;
+    line-height: 36px;
+  `)};
+`
+
 export const Ol = styled.ol`
   list-style: decimal-leading-zero inside;
   margin: 0;
@@ -40,6 +49,7 @@ export const Break = styled.hr`
 
 export const Header = styled.h1`
   margin: 0;
+  font-size: 3.8rem;
 `
 
 export const SubHeader = styled.div`
@@ -63,12 +73,12 @@ export const Footer = styled.footer`
 
 export const Tags = styled.div`
   margin-bottom: 3rem;
-  @media (min-width: 320px) {
-    display: none;
-  }
-  @media (min-width: 768px) {
+  font-size: 0.9rem;
+  display: none;
+  ${mq.large(css`
+    font-size: 1rem;
     display: block;
-  }
+  `)};
 `
 
 export const StyledBtn = styled.a`
@@ -104,4 +114,15 @@ export const StyledBtn = styled.a`
     border-bottom-width: 7px;
     padding-bottom: 2px;
   }
+`
+
+export const PostSnippet = styled.div`
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  line-height: 30px;
+  ${mq.large(css`
+    margin-bottom: 3.5rem;
+    font-size: 1rem;
+    display: block;
+  `)};
 `

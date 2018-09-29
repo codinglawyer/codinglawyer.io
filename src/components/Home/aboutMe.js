@@ -4,7 +4,7 @@ import { Description, Break, A } from '../General'
 import { FooterImage } from './styles'
 
 const AboutMe = ({ isFooter = false }) => (
-  <div css={{ fontSize: '1.3rem' }}>
+  <div>
     <Break />
     {isFooter && (
       <Fragment>
