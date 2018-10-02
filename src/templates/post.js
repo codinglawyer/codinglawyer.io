@@ -14,7 +14,7 @@ const PostTemplate = ({ data: { wordpressPost }, location: { href } }) => (
       <PostIcons node={wordpressPost} css={{ marginBottom: rhythm(1 / 2) }} />
       <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
       <hr />
-      <ShareBar />
+      <ShareBar url={href} postTitle={wordpressPost.title} />
       <div dangerouslySetInnerHTML={{ __html: wordpressPost.content }} />
       {/* IMAGE OPTIMIZATION {wordpressPost.acf &&
           wordpressPost.acf.page_builder_post &&
@@ -51,7 +51,7 @@ const PostTemplate = ({ data: { wordpressPost }, location: { href } }) => (
             }
             return null
           })} */}
-      <ShareBar isFooter />
+      <ShareBar url={href} postTitle={wordpressPost.title} isFooter />
       <Footer>
         <About isFooter />
       </Footer>
