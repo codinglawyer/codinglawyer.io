@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react'
+import { Item } from './styles'
 import { A } from '../General'
 
 const AboutConcise = () => (
   <Fragment>
-    <div>
+    <Item>
       <span role="img" aria-labelledby="Shirt">
         👔
       </span>{' '}
@@ -14,8 +15,8 @@ const AboutConcise = () => (
         href="/stopped-lawyer-became-developer-awesome-2">
         <A>lawyer</A>
       </a>
-    </div>
-    <div>
+    </Item>
+    <Item>
       <span role="img" aria-labelledby="Laptop">
         💻
       </span>{' '}
@@ -26,24 +27,24 @@ const AboutConcise = () => (
         href="https://www.blueberry.io/">
         <A>engineer</A>
       </a>
-    </div>
-    <div>
+    </Item>
+    <Item>
       <span role="img" aria-labelledby="Head">
         🗣
       </span>{' '}
       <a target="_blank" rel="noopener noreferrer" href="/talks">
         <A>speaker</A>
       </a>
-    </div>
-    <div>
+    </Item>
+    <Item>
       <span role="img" aria-labelledby="Book">
         📖
       </span>{' '}
       <a target="_blank" rel="noopener noreferrer" href="/blog">
         <A>blogger</A>
       </a>
-    </div>
-    <div>
+    </Item>
+    <Item>
       <span role="img" aria-labelledby="Worker">
         👷
       </span>{' '}
@@ -54,8 +55,8 @@ const AboutConcise = () => (
         href="https://www.meetup.com/Reason-Prague">
         <A>organizer</A>
       </a>{' '}
-    </div>
-    <div>
+    </Item>
+    <Item>
       <span role="img" aria-labelledby="Construction">
         🏗
       </span>{' '}
@@ -66,7 +67,7 @@ const AboutConcise = () => (
         href="https://www.freecodecamp.org/">
         <A>contributor</A>
       </a>
-    </div>
+    </Item>
   </Fragment>
 )
 

@@ -3,7 +3,7 @@ import { css } from 'emotion'
 import mq from '../../utils/styling'
 
 export const Container = styled.div`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   line-height: 30px;
   ${mq.large(css`
     font-size: 1rem;
