@@ -3,15 +3,18 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { rhythm } from '../utils/typography'
 import { Footer, HeaderPost, Container } from '../components/General'
+import ShareBar from '../components/ShareBar'
 import About from '../components/Home/About'
 import PostIcons from '../components/PostIcons'
 import Layout from '../layouts'
 
-const PostTemplate = ({ data: { wordpressPost } }) => (
+const PostTemplate = ({ data: { wordpressPost }, location: { href } }) => (
   <Layout isPost>
     <Container>
       <PostIcons node={wordpressPost} css={{ marginBottom: rhythm(1 / 2) }} />
       <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
+      <hr />
+      <ShareBar />
       <div dangerouslySetInnerHTML={{ __html: wordpressPost.content }} />
       {/* IMAGE OPTIMIZATION {wordpressPost.acf &&
           wordpressPost.acf.page_builder_post &&
@@ -48,6 +51,7 @@ const PostTemplate = ({ data: { wordpressPost } }) => (
             }
             return null
           })} */}
+      <ShareBar isFooter />
       <Footer>
         <About isFooter />
       </Footer>

@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Description, Break, A } from '../General'
+import { Description, A } from '../General'
 import { FooterImage } from './styles'
 
 const About = ({ isFooter = false }) => (
   <div>
-    <Break />
     {isFooter && (
       <Fragment>
+        <hr />
         <FooterImage />
         <Description>Hi, thanks for reading! I&apos;m David.</Description>
       </Fragment>
@@ -66,7 +66,6 @@ const About = ({ isFooter = false }) => (
       ✨
     </span>
     {'. '}
-    <Break />
   </div>
 )
 
