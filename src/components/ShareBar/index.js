@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'react-emotion'
 import {
   FacebookShareButton,
   GooglePlusShareButton,
@@ -11,16 +10,7 @@ import {
   GooglePlusIcon,
   LinkedinIcon,
 } from 'react-share'
-
-const SocialContainer = styled.div`
-  display: inline-flex;
-  margin-bottom: 1rem;
-`
-
-const Message = styled.div`
-  margin-bottom: 1rem;
-  font-style: italic;
-`
+import { Message, SocialContainer, className } from './styles'
 
 const ShareBar = ({ url, postTitle, isFooter = false }) => (
   <Fragment>
@@ -35,25 +25,19 @@ const ShareBar = ({ url, postTitle, isFooter = false }) => (
     )}
     <SocialContainer>
       <TwitterShareButton
-        css={{ cursor: `pointer` }}
+        className={className}
         url={url}
         title={postTitle}
         via="coding_lawyer">
         <TwitterIcon size={40} />
       </TwitterShareButton>
-      <FacebookShareButton
-        css={{ cursor: `pointer` }}
-        url={url}
-        quote={postTitle}>
+      <FacebookShareButton className={className} url={url} quote={postTitle}>
         <FacebookIcon size={40} />
       </FacebookShareButton>
-      <GooglePlusShareButton css={{ cursor: `pointer` }} url={url}>
+      <GooglePlusShareButton className={className} url={url}>
         <GooglePlusIcon size={40} />
       </GooglePlusShareButton>
-      <LinkedinShareButton
-        css={{ cursor: `pointer` }}
-        url={url}
-        title={postTitle}>
+      <LinkedinShareButton className={className} url={url} title={postTitle}>
         <LinkedinIcon size={40} />
       </LinkedinShareButton>
     </SocialContainer>

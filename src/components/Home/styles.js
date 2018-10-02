@@ -81,5 +81,5 @@ export const FooterImage = styled.div`
 `
 
 export const Item = styled.div`
-  margin: 0.3rem 0;
+  margin: 0.4rem 0;
 `

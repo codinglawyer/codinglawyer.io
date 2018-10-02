@@ -117,7 +117,7 @@ export const StyledBtn = styled.a`
 `
 
 export const PostSnippet = styled.div`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-bottom: 2rem;
   line-height: 30px;
   ${mq.large(css`
