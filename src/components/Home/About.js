@@ -13,10 +13,7 @@ const About = ({ isFooter = false }) => (
       </Fragment>
     )}{' '}
     <Description>I&apos;m a</Description>{' '}
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="/stopped-lawyer-became-developer-awesome-2">
+    <a href="/stopped-lawyer-became-developer-awesome-2">
       <A>lawyer</A>
       <span role="img" aria-labelledby="book" />
     </a>{' '}
@@ -26,11 +23,11 @@ const About = ({ isFooter = false }) => (
     <Description>
       I&apos;m passionate about sharing my experiences with the community via my
     </Description>{' '}
-    <a target="_blank" rel="noopener noreferrer" href="/blog">
+    <a href="/blog">
       <A>blog</A>
     </a>{' '}
     <Description>and as a </Description>{' '}
-    <a target="_blank" rel="noopener noreferrer" href="/talks">
+    <a href="/talks">
       <A>speaker</A>
     </a>{' '}
     <Description>

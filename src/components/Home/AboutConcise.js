@@ -9,10 +9,7 @@ const AboutConcise = () => (
         👔
       </span>{' '}
       former{' '}
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="/stopped-lawyer-became-developer-awesome-2">
+      <a href="/stopped-lawyer-became-developer-awesome-2">
         <A>lawyer</A>
       </a>
     </Item>
@@ -32,7 +29,7 @@ const AboutConcise = () => (
       <span role="img" aria-labelledby="Head">
         🗣
       </span>{' '}
-      <a target="_blank" rel="noopener noreferrer" href="/talks">
+      <a href="/talks">
         <A>speaker</A>
       </a>
     </Item>
