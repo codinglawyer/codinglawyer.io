@@ -126,3 +126,33 @@ export const PostSnippet = styled.div`
     display: block;
   `)};
 `
+
+/* talks page */
+export const StyledLink = styled.a`
+  margin-right: 1.6rem;
+  box-shadow: inset 0 -5px 0 rgba(0, 96, 193, 0.25);
+  color: black;
+  -webkit-transition: box-shadow 0.4s ease-in-out;
+  transition: box-shadow 0.4s ease-in-out;
+  &:hover {
+    box-shadow: inset 0 -300px 0 rgba(0, 96, 193, 0.25);
+  }
+`
+
+export const Message = styled.div`
+  margin-bottom: 2rem;
+`
+
+export const MessageContainer = styled.div`
+  margin-bottom: 2rem;
+  text-align: center;
+`
+
+export const StyledBreak = styled.hr`
+  margin: 1.5rem 0;
+`
+
+export const TalksList = styled.ul`
+  list-style: none;
+  margin: 0;
+`
