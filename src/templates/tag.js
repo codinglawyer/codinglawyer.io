@@ -2,13 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import PostList from '../components/PostList'
+import Layout from '../layouts'
 
 const TagTemplate = ({ data, pathContext }) => (
-  <PostList
-    data={data}
-    header={`Tag: ${pathContext.name}`}
-    headerSize={{ fontSize: '3.5rem' }}
-  />
+  <Layout title="Tags">
+    <PostList
+      data={data}
+      header={`Tag: ${pathContext.name}`}
+      headerSize={{ fontSize: '3.5rem' }}
+    />
+  </Layout>
 )
 
 TagTemplate.propTypes = {

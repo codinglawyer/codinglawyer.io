@@ -5,10 +5,10 @@ import Menu from '../components/Home/Menu'
 import { rhythm } from '../utils/typography'
 import { Break, Container } from '../components/General'
 import Profile from '../components/Home/Profile'
-import '../assets/globalStyles'
+import '../styles/globalStyles'
 
 const Home = () => (
-  <Layout isIndex>
+  <Layout title="Home" isIndex>
     <div
       css={{
         marginBottom: rhythm(1),

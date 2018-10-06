@@ -6,10 +6,17 @@ import { Footer, HeaderPost, Container } from '../components/General'
 import ShareBar from '../components/ShareBar'
 import About from '../components/Home/About'
 import PostIcons from '../components/PostIcons'
+import SEO from '../components/SEO'
 import Layout from '../layouts'
 
-const PostTemplate = ({ data: { wordpressPost }, location: { href } }) => (
-  <Layout isPost>
+const PostTemplate = ({ data: { wordpressPost }, location: { href } }) => [
+  <SEO
+    key={`seo-${wordpressPost.id}`}
+    // postImage={postImage}
+    postData={wordpressPost}
+    isBlogPost
+  />,
+  <Layout key={`layout-${wordpressPost.id}`} title={wordpressPost.title} isPost>
     <Container>
       <PostIcons node={wordpressPost} css={{ marginBottom: rhythm(1 / 2) }} />
       <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
@@ -56,8 +63,8 @@ const PostTemplate = ({ data: { wordpressPost }, location: { href } }) => (
         <About isFooter />
       </Footer>
     </Container>
-  </Layout>
-)
+  </Layout>,
+]
 
 PostTemplate.propTypes = {
   data: PropTypes.shape({

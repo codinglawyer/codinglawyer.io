@@ -16,7 +16,7 @@ import {
 } from '../components/General'
 
 const PageTemplate = () => (
-  <Layout isPost>
+  <Layout title="Talks" isPost>
     <Container
       className={css`
         font-family: 'Cousine', 'monospace';

@@ -4,7 +4,7 @@ import About from '../components/Home/About'
 import Layout from '../layouts'
 
 const AboutTemplate = () => (
-  <Layout isPost>
+  <Layout title="About me" isPost>
     <Container>
       <Header>About</Header>
       <Break />

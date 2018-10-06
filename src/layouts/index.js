@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
 import Navigation from '../components/Navigation'
 import { rhythm } from '../utils/typography'
 import { Signature } from './styles'
-import '../assets/globalStyles'
+import '../styles/globalStyles'
 
 const containerStyle = {
   maxWidth: 700,
@@ -17,8 +18,16 @@ const containerStylePost = {
   padding: rhythm(3 / 4),
 }
 
-const Layout = ({ isPost = false, isIndex = false, children }) => (
-  <Navigation isIndex={isIndex}>
+const Layout = ({ title, isPost = false, isIndex = false, children }) => [
+  <Helmet
+    key="app-head"
+    titleTemplate="%s · David Kopal"
+    defaultTitle="David Kopal">
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <title>{title}</title>
+  </Helmet>,
+  <Navigation key="app-main" isIndex={isIndex}>
     <div>
       {isPost ? (
         <div css={containerStylePost}>{children}</div>
@@ -33,8 +42,8 @@ const Layout = ({ isPost = false, isIndex = false, children }) => (
         by David
       </Signature>
     </div>
-  </Navigation>
-)
+  </Navigation>,
+]
 
 Layout.propTypes = {
   isPost: PropTypes.bool,

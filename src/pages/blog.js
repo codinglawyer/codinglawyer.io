@@ -2,9 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import PostList from '../components/PostList'
+import Layout from '../layouts'
 
 const BlogIndex = ({ data }) => (
-  <PostList data={data} header="Blog" subHeader="Written thoughts." withTags />
+  <Layout title="Blog">
+    <PostList
+      data={data}
+      header="Blog"
+      subHeader="Written thoughts."
+      withTags
+    />
+  </Layout>
 )
 
 export const pageQuery = graphql`

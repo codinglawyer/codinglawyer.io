@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Header, SubHeader, Break, A, Tags, PostSnippet } from '../General'
 import PostIcons from '../PostIcons'
-import Layout from '../../layouts'
 
 const PostList = ({
   data,
@@ -12,7 +11,7 @@ const PostList = ({
   subHeader = '',
   withTags = false,
 }) => (
-  <Layout>
+  <Fragment>
     <Header css={headerSize}>{header}</Header>
     <SubHeader>{subHeader}</SubHeader>
     {/* MARKDOWN <Box>
@@ -64,7 +63,7 @@ const PostList = ({
           <PostIcons node={node} concise marginTopNegative />
         </PostSnippet>
       ))}
-  </Layout>
+  </Fragment>
 )
 
 PostList.propTypes = {
