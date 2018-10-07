@@ -77,12 +77,11 @@ const SEO = ({ postData, postImage, isBlogPost }) => {
   const title = postMeta.title || config.title
   const description =
     postMeta.description || postData.excerpt || config.description
-  const image = `${config.url}${postImage}` || config.image
+  const image = postImage ? `${config.url}${postImage}` : config.image
   const url = postMeta.slug
     ? `${config.url}${path.sep}${postMeta.slug}`
     : config.url
   const datePublished = isBlogPost ? postMeta.date : false
-
   const schemaOrgJSONLD = getSchemaOrgJSONLD({
     isBlogPost,
     url,
