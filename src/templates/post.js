@@ -18,7 +18,11 @@ const PostTemplate = ({ data: { wordpressPost }, location: { href } }) => [
   />,
   <Layout key={`layout-${wordpressPost.id}`} title={wordpressPost.title} isPost>
     <Container>
-      <PostIcons node={wordpressPost} css={{ marginBottom: rhythm(1 / 2) }} />
+      <PostIcons
+        marginTopNegative
+        node={wordpressPost}
+        css={{ marginBottom: rhythm(1 / 2) }}
+      />
       <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
       <hr />
       <ShareBar url={href} postTitle={wordpressPost.title} />
@@ -83,6 +87,8 @@ export const pageQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       title
       content
+      excerpt
+      slug
       ...PostIcons
     }
     site {

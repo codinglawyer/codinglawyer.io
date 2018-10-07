@@ -73,8 +73,7 @@ const getSchemaOrgJSONLD = ({
 }
 
 const SEO = ({ postData, postImage, isBlogPost }) => {
-  const postMeta = postData.frontmatter || {}
-
+  const postMeta = postData.frontmatter || postData
   const title = postMeta.title || config.title
   const description =
     postMeta.description || postData.excerpt || config.description
@@ -82,7 +81,7 @@ const SEO = ({ postData, postImage, isBlogPost }) => {
   const url = postMeta.slug
     ? `${config.url}${path.sep}${postMeta.slug}`
     : config.url
-  const datePublished = isBlogPost ? postMeta.datePublished : false
+  const datePublished = isBlogPost ? postMeta.date : false
 
   const schemaOrgJSONLD = getSchemaOrgJSONLD({
     isBlogPost,

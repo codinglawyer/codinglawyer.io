@@ -37,7 +37,7 @@ const AboutConcise = () => (
       <span role="img" aria-labelledby="Book">
         📖
       </span>{' '}
-      <a target="_blank" rel="noopener noreferrer" href="/blog">
+      <a href="/blog">
         <A>blogger</A>
       </a>
     </Item>
