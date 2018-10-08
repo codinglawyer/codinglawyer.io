@@ -15,7 +15,7 @@ import {
   StyledBreak,
 } from '../components/General'
 
-const PageTemplate = () => (
+const Talks = () => (
   <Layout title="Talks" isPost>
     <Container
       className={css`
@@ -28,8 +28,9 @@ const PageTemplate = () => (
         <Message>Interested in having me to speak at your event?</Message>
         <StyledBtn href="mailto:kopaldvd@gmail.com">Invite me</StyledBtn>
       </MessageContainer>
-      {talks.map(talk => (
-        <Fragment>
+      {talks.map((talk, i) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <Fragment key={i}>
           <StyledBreak />
           <TalksList>
             <li>
@@ -49,7 +50,7 @@ const PageTemplate = () => (
             </li>
             {talk.title && (
               <li>
-                <strong>Title:</strong> <span>{talk.title}</span>
+                <strong>Title:</strong> <span />
               </li>
             )}
             {talk.duration && (
@@ -91,4 +92,4 @@ const PageTemplate = () => (
   </Layout>
 )
 
-export default PageTemplate
+export default Talks

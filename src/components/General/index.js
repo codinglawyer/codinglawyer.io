@@ -53,6 +53,7 @@ export const Header = styled.h1`
 `
 
 export const SubHeader = styled.div`
+  font-family: 'Libre Franklin';
   font-size: 1rem;
   font-weight: 600;
   color: rgb(0, 0, 0);

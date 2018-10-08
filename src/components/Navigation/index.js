@@ -29,10 +29,10 @@ const Navigation = ({ children, isIndex, isMenuOpen, setIsMenuOpen }) => (
         <NavLi>
           <a
             onClick={() => setIsMenuOpen(false)}
-            id="blog"
+            id="posts"
             className="menu-item"
-            href="/blog">
-            Blog
+            href="/posts">
+            Posts
           </a>
         </NavLi>
         <NavLi>

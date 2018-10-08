@@ -7,8 +7,8 @@ const Menu = () => (
     <div className="navigation">
       <Ol>
         <Li>
-          <Link to="/blog">
-            <A>Blog</A>
+          <Link to="/posts">
+            <A>Posts</A>
           </Link>
         </Li>
         <Li>

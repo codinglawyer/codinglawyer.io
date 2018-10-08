@@ -23,8 +23,8 @@ const About = ({ isFooter = false }) => (
     <Description>
       I&apos;m passionate about sharing my experiences with the community via my
     </Description>{' '}
-    <a href="/blog">
-      <A>blog</A>
+    <a href="/posts">
+      <A>posts</A>
     </a>{' '}
     <Description>and as a </Description>{' '}
     <a href="/talks">

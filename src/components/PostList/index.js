@@ -1,7 +1,15 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { Header, SubHeader, Break, A, Tags, PostSnippet } from '../General'
+import {
+  Header,
+  SubHeader,
+  Break,
+  A,
+  Tags,
+  PostSnippet,
+  Container,
+} from '../General'
 import PostIcons from '../PostIcons'
 
 const PostList = ({
@@ -11,7 +19,7 @@ const PostList = ({
   subHeader = '',
   withTags = false,
 }) => (
-  <Fragment>
+  <Container>
     <Header css={headerSize}>{header}</Header>
     <SubHeader>{subHeader}</SubHeader>
     {/* MARKDOWN <Box>
@@ -35,7 +43,7 @@ const PostList = ({
         <Fragment>
           {data.allWordpressTag.edges.map(({ node }) => (
             <Link
-              to={node.slug}
+              to={`tags/${node.slug}`}
               key={node.slug}
               css={{
                 marginRight: `15px`,
@@ -56,14 +64,14 @@ const PostList = ({
     {data.allWordpressPost &&
       data.allWordpressPost.edges.map(({ node }) => (
         <PostSnippet key={node.slug}>
-          <Link to={node.slug} css={{ textDecoration: `none` }}>
+          <Link to={`posts/${node.slug}`} css={{ textDecoration: `none` }}>
             <h3>{node.title}</h3>
           </Link>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           <PostIcons node={node} concise marginTopNegative />
         </PostSnippet>
       ))}
-  </Fragment>
+  </Container>
 )
 
 PostList.propTypes = {

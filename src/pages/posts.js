@@ -5,10 +5,10 @@ import PostList from '../components/PostList'
 import Layout from '../layouts'
 
 const BlogIndex = ({ data }) => (
-  <Layout title="Blog">
+  <Layout title="Posts">
     <PostList
       data={data}
-      header="Blog"
+      header="Posts"
       subHeader="Written thoughts."
       withTags
     />

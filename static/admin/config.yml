@@ -6,9 +6,9 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+  - name: posts
+    label: Posts
+    folder: posts
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
