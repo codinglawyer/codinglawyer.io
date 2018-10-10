@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 import { Description, A } from '../General'
 import { FooterImage } from './styles'
 
@@ -13,23 +14,23 @@ const About = ({ isFooter = false }) => (
       </Fragment>
     )}{' '}
     <Description>I&apos;m a</Description>{' '}
-    <a href="/stopped-lawyer-became-developer-awesome-2">
+    <Link to="/posts/stopped-lawyer-became-developer-awesome-2">
       <A>lawyer</A>
       <span role="img" aria-labelledby="book" />
-    </a>{' '}
+    </Link>{' '}
     <Description>
       turned software engineer living in Czech Republic.
     </Description>{' '}
     <Description>
       I&apos;m passionate about sharing my experiences with the community via my
     </Description>{' '}
-    <a href="/posts">
+    <Link to="/posts">
       <A>posts</A>
-    </a>{' '}
+    </Link>{' '}
     <Description>and as a </Description>{' '}
-    <a href="/talks">
+    <Link to="/talks">
       <A>speaker</A>
-    </a>{' '}
+    </Link>{' '}
     <Description>
       at conferences and meetups. If I&apos;m not spending time with my lovely
       girlfriend, I keep myself busy by organizing ReasonML

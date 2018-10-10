@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Link } from 'gatsby'
 import { Item } from './styles'
 import { A } from '../General'
 
@@ -9,9 +10,9 @@ const AboutConcise = () => (
         👔
       </span>{' '}
       former{' '}
-      <a href="/stopped-lawyer-became-developer-awesome-2">
+      <Link to="/posts/stopped-lawyer-became-developer-awesome-2">
         <A>lawyer</A>
-      </a>
+      </Link>
     </Item>
     <Item>
       <span role="img" aria-labelledby="Laptop">
@@ -29,17 +30,17 @@ const AboutConcise = () => (
       <span role="img" aria-labelledby="Head">
         🗣
       </span>{' '}
-      <a href="/talks">
+      <Link to="/talks">
         <A>speaker</A>
-      </a>
+      </Link>
     </Item>
     <Item>
       <span role="img" aria-labelledby="Book">
         📖
       </span>{' '}
-      <a href="/posts">
+      <Link to="/posts">
         <A>blogger</A>
-      </a>
+      </Link>
     </Item>
     <Item>
       <span role="img" aria-labelledby="Worker">

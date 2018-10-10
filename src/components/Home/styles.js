@@ -4,7 +4,7 @@ import mq from '../../utils/styling'
 import profilePhoto from '../../../static/assets/images/profile.png'
 
 export const Title = styled.h1`
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0 0 10px;
   font-weight: 900;
   text-align: left;
@@ -15,6 +15,18 @@ export const Title = styled.h1`
 `
 
 export const Subtitle = styled.h2`
+  font-size: 0.7rem;
+  margin: 0 0 10px;
+  text-align: left;
+  font-family: 'Cousine', monospace;
+  font-weight: 200;
+  ${mq.large(css`
+    font-size: 1.4rem;
+    margin: 0 0 16px;
+  `)};
+`
+
+export const Description = styled.h2`
   font-family: 'Cousine', monospace;
   font-size: 0.6rem;
   font-weight: 400;
@@ -22,18 +34,6 @@ export const Subtitle = styled.h2`
   text-align: left;
   ${mq.large(css`
     font-size: 1rem;
-    margin: 0 0 16px;
-  `)};
-`
-
-export const Name = styled.h2`
-  font-size: 0.6rem;
-  margin: 0 0 10px;
-  text-align: left;
-  font-family: 'Cousine', monospace;
-  font-weight: 200;
-  ${mq.large(css`
-    font-size: 1.4rem;
     margin: 0 0 16px;
   `)};
 `

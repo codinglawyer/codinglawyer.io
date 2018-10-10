@@ -48,6 +48,7 @@ export const Break = styled.hr`
 `
 
 export const Header = styled.h1`
+  font-weight: 800;
   margin: 0;
   font-size: 3.8rem;
 `

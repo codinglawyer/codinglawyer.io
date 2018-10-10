@@ -2,8 +2,8 @@ import React, { Fragment } from 'react'
 import { Flex } from '../Layout'
 import {
   Title,
+  Description,
   Subtitle,
-  Name,
   TextContainer,
   PictureContainer,
   Image,
@@ -14,14 +14,14 @@ const Profile = () => (
     <Flex>
       <TextContainer>
         <Title>David Kopal</Title>
-        <Name>[coding lawyer]</Name>
-        <Subtitle>
+        <Subtitle>[coding lawyer]</Subtitle>
+        <Description>
           Hi
           <span role="img" aria-label="Wave">
             👋
           </span>
           , welcome to my site!
-        </Subtitle>
+        </Description>
       </TextContainer>
       <PictureContainer>
         <Image />

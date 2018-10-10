@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import HamburgerMenu from 'react-hamburger-menu'
+import { Link } from 'gatsby'
 import { withState } from 'recompose'
 import { push as Menu } from 'react-burger-menu'
 import { NavLi, OlNav, OuterContainer, InnerContainer, styles } from './styles'
 
 const Navigation = ({ children, isIndex, isMenuOpen, setIsMenuOpen }) => (
-  <div>
+  <div id="outer-container">
     <Menu
       isOpen={isMenuOpen}
       customBurgerIcon={false}
@@ -15,43 +16,28 @@ const Navigation = ({ children, isIndex, isMenuOpen, setIsMenuOpen }) => (
       onStateChange={state => setIsMenuOpen(state.isOpen)}
       width="100%"
       styles={styles}
-      pageWrapId="page-wrap">
+      pageWrapId="page-wrap"
+      outerContainerId="outer-container">
       <OlNav>
         <NavLi>
-          <a
-            onClick={() => setIsMenuOpen(false)}
-            id="index"
-            className="menu-item"
-            href="/">
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>
             Index
-          </a>
+          </Link>
         </NavLi>
         <NavLi>
-          <a
-            onClick={() => setIsMenuOpen(false)}
-            id="posts"
-            className="menu-item"
-            href="/posts">
+          <Link to="/posts" onClick={() => setIsMenuOpen(false)}>
             Posts
-          </a>
+          </Link>
         </NavLi>
         <NavLi>
-          <a
-            onClick={() => setIsMenuOpen(false)}
-            id="talks"
-            className="menu-item"
-            href="/talks">
+          <Link to="/talks" onClick={() => setIsMenuOpen(false)}>
             Talks
-          </a>
+          </Link>
         </NavLi>
         <NavLi>
-          <a
-            onClick={() => setIsMenuOpen(false)}
-            id="about"
-            className="menu-item"
-            href="/about">
+          <Link to="/about" onClick={() => setIsMenuOpen(false)}>
             About me
-          </a>
+          </Link>
         </NavLi>
       </OlNav>
     </Menu>

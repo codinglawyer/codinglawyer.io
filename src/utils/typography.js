@@ -6,11 +6,11 @@ const typography = new Typography({
   googleFonts: [
     {
       name: 'Libre Franklin',
-      styles: ['400', '400i', '700', '700i', '900'],
+      styles: ['400', '700', '900'],
     },
     {
       name: 'Cousine',
-      styles: ['400', '400i', '700'],
+      styles: ['400', '700'],
     },
   ],
   headerFontFamily: ['Libre Franklin', 'sans-serif'],
