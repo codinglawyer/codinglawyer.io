@@ -158,3 +158,8 @@ export const TalksList = styled.ul`
   list-style: none;
   margin: 0;
 `
+
+export const PostSnippetTitle = styled.h3`
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+`

@@ -5,6 +5,10 @@ const typography = new Typography({
   baseLineHeight: '36px',
   googleFonts: [
     {
+      name: 'Roboto',
+      styles: ['400', '500', '700', '900'],
+    },
+    {
       name: 'Libre Franklin',
       styles: ['400', '700', '900'],
     },
@@ -14,7 +18,7 @@ const typography = new Typography({
     },
   ],
   headerFontFamily: ['Libre Franklin', 'sans-serif'],
-  bodyFontFamily: ['Linux Libertine'],
+  bodyFontFamily: ['Roboto'],
   headerColor: 'black',
   bodyColor: '#333',
   headerWeight: 700,

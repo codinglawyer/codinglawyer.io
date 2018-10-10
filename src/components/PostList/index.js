@@ -9,6 +9,7 @@ import {
   Tags,
   PostSnippet,
   Container,
+  PostSnippetTitle,
 } from '../General'
 import PostIcons from '../PostIcons'
 
@@ -64,8 +65,8 @@ const PostList = ({
     {data.allWordpressPost &&
       data.allWordpressPost.edges.map(({ node }) => (
         <PostSnippet key={node.slug}>
-          <Link to={`posts/${node.slug}`} css={{ textDecoration: `none` }}>
-            <h3>{node.title}</h3>
+          <Link to={`posts/${node.slug}`}>
+            <PostSnippetTitle>{node.title}</PostSnippetTitle>
           </Link>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           <PostIcons node={node} concise marginTopNegative />
