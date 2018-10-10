@@ -50,7 +50,10 @@ export const Break = styled.hr`
 export const Header = styled.h1`
   font-weight: 800;
   margin: 0;
-  font-size: 3.8rem;
+  font-size: 2.6rem;
+  ${mq.large(css`
+    font-size: 3.8rem;
+  `)};
 `
 
 export const SubHeader = styled.div`
@@ -61,7 +64,7 @@ export const SubHeader = styled.div`
 `
 
 export const HeaderPost = styled.h1`
-  font-size: 1.66667rem;
+  font-size: 1.4rem;
   font-weight: 900;
   @media (min-width: 768px) {
     font-size: 2rem;
@@ -142,16 +145,25 @@ export const StyledLink = styled.a`
 `
 
 export const Message = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  ${mq.large(css`
+    margin-bottom: 2rem;
+  `)};
 `
 
 export const MessageContainer = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   text-align: center;
+  ${mq.large(css`
+    margin-bottom: 2rem;
+  `)};
 `
 
 export const StyledBreak = styled.hr`
-  margin: 1.5rem 0;
+  margin: 1rem 0;
+  ${mq.large(css`
+    margin: 1.5rem 0;
+  `)};
 `
 
 export const TalksList = styled.ul`
