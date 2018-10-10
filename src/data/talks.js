@@ -1,5 +1,6 @@
 export default [
   {
+    id: 9,
     eventName: "Free Code Camp top contributors' party",
     eventLink: 'https://www.freecodecamp.org/',
     eventDate: '22. 9. 2018',
@@ -13,6 +14,7 @@ export default [
       'https://www.youtube.com/watch?v=8TYo9YYfKpc&feature=youtu.be&t=1h46m18s',
   },
   {
+    id: 8,
     eventName: 'PragueJS meetup',
     eventLink: 'https://www.meetup.com/praguejs/events/254177391/',
     eventDate: '11. 9. 2018',
@@ -26,6 +28,7 @@ export default [
     videoLink: '',
   },
   {
+    id: 7,
     eventName: 'GrillJS',
     eventLink: 'http://grilljs.com/',
     eventDate: '18. - 19. 8. 2018',
@@ -39,6 +42,7 @@ export default [
     videoLink: '',
   },
   {
+    id: 6,
     eventName: 'Lighting Cup Prague by ReactiveConf ',
     eventLink: 'https://reactiveconf.com/',
     eventDate: '16. 8. 2018',
@@ -51,6 +55,7 @@ export default [
     videoLink: '',
   },
   {
+    id: 5,
     eventName: 'OdessaJs',
     eventLink: 'http://odessajs.org/',
     eventDate: '7. - 8. 7. 2018',
@@ -64,6 +69,7 @@ export default [
     videoLink: 'https://www.youtube.com/watch?reload=9&v=P-3Oxb0nA5A',
   },
   {
+    id: 4,
     eventName: 'enterJs',
     eventLink: 'https://www.enterjs.de/',
     eventDate: '20. - 21. 6. 2018',
@@ -77,6 +83,7 @@ export default [
     videoLink: '',
   },
   {
+    id: 3,
     eventName: 'Front-Trends 2018',
     eventLink: 'https://2018.front-trends.com/',
     eventDate: '24. - 25. 5. 2018',
@@ -90,6 +97,7 @@ export default [
     videoLink: '',
   },
   {
+    id: 2,
     eventName: 'Functional programming in React',
     eventLink: 'https://www.blueberry.io/',
     eventDate: '7.3. 2018',
@@ -102,6 +110,7 @@ export default [
     videoLink: '',
   },
   {
+    id: 1,
     eventName: 'iJS',
     eventLink: 'https://javascript-conference.com/',
     eventDate: '23. - 27. 10. 2017',

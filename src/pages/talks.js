@@ -17,10 +17,7 @@ import {
 
 const Talks = () => (
   <Layout title="Talks" isPost>
-    <Container
-      className={css`
-        font-family: 'Cousine', 'monospace';
-      `}>
+    <Container>
       <Header>Talks</Header>
       <SubHeader>Spoken thoughts.</SubHeader>
       <Break />
@@ -28,9 +25,8 @@ const Talks = () => (
         <Message>Interested in having me to speak at your event?</Message>
         <StyledBtn href="mailto:kopaldvd@gmail.com">Invite me</StyledBtn>
       </MessageContainer>
-      {talks.map((talk, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <Fragment key={i}>
+      {talks.map(talk => (
+        <Fragment key={talk.id}>
           <StyledBreak />
           <TalksList>
             <li
