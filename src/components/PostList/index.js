@@ -66,7 +66,9 @@ const PostList = ({
       data.allWordpressPost.edges.map(({ node }) => (
         <PostSnippet key={node.slug}>
           <Link to={`posts/${node.slug}`}>
-            <PostSnippetTitle>{node.title}</PostSnippetTitle>
+            <PostSnippetTitle
+              dangerouslySetInnerHTML={{ __html: node.title }}
+            />
           </Link>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           <PostIcons node={node} concise marginTopNegative />
