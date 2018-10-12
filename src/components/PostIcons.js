@@ -3,17 +3,11 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import ClockIcon from 'react-icons/lib/fa/clock-o'
 import TagIcon from 'react-icons/lib/fa/tag'
-// import OpenIcon from 'react-icons/lib/fa/folder-open'
-
+import { PostIconsContainer, Tag } from './Styled'
 import { rhythm } from '../utils/typography'
 
-const PostIcons = ({
-  node,
-  displayTags = false,
-  marginTopNegative = false,
-  className = ``,
-}) => (
-  <div
+const PostIcons = ({ node, marginTopNegative = false, className = `` }) => (
+  <PostIconsContainer
     css={
       marginTopNegative
         ? { marginTop: rhythm(-1 / 2) }
@@ -25,24 +19,17 @@ const PostIcons = ({
       {` `}
       {node.date}
     </span>
-    {/* {node.categories &&
-      node.categories.map(category => (
-        <span style={{ marginRight: rhythm(1) }} key={category.name}>
-          <OpenIcon size={14} style={{ position: `relative`, bottom: 1 }} />
-          {` `}
-          {category.name}
-        </span>
-      ))} */}
-    {node.tags &&
-      displayTags &&
-      node.tags.map(tag => (
-        <span key={tag.name}>
-          <TagIcon size={14} style={{ position: `relative`, bottom: 1 }} />
-          {` `}
-          {tag.name}
-        </span>
-      ))}
-  </div>
+    <div>
+      {node.tags &&
+        node.tags.map(tag => (
+          <Tag key={tag.name}>
+            <TagIcon size={14} style={{ position: `relative`, bottom: 1 }} />
+            {` `}
+            {tag.name}
+          </Tag>
+        ))}
+    </div>
+  </PostIconsContainer>
 )
 
 export const query = graphql`
@@ -59,13 +46,11 @@ export const query = graphql`
 
 PostIcons.propTypes = {
   node: PropTypes.object.isRequired,
-  displayTags: PropTypes.bool,
   marginTopNegative: PropTypes.bool,
   className: PropTypes.string,
 }
 
 PostIcons.defaultProps = {
-  displayTags: false,
   marginTopNegative: false,
   className: ``,
 }
