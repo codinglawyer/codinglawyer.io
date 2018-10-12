@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { A, Li, Ol } from '../General'
+import { LinkRed, Li, Ol } from '../Styled'
 
 const Menu = () => (
   <div id="menu" className="slideout-menu" role="navigation">
@@ -8,17 +8,17 @@ const Menu = () => (
       <Ol>
         <Li>
           <Link to="/posts">
-            <A>Posts</A>
+            <LinkRed>Posts</LinkRed>
           </Link>
         </Li>
         <Li>
           <Link to="/talks">
-            <A>Talks</A>
+            <LinkRed>Talks</LinkRed>
           </Link>
         </Li>
         <Li>
           <Link to="/about">
-            <A>About me</A>
+            <LinkRed>About me</LinkRed>
           </Link>
         </Li>
         <Li>
@@ -27,35 +27,35 @@ const Menu = () => (
             target="_blank"
             rel="noopener noreferrer"
             href="mailto:kopaldvd@gmail.com">
-            <A>Email</A>
+            <LinkRed>Email</LinkRed>
           </a>
           {`, `}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://twitter.com/coding_lawyer">
-            <A>Twitter</A>
+            <LinkRed>Twitter</LinkRed>
           </a>
           {`, `}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/codinglawyer">
-            <A>Github</A>
+            <LinkRed>Github</LinkRed>
           </a>
           {`, `}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://medium.com/@codinglawyer">
-            <A>Medium</A>
+            <LinkRed>Medium</LinkRed>
           </a>
           {`, `}
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.linkedin.com/in/david-kopal-54219199/">
-            <A>LinkedIn</A>
+            <LinkRed>LinkedIn</LinkRed>
           </a>
         </Li>
       </Ol>

@@ -64,20 +64,13 @@ export const FooterImage = styled.div`
   background-size: cover;
   border-radius: 50%;
   float: right;
-  margin: 0 12px 0 0;
+  margin: 0 12px 0 -112;
   height: 100px;
   width: 100px;
-
-  @media (min-width: 768px) {
-    height: 100px;
-    margin: 0 0 30px 0;
-    width: 100px;
-  }
-
-  @media (min-width: 1024px) {
+  ${mq.large(css`
     float: left;
     margin-left: -112px;
-  }
+  `)};
 `
 
 export const Item = styled.div`

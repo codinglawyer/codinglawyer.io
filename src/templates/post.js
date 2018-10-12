@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { rhythm } from '../utils/typography'
-import { Footer, HeaderPost, Container } from '../components/General'
+import { Footer, HeaderPost, Container } from '../components/Styled'
 import ShareBar from '../components/ShareBar'
 import About from '../components/Home/About'
 import PostIcons from '../components/PostIcons'
@@ -18,12 +18,12 @@ const PostTemplate = ({ data: { wordpressPost }, location: { href } }) => [
   />,
   <Layout key={`layout-${wordpressPost.id}`} title={wordpressPost.title} isPost>
     <Container>
+      <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
       <PostIcons
         marginTopNegative
         node={wordpressPost}
         css={{ marginBottom: rhythm(1 / 2) }}
       />
-      <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
       <hr />
       <ShareBar url={href} postTitle={wordpressPost.title} />
       <div dangerouslySetInnerHTML={{ __html: wordpressPost.content }} />

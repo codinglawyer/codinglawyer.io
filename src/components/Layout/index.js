@@ -6,7 +6,6 @@ const wrap = style({
   cssProperty: 'flexWrap',
 })
 
-// ${space} ${width} ${fontSize} ${color} ${textAlign};
 export const Flex = styled.div`
   display: flex;
   ${justifyContent} ${wrap};

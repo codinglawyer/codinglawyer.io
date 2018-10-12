@@ -11,7 +11,7 @@ export const Message = styled.div`
   font-style: italic;
 `
 
-export const className = css`
+export const ShareButtonStyles = css`
   cursor: pointer;
   &:focus {
     outline: 0;

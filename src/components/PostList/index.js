@@ -5,12 +5,12 @@ import {
   Header,
   SubHeader,
   Break,
-  A,
+  LinkRed,
   Tags,
   PostSnippet,
   Container,
   PostSnippetTitle,
-} from '../General'
+} from '../Styled'
 import PostIcons from '../PostIcons'
 
 const PostList = ({
@@ -50,13 +50,13 @@ const PostList = ({
                 marginRight: `15px`,
                 fontSize: `0.7rem`,
               }}>
-              <A>
+              <LinkRed>
                 <span>{node.name}</span>
                 <span>
                   {` (${node.count})
                   `}
                 </span>
-              </A>
+              </LinkRed>
             </Link>
           ))}
         </Fragment>

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import { Description, A } from '../General'
+import { Description, LinkRed } from '../Styled'
 import { FooterImage } from './styles'
 
 const About = ({ isFooter = false }) => (
@@ -15,7 +15,7 @@ const About = ({ isFooter = false }) => (
     )}{' '}
     <Description>I&apos;m a</Description>{' '}
     <Link to="/posts/stopped-lawyer-became-developer-awesome-2">
-      <A>lawyer</A>
+      <LinkRed>lawyer</LinkRed>
       <span role="img" aria-labelledby="book" />
     </Link>{' '}
     <Description>
@@ -25,11 +25,11 @@ const About = ({ isFooter = false }) => (
       I&apos;m passionate about sharing my experiences with the community via my
     </Description>{' '}
     <Link to="/posts">
-      <A>posts</A>
+      <LinkRed>posts</LinkRed>
     </Link>{' '}
     <Description>and as a </Description>{' '}
     <Link to="/talks">
-      <A>speaker</A>
+      <LinkRed>speaker</LinkRed>
     </Link>{' '}
     <Description>
       at conferences and meetups. If I&apos;m not spending time with my lovely
@@ -39,7 +39,7 @@ const About = ({ isFooter = false }) => (
       target="_blank"
       rel="noopener noreferrer"
       href="https://www.meetup.com/Reason-Prague">
-      <A>meetups</A>
+      <LinkRed>meetups</LinkRed>
     </a>{' '}
     <Description>
       {' '}
@@ -50,7 +50,7 @@ const About = ({ isFooter = false }) => (
       target="_blank"
       rel="noopener noreferrer"
       href="https://www.freecodecamp.org/">
-      <A>Free Code Camp</A>
+      <LinkRed>Free Code Camp</LinkRed>
     </a>
     {'. '}
     <Description>I make stuff at</Description>{' '}
@@ -58,7 +58,7 @@ const About = ({ isFooter = false }) => (
       target="_blank"
       rel="noopener noreferrer"
       href="https://www.blueberry.io/">
-      <A>Blueberry</A>
+      <LinkRed>Blueberry</LinkRed>
     </a>
     <span role="img" aria-label="Sparkles">
       ✨

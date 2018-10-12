@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import ClockIcon from 'react-icons/lib/fa/clock-o'
 import TagIcon from 'react-icons/lib/fa/tag'
-import { PostIconsContainer, Tag } from './Styled'
-import { rhythm } from '../utils/typography'
+import { PostIconsContainer, Tag } from '../Styled'
+import { rhythm } from '../../utils/typography'
 
 const PostIcons = ({ node, marginTopNegative = false, className = `` }) => (
   <PostIconsContainer

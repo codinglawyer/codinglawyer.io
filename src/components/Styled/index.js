@@ -21,7 +21,7 @@ export const Li = styled.li`
   margin-bottom: 16px;
 `
 
-export const A = styled.span`
+export const LinkRed = styled.span`
   box-shadow: inset 0 -1px 0 #333;
   color: #333;
   -webkit-transition: all 0.2s ease-in-out;
@@ -133,7 +133,7 @@ export const PostSnippet = styled.div`
 `
 
 /* talks page */
-export const StyledLink = styled.a`
+export const LinkBlue = styled.a`
   margin-right: 1.6rem;
   box-shadow: inset 0 -5px 0 rgba(0, 96, 193, 0.25);
   color: black;
@@ -174,4 +174,19 @@ export const TalksList = styled.ul`
 export const PostSnippetTitle = styled.h3`
   font-size: 1.3rem;
   margin-bottom: 1rem;
+`
+
+export const PostIconsContainer = styled.div`
+  font-size: 0.6rem;
+`
+
+export const Tag = styled.span`
+  margin-right: 0.7rem;
+`
+
+export const TalkTitle = styled.li`
+  font-size: 0.9rem;
+  ${mq.large(css`
+    font-size: 1.1rem;
+  `)};
 `

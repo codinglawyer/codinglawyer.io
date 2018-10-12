@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link } from 'gatsby'
 import { Item } from './styles'
-import { A } from '../General'
+import { LinkRed } from '../Styled'
 
 const AboutConcise = () => (
   <Fragment>
@@ -11,7 +11,7 @@ const AboutConcise = () => (
       </span>{' '}
       former{' '}
       <Link to="/posts/stopped-lawyer-became-developer-awesome-2">
-        <A>lawyer</A>
+        <LinkRed>lawyer</LinkRed>
       </Link>
     </Item>
     <Item>
@@ -23,7 +23,7 @@ const AboutConcise = () => (
         target="_blank"
         rel="noopener noreferrer"
         href="https://www.blueberry.io/">
-        <A>engineer</A>
+        <LinkRed>engineer</LinkRed>
       </a>
     </Item>
     <Item>
@@ -31,7 +31,7 @@ const AboutConcise = () => (
         🗣
       </span>{' '}
       <Link to="/talks">
-        <A>speaker</A>
+        <LinkRed>speaker</LinkRed>
       </Link>
     </Item>
     <Item>
@@ -39,7 +39,7 @@ const AboutConcise = () => (
         📖
       </span>{' '}
       <Link to="/posts">
-        <A>blogger</A>
+        <LinkRed>blogger</LinkRed>
       </Link>
     </Item>
     <Item>
@@ -51,7 +51,7 @@ const AboutConcise = () => (
         target="_blank"
         rel="noopener noreferrer"
         href="https://www.meetup.com/Reason-Prague">
-        <A>organizer</A>
+        <LinkRed>organizer</LinkRed>
       </a>{' '}
     </Item>
     <Item>
@@ -63,7 +63,7 @@ const AboutConcise = () => (
         target="_blank"
         rel="noopener noreferrer"
         href="https://www.freecodecamp.org/">
-        <A>contributor</A>
+        <LinkRed>contributor</LinkRed>
       </a>
     </Item>
   </Fragment>

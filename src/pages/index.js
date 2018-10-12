@@ -3,7 +3,7 @@ import Layout from '../layouts'
 import AboutConcise from '../components/Home/AboutConcise'
 import Menu from '../components/Home/Menu'
 import { rhythm } from '../utils/typography'
-import { Break, Container } from '../components/General'
+import { Break, Container } from '../components/Styled'
 import Profile from '../components/Home/Profile'
 import '../styles/globalStyles'
 

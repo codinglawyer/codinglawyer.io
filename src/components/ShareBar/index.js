@@ -10,7 +10,7 @@ import {
   GooglePlusIcon,
   LinkedinIcon,
 } from 'react-share'
-import { Message, SocialContainer, className } from './styles'
+import { Message, SocialContainer, ShareButtonStyles } from './styles'
 
 const ShareBar = ({ url, postTitle, isFooter = false }) => (
   <Fragment>
@@ -25,19 +25,25 @@ const ShareBar = ({ url, postTitle, isFooter = false }) => (
     )}
     <SocialContainer>
       <TwitterShareButton
-        className={className}
+        className={ShareButtonStyles}
         url={url}
         title={postTitle}
         via="coding_lawyer">
         <TwitterIcon size={40} />
       </TwitterShareButton>
-      <FacebookShareButton className={className} url={url} quote={postTitle}>
+      <FacebookShareButton
+        className={ShareButtonStyles}
+        url={url}
+        quote={postTitle}>
         <FacebookIcon size={40} />
       </FacebookShareButton>
-      <GooglePlusShareButton className={className} url={url}>
+      <GooglePlusShareButton className={ShareButtonStyles} url={url}>
         <GooglePlusIcon size={40} />
       </GooglePlusShareButton>
-      <LinkedinShareButton className={className} url={url} title={postTitle}>
+      <LinkedinShareButton
+        className={ShareButtonStyles}
+        url={url}
+        title={postTitle}>
         <LinkedinIcon size={40} />
       </LinkedinShareButton>
     </SocialContainer>

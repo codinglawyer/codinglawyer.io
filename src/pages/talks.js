@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { css } from 'emotion'
 import Layout from '../layouts'
 import talks from '../data/talks'
 import {
@@ -10,10 +9,11 @@ import {
   Container,
   Message,
   MessageContainer,
-  StyledLink,
+  LinkBlue,
   TalksList,
   StyledBreak,
-} from '../components/General'
+  TalkTitle,
+} from '../components/Styled'
 
 const Talks = () => (
   <Layout title="Talks" isPost>
@@ -29,13 +29,7 @@ const Talks = () => (
         <Fragment key={talk.id}>
           <StyledBreak />
           <TalksList>
-            <li
-              className={css`
-                font-size: 0.9rem;
-                @media (min-width: 768px) {
-                  font-size: 1.1rem;
-                }
-              `}>
+            <TalkTitle>
               <a
                 className="link"
                 href={talk.eventLink}
@@ -44,7 +38,7 @@ const Talks = () => (
                 <strong>{talk.eventName}</strong>
               </a>
               <span /> <span>{`(${talk.type})`}</span>
-            </li>
+            </TalkTitle>
             <li>
               <span>{talk.eventDate}</span>
               {', '}
@@ -63,28 +57,28 @@ const Talks = () => (
             )}
             <li>
               {talk.videoLink && (
-                <StyledLink
+                <LinkBlue
                   href={talk.videoLink}
                   target="_blank"
                   rel="noopener noreferrer">
                   Video
-                </StyledLink>
+                </LinkBlue>
               )}
               {talk.slidesLink && (
-                <StyledLink
+                <LinkBlue
                   href={talk.slidesLink}
                   target="_blank"
                   rel="noopener noreferrer">
                   Slides
-                </StyledLink>
+                </LinkBlue>
               )}
               {talk.codeLink && (
-                <StyledLink
+                <LinkBlue
                   href={talk.codeLink}
                   target="_blank"
                   rel="noopener noreferrer">
                   Code
-                </StyledLink>
+                </LinkBlue>
               )}
             </li>
           </TalksList>

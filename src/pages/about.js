@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, SubHeader, Container, Break } from '../components/General'
+import { Header, SubHeader, Container, Break } from '../components/Styled'
 import About from '../components/Home/About'
 import Layout from '../layouts'
 
