@@ -46,7 +46,7 @@ const Talks = () => (
             </li>
             {talk.title && (
               <li>
-                <strong>Title:</strong> <span />
+                <strong>Title:</strong> <span>{talk.title}</span>
               </li>
             )}
             {talk.duration && (
