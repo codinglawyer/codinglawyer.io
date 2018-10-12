@@ -10,18 +10,13 @@ import {
   PostSnippet,
   Container,
   PostSnippetTitle,
+  TagHeader,
 } from '../Styled'
 import PostIcons from '../PostIcons'
 
-const PostList = ({
-  data,
-  header,
-  headerSize = {},
-  subHeader = '',
-  withTags = false,
-}) => (
+const PostList = ({ data, header, subHeader = '', withTags = false }) => (
   <Container>
-    <Header css={headerSize}>{header}</Header>
+    {!withTags ? <TagHeader>{header}</TagHeader> : <Header>{header}</Header>}
     <SubHeader>{subHeader}</SubHeader>
     {/* MARKDOWN <Box>
           {posts
@@ -84,7 +79,6 @@ PostList.propTypes = {
   }),
   header: PropTypes.string,
   subHeader: PropTypes.string,
-  headerSize: PropTypes.object,
   withTags: PropTypes.bool,
 }
 
@@ -92,7 +86,6 @@ PostList.defaultProps = {
   data: {},
   header: '',
   subHeader: '',
-  headerSize: {},
   withTags: false,
 }
 

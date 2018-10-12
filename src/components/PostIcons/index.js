@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import ClockIcon from 'react-icons/lib/fa/clock-o'
 import TagIcon from 'react-icons/lib/fa/tag'
-import { PostIconsContainer, Tag } from '../Styled'
+import { PostIconsContainer, LinkRed, Date } from '../Styled'
 import { rhythm } from '../../utils/typography'
 
 const PostIcons = ({ node, marginTopNegative = false, className = `` }) => (
@@ -14,19 +14,29 @@ const PostIcons = ({ node, marginTopNegative = false, className = `` }) => (
         : { marginTop: rhythm(2) }
     }
     className={className}>
-    <span style={{ marginRight: rhythm(1) }}>
+    <Date style={{ marginRight: rhythm(1) }}>
       <ClockIcon size={14} style={{ position: `relative`, bottom: 1 }} />
       {` `}
       {node.date}
-    </span>
+    </Date>
     <div>
       {node.tags &&
         node.tags.map(tag => (
-          <Tag key={tag.name}>
-            <TagIcon size={14} style={{ position: `relative`, bottom: 1 }} />
-            {` `}
-            {tag.name}
-          </Tag>
+          <span key={tag.name}>
+            <Link
+              to={`tags/${tag.slug}`}
+              key={tag.slug}
+              css={{
+                marginRight: `15px`,
+                fontSize: `0.7rem`,
+              }}>
+              <TagIcon size={14} style={{ position: `relative`, bottom: 1 }} />
+              {` `}
+              <LinkRed>
+                <span>{tag.name}</span>
+              </LinkRed>
+            </Link>
+          </span>
         ))}
     </div>
   </PostIconsContainer>
@@ -36,9 +46,8 @@ export const query = graphql`
   fragment PostIcons on wordpress__POST {
     date(formatString: "MMMM DD, YYYY")
     tags {
-      name
-    }
-    categories {
+      slug
+      count
       name
     }
   }

@@ -41,11 +41,9 @@ export const pageQuery = graphql`
     allWordpressTag {
       edges {
         node {
-          id
           slug
           count
           name
-          link
         }
       }
     }

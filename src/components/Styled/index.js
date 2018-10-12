@@ -180,13 +180,22 @@ export const PostIconsContainer = styled.div`
   font-size: 0.6rem;
 `
 
-export const Tag = styled.span`
-  margin-right: 0.7rem;
-`
-
 export const TalkTitle = styled.li`
   font-size: 0.9rem;
   ${mq.large(css`
     font-size: 1.1rem;
+  `)};
+`
+
+export const Date = styled.span`
+  font-size: 0.7rem;
+`
+
+export const TagHeader = styled.h1`
+  font-weight: 800;
+  margin: 0;
+  font-size: 1.8rem;
+  ${mq.large(css`
+    font-size: 2.8rem;
   `)};
 `

@@ -6,11 +6,7 @@ import Layout from '../layouts'
 
 const TagTemplate = ({ data, pathContext }) => (
   <Layout title="Tags">
-    <PostList
-      data={data}
-      header={`Tag: ${pathContext.name}`}
-      headerSize={{ fontSize: '3.5rem' }}
-    />
+    <PostList data={data} header={`Tag: ${pathContext.name}`} />
   </Layout>
 )
 
