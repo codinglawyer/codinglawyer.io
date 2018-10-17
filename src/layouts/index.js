@@ -43,7 +43,7 @@ const Layout = ({ title, isPost = false, isIndex = false, children }) => [
         <span role="img" aria-label="Blue heart">
           💙
         </span>{' '}
-        by David
+        by David in <span>{new Date().getFullYear()}</span>
       </Signature>
     </div>
   </Navigation>,
