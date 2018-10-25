@@ -1,5 +1,19 @@
 export default [
   {
+    id: 10,
+    eventName: 'RuhrJS',
+    eventLink: 'https://ruhrjs.de/',
+    eventDate: '13. 10. 2018',
+    eventLocation: 'Bochum, Germany',
+    title: 'Use ReasonML in your React applications',
+    type: 'talk',
+    duration: 30,
+    codeLink: 'https://github.com/codinglawyer/reason-tic-tac-toe',
+    slidesLink:
+      'https://speakerdeck.com/codinglawyer/use-reasonml-in-your-react-applications-ruhrjs-2018',
+    videoLink: 'https://www.youtube.com/watch?v=g6wHQrrqCgk',
+  },
+  {
     id: 9,
     eventName: "Free Code Camp top contributors' party",
     eventLink: 'https://www.freecodecamp.org/',
