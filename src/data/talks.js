@@ -1,5 +1,32 @@
 export default [
   {
+    id: 12,
+    eventName: 'Codemotion Milan',
+    eventLink: 'https://ruhrjs.de/',
+    eventDate: '30. 11. 2018',
+    eventLocation: 'Milan, Italy',
+    title: 'Use ReasonML in your React applications',
+    type: 'talk',
+    duration: 40,
+    codeLink: 'https://github.com/codinglawyer/reason-tic-tac-toe',
+    slidesLink:
+      'https://speakerdeck.com/codinglawyer/use-reasonml-in-your-react-applications-ruhrjs-2018',
+    videoLink: '',
+  },
+  {
+    id: 11,
+    eventName: 'ReactiveConf',
+    eventLink: 'https://reactiveconf.com/',
+    eventDate: '29. 10. 2018',
+    eventLocation: 'Prague, Czech Republic',
+    title: 'Write better React',
+    type: 'lightning talk',
+    duration: 6,
+    codeLink: '',
+    slidesLink: '',
+    videoLink: 'https://www.youtube.com/watch?v=nPJu9z4PUDo',
+  },
+  {
     id: 10,
     eventName: 'RuhrJS',
     eventLink: 'https://ruhrjs.de/',
