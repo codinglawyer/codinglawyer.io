@@ -1,4 +1,4 @@
-import profilePhoto from '../../static/assets/images/profile.png'
+import profilePhoto from '../../static/assets/images/profile.jpg'
 
 module.exports = {
   title: 'David Kopal · Coding lawyer',
