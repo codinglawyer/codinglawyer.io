@@ -2,7 +2,7 @@ export default [
   {
     id: 12,
     eventName: 'Codemotion Milan',
-    eventLink: 'https://ruhrjs.de/',
+    eventLink: 'https://milan2018.codemotionworld.com/',
     eventDate: '30. 11. 2018',
     eventLocation: 'Milan, Italy',
     title: 'Use ReasonML in your React applications',
