@@ -1,6 +1,20 @@
-# I Stopped Being a Lawyer, Became a Developer and It's Awesome
+---
+date: 2017-08-22
+
+title:  I Stopped Being a Lawyer, Became a Developer and It's Awesome
+seo_title: I Stopped Being a Lawyer, Became a Developer and It's Awesome
+slug: i-stopped-being-a-lawyer
+description:
+    How was I able to switch from a lawyer to a developer in seven months?
+tags:
+- motivation
+thumbnail:
+- /images/one-way.jpg
+---
 
 ![](./images/one-way.jpg)
+
+*Originally, I published this post more than [half  a year ago](https://ideas.ataccama.com/i-stopped-being-a-lawyer-became-a-developer-and-its-awesome-5311e8d74882?gi=af6efc52acc8). After a couple of months in my first programming job, I decided to describe my journey from a lawyer to a developer and mention the resources that helped me to achieve my programming dream. I’m sure that this post will be helpful to anyone who wants to become a developer and inspiring to those who already began their exciting journeys. Enjoy!*
 
 ## Are you satisfied with your current job?
 
@@ -25,14 +39,14 @@ In the end, I decided that five years wasn’t very long compared to the prospec
 With this in mind, I decided to look into other fields where I could learn, do work I’d enjoy, and not hate Monday mornings.
 
 
-### Wich way to go?
-I’d had positive experiences with online courses in the past, and started my search there. Initially, I came across a [course](https://www.edx.org/course/science-cooking-haute-cuisine-soft-harvardx-spu27x-0) that combined science and cooking. I love to cook and definitely enjoyed it, but still felt that cooking was more of a hobby than profession for me.
+### Which way to go?
+I’d had positive experiences with online courses in the past, and started my search there. Initially, I came across a *[course](https://www.edx.org/course/science-cooking-haute-cuisine-soft-harvardx-spu27x-0)* that combined science and cooking. I love to cook and definitely enjoyed it, but still felt that cooking was more of a hobby than profession for me.
 
 The course helped me realize that although I never studied science, I understood formulas and calculations when applied to something I enjoyed. This meant that I didn’t have to limit my future to the social sciences.
 
 I returned to online courses, and found an IT section with so much to choose from: machine learning, networking, programming, and more. Since I’d already taken a basic HTML and CSS course in primary school, I settled on web development. Web development seemed more beginner-friendly than other courses, since I could actually see the results of my work.
 
-My programming journey started with [The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp/), thanks to which I acquired solid foundations in HTML, CSS and JavaScript.
+My programming journey started with *[The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp/)*, thanks to which I acquired solid foundations in HTML, CSS and JavaScript.
 
 ![](./images/studio.jpg)
 
@@ -40,7 +54,7 @@ My programming journey started with [The Web Developer Bootcamp](https://www.ude
 
 While learning front-end foundations, I discovered another important element of coding: developing web applications from scratch. It’s relatively easy to code with guidance from an experienced programmer, but starting with empty files is a completely different matter.
 
-For that I joined the [Free Code Camp](https://www.freecodecamp.com/) (FCC), an open source community that helps you learn to code through self-paced exercises. I spent a significant amount of time on the FCC’s application development assignments.
+For that I joined the *[Free Code Camp](https://www.freecodecamp.com/)* (FCC), an open source community that helps you learn to code through self-paced exercises. I spent a significant amount of time on the FCC’s application development assignments.
 
 To become a good developer who creates fully-functioning applications, you need a solid knowledge of basic programming principles plus the ability to apply these principles in practice.
 
@@ -50,9 +64,9 @@ From then on, I developed applications from scratch using technologies learned a
 
 ## Getting advanced
 
-Although I was able to develop my own applications, they were built in [vanilla (generic) JavaScript](https://snipcart.com/blog/learn-vanilla-javascript-before-using-js-frameworks) or a basic framework (jQuery). I was still at the beginning of my programming journey, and I clearly needed to broaden my JavaScript knowledge to keep moving forward.
+Although I was able to develop my own applications, they were built in *[vanilla (generic) JavaScript](https://snipcart.com/blog/learn-vanilla-javascript-before-using-js-frameworks)* or a basic framework (jQuery). I was still at the beginning of my programming journey, and I clearly needed to broaden my JavaScript knowledge to keep moving forward.
 
-My gateway to this realm was [JavaScript: Understanding the Weird Parts](https://www.udemy.com/understand-javascript/). There, I learned what happens under the hood. The course helped me uncover advanced concepts such as prototypal inheritance, functional programming, and scope chains. I also read Kyle Simpson’s *[You Don’t Know JavaScript](https://github.com/getify/You-Dont-Know-JS)* book series. It taught me everything from closures and prototypes to asynchronicity, the backbone of JavaScript development.
+My gateway to this realm was *[JavaScript: Understanding the Weird Parts](https://www.udemy.com/understand-javascript/)*. There, I learned what happens under the hood. The course helped me uncover advanced concepts such as prototypal inheritance, functional programming, and scope chains. I also read Kyle Simpson’s *[You Don’t Know JavaScript](https://github.com/getify/You-Dont-Know-JS)* book series. It taught me everything from closures and prototypes to asynchronicity, the backbone of JavaScript development.
 
 Thanks to these resources (really, thanks so much!), I was able to understand more sophisticated technologies such as a React library.
 
@@ -60,7 +74,7 @@ Thanks to these resources (really, thanks so much!), I was able to understand mo
 
 With these advanced concepts in mind, I delved into React, a simple component library that enabled me to develop complex applications. As a bonus, I later found out that many employers require it.
 
-[Modern React with Redux](https://www.udemy.com/react-redux/) helped me understand React and taught me how to develop fully functional applications using modern syntax (ES6).Then, with the help of React and Redux official documentation, I started developing React applications on my own.
+*[Modern React with Redux](https://www.udemy.com/react-redux/)* helped me understand React and taught me how to develop fully functional applications using modern syntax (ES6).Then, with the help of React and Redux official documentation, I started developing React applications on my own.
 
 ![](./images/shoes.jpg)
 
