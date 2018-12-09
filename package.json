@@ -3,6 +3,7 @@
   "description": "personal website",
   "author": "David Kopal <kopaldvd@gmail.com>",
   "dependencies": {
+    "date-fns": "^1.29.0",
     "emotion": "^9.2.9",
     "emotion-server": "^9.2.9",
     "gatsby": "next",
@@ -17,10 +18,8 @@
     "gatsby-plugin-typography": "next",
     "gatsby-remark-images": "^2.0.4",
     "gatsby-source-filesystem": "^2.0.5",
-    "gatsby-source-wordpress": "next",
     "gatsby-transformer-remark": "^2.1.9",
     "gatsby-transformer-sharp": "next",
-    "lodash": "^4.17.10",
     "netlify-cms": "^2.1.2",
     "prop-types": "^15.6.2",
     "react": "^16.3.2",

@@ -5,15 +5,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        baseUrl: `codinglawyer.net`,
-        protocol: `https`,
-        hostingWPCOM: false,
-        useACF: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-96755667-2',
