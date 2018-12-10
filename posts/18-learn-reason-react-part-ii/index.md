@@ -3,9 +3,9 @@ date: 2018-10-15
 
 title: Learn ReasonML by building Tic Tac Toe in React (part II)
 seo_title: Learn ReasonML by building Tic Tac Toe in React (part II)
-slug: learn-reason-part-ii
+slug: learn-reason-react-part-ii
 description:
-  As we go through the source code of the Tic Tac Toe game — written in ReasonML, using React — I’ll explain the core features of the ReasonML.
+  As we go through the source code of the Tic Tac Toe game — written in ReasonML, using React — I’ll explain the core features of ReasonML.
 tags:
 - reason
 - react
@@ -17,7 +17,7 @@ thumbnail:
 
 ![](./images/post-box.jpg)
 
-*[In the first part](https://www.codinglawyer.io/posts/learn-reason-part-i)*, we initialized our Tic Tac Toe game, tackled some of Reason’s basics and defined our variant types.
+*[In the first part](https://www.codinglawyer.io/posts/learn-reason-react-part-i)*, we initialized our Tic Tac Toe game, tackled some of Reason’s basics and defined our variant types.
 
 We’ll continue where we left off—that is, in the `render` method of the `Board` component. Since we are dealing with lists there, we’ll talk about them a little bit more now, before inspecting the rest of the `render` method.
 
