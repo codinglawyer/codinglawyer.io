@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Description, LinkRed } from '../Styled'
-import { FooterImage } from './styles'
+import { FooterImage, PictureContainer, Image } from './styles'
 
 const About = ({ isFooter = false }) => (
   <div>
@@ -13,6 +13,17 @@ const About = ({ isFooter = false }) => (
         <Description>Hi, thanks for reading! I&apos;m David.</Description>
       </Fragment>
     )}{' '}
+    {!isFooter && (
+      <PictureContainer>
+        <Image
+          css={{
+            margin: '0 auto 40px auto',
+            height: '140px',
+            width: '140px',
+          }}
+        />
+      </PictureContainer>
+    )}
     <Description>I&apos;m a</Description>{' '}
     <Link to="/posts/stopped-lawyer-became-developer-awesome-2">
       <LinkRed>lawyer</LinkRed>
