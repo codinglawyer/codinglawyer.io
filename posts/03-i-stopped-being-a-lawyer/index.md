@@ -5,11 +5,11 @@ title:  I Stopped Being a Lawyer, Became a Developer and It's Awesome
 seo_title: I Stopped Being a Lawyer, Became a Developer and It's Awesome
 slug: i-stopped-being-a-lawyer
 description:
-    How was I able to switch from a lawyer to a developer in seven months?
+  Does your career fulfill you and move you in the right direction? Have you ever sat down to really think about it?I'm going to tell you how I switched from a lawyer to a developer in seven months!
 tags:
 - motivation
 thumbnail:
-- /images/one-way.jpg
+- one-way
 ---
 
 ![](./images/one-way.jpg)
@@ -54,7 +54,7 @@ My programming journey started with *[The Web Developer Bootcamp](https://www.ud
 
 While learning front-end foundations, I discovered another important element of coding: developing web applications from scratch. It’s relatively easy to code with guidance from an experienced programmer, but starting with empty files is a completely different matter.
 
-For that I joined the *[Free Code Camp](https://www.freecodecamp.com/)* (FCC), an open source community that helps you learn to code through self-paced exercises. I spent a significant amount of time on the FCC’s application development assignments.
+For that I joined the *[Free Code Camp](https://www.freecodecamp.org/)* (FCC), an open source community that helps you learn to code through self-paced exercises. I spent a significant amount of time on the FCC’s application development assignments.
 
 To become a good developer who creates fully-functioning applications, you need a solid knowledge of basic programming principles plus the ability to apply these principles in practice.
 
@@ -77,7 +77,6 @@ With these advanced concepts in mind, I delved into React, a simple component li
 *[Modern React with Redux](https://www.udemy.com/react-redux/)* helped me understand React and taught me how to develop fully functional applications using modern syntax (ES6).Then, with the help of React and Redux official documentation, I started developing React applications on my own.
 
 ![](./images/shoes.jpg)
-
 
 ## Ready? I think so.
 

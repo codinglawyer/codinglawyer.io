@@ -5,11 +5,11 @@ title: Welcome to my brand new blog
 seo_title: Welcome to my brand new blog
 slug: welcome-to-my-brand-new-blog
 description:
-  Why I created my new blog.
+  It's been exactly one year since I got the job. I feel that now it's the right time to start blogging again.
 tags:
 - motivation
 thumbnail:
-- /images/one-way.jpg
+- welcome
 ---
 
 ![](./images/welcome.jpg)

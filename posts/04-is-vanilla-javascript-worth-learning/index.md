@@ -4,11 +4,12 @@ date: 2017-09-28
 title: Is Vanilla JavaScript worth learning? Absolutely.
 seo_title: Is Vanilla JavaScript worth learning? Absolutely.
 slug: is-vanilla-javaScript-worth-learning
-description: Why every web developer should have a good knowledge of Vanilla JavaScript?
+description: 
+  I'll emphasize the importance of JavaScript fundamentals for every front-end developer. I’m going to tell you why you should have a good knowledge of Vanilla JavaScript.
 tags:
   - javascript
 thumbnail:
-  - /images/vanilla.jpg
+  - vanilla
 ---
 
 ![](./images/vanilla.jpg)
@@ -23,7 +24,7 @@ Another reason behind this post is that many aspiring web developers tend to ski
 
 So, is there any reason why you should bother learning Vanilla JavaScript?
 
-It’s hard to become a strong developer without knowledge of the core of the language itself. Just as you need to understand fundamental principles of the law before you can jump into a particular field of law. *[This comparison](https://ideas.ataccama.com/i-stopped-being-a-lawyer-became-a-developer-and-its-awesome-5311e8d74882)* is purely accidental. 😉
+It’s hard to become a strong developer without knowledge of the core of the language itself. Just as you need to understand fundamental principles of the law before you can jump into a particular field of law. *[This comparison](https://www.codinglawyer.io/posts/i-stopped-being-a-lawyer)* is purely accidental. 😉
 
 I understand that the majority of aspiring web developers want to get hired as soon as possible. I wanted this as well.
 
@@ -53,7 +54,7 @@ This should convince anyone that knowledge of a pure JavaScript is a must in the
 
 ## Personal experience
 
-Not long ago, I looked back at my *[journey](https://ideas.ataccama.com/i-stopped-being-a-lawyer-became-a-developer-and-its-awesome-5311e8d74882#.v3xurb9v5)* from a lawyer to a web developer. It has already been 18 months since I wrote my first JavaScript function, and my 10th month working as a professional front-end developer.
+Not long ago, I looked back at my *[journey](https://www.codinglawyer.io/posts/i-stopped-being-a-lawyer)* from a lawyer to a web developer. It has already been 18 months since I wrote my first JavaScript function, and my 10th month working as a professional front-end developer.
 
 I still remember how challenging it was for me to discover the right way of learning JavaScript, since I had no prior programming experience. I have tried (and am still trying) many different ways to become an effective learner. Some of them were more rewarding, some of them less.
 
@@ -63,7 +64,7 @@ At the moment, I am working with a *[React](https://facebook.github.io/react/)*-
 
 Learning React or Angular 2 won’t teach you that objects are passed by reference or how closures works. Trying to understand these concepts under the abstractions brought by the framework is much harder. This makes simple JavaScript concepts more difficult to understand.
 
-Furthermore, if you are working with *[JSX](https://facebook.github.io/react/docs/jsx-in-depth.html)* (React, Vue, Inferno) or *[TypeScript](https://www.typescriptlang.org/)* (Angular 2), you have an another layer of abstraction on top of it.
+Furthermore, if you are working with *[JSX](https://reactjs.org/docs/jsx-in-depth.html)* (React, Vue, Inferno) or *[TypeScript](https://www.typescriptlang.org/)* (Angular 2), you have an another layer of abstraction on top of it.
 
 If you want to understand how these frameworks work under the hood, you need to know how JavaScript itself works first.
 

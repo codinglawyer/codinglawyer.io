@@ -5,12 +5,12 @@ title: My first tech talk. A step outside my comfort zone that paid off!
 seo_title: My first tech talk. A step outside my comfort zone that paid off!
 slug: my-first-tech-talk
 description:
-  I want to share with you my experience from my first tech talk. I will take you through the whole process from the application submission to the speaking on the stage.
+  I want to share with you my experience from my first tech talk. I will take you through the whole process from the application submission to the speaking on a stage.
 tags:
 - motivation
 - speaking
 thumbnail:
-- /images/one-way.jpg
+- stage
 ---
 
 ![](./images/stage.jpg)
