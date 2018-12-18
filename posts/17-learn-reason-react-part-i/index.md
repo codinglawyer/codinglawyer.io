@@ -41,7 +41,7 @@ As we go through the source code of the classic Tic Tac Toe game — written in 
 
 ## Warming up
 
-Before getting your hands dirty, you need to install Reason on your machine following *[this guide](https://reasonml.github.io/docs/en/global-installation.html)*.
+Before getting your hands dirty, you need to install Reason on your machine following *[this guide](https://reasonml.github.io/docs/en/installation)*.
 
 After that, you need to setup your app. To do this, you can either clone *[my repository](https://github.com/codinglawyer/reason-tic-tac-toe)* containing the code of our app or you can setup your own project using *[ReasonScripts](https://github.com/reasonml-community/reason-scripts)* and code along.
 

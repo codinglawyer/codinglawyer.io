@@ -5,7 +5,7 @@ title: Functional or class-based higher-order components?
 seo_title: Functional or class-based higher-order components?
 slug: functional-or-class-hocs
 description:
-   We'll talk about the difference between functional higher-order components and class-based ones. Since we want to follow the principles of functional programming, we should be using functional components as much as possible.
+   We'll talk about the difference between functional higher-order components and class-based ones in React. Since we want to follow the principles of functional programming, we should be using functional components as much as possible.
 tags:
 - react
 - functional programming

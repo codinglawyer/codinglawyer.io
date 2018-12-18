@@ -5,7 +5,7 @@ title: Composition of higher-order components
 seo_title: Composition of higher-order components
 slug: composition-of-hocs
 description:
-   You will learn how to compose several higher-order components using composition. Then, you'll use this composition to enhance you presentational component.
+   You'll learn how to compose several higher-order components using composition in React. Then, you'll use this composition to enhance you presentational component.
 tags:
 - react
 - functional programming

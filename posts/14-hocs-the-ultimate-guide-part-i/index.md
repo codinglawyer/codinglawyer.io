@@ -5,7 +5,7 @@ title: Higher-order components&#58 the ultimate guide (part I)
 seo_title: Higher-order components&#58 the ultimate guide (part I)
 slug: hocs-the-ultimate-guide-part-i
 description:
-   You'll learn how to enhance your presentational components using higher-order components in your React application, and you’ll also understand the principles behind this pattern.
+   You'll learn how to enhance your presentational components using higher-order components in your React application,and you’ll also understand the principles behind this pattern.
 tags:
 - react
 - functional programming
@@ -419,7 +419,7 @@ It can be applied only in the cases where the `list` and `side` props are presen
 
 Let’s make the HoC reusable.
 
-![alt text](./images/make-components-reusable.jpg "Make all things meme")
+![alt text](./images/make-components-reusable.jpg "Make all the things meme")
 
     const withTransformProps = transformFunc => {
        const ConfiguredComponent = BaseComponent => {

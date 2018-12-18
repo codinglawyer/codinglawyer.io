@@ -5,7 +5,7 @@ title: Use Recompose for higher-order components' composition
 seo_title: Use Recompose for higher-order components' composition
 slug: use-recompose-for-hocs
 description:
-   By providing us with many reusable higher-order components, the Recompose library makes the usage of HoCs much easier, since we don't need to write all the HoCs ourselves.
+   By providing us with many reusable higher-order components, the Recompose library makes the usage of HoCs in React much easier, since we don't need to write all the HoCs ourselves.
 tags:
 - react
 - functional programming
