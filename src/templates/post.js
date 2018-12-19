@@ -1,78 +1,57 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import { rhythm } from '../utils/typography'
 import { Footer, HeaderPost, Container } from '../components/Styled'
+import PostIcons from '../components/PostIcons'
+import Layout from '../layouts'
 import ShareBar from '../components/ShareBar'
 import About from '../components/Home/About'
-import PostIcons from '../components/PostIcons'
+import { rhythm } from '../utils/typography'
 import SEO from '../components/SEO'
-import Layout from '../layouts'
 
-const PostTemplate = ({ data: { wordpressPost }, location: { href } }) => [
-  <SEO
-    key={`seo-${wordpressPost.id}`}
-    // postImage={postImage}
-    postData={wordpressPost}
-    isBlogPost
-  />,
-  <Layout key={`layout-${wordpressPost.id}`} title={wordpressPost.title} isPost>
-    <Container>
-      <HeaderPost dangerouslySetInnerHTML={{ __html: wordpressPost.title }} />
-      <PostIcons
-        marginTopNegative
-        node={wordpressPost}
-        css={{ marginBottom: rhythm(1 / 2) }}
-      />
-      <hr />
-      <ShareBar url={href} postTitle={wordpressPost.title} />
-      <div dangerouslySetInnerHTML={{ __html: wordpressPost.content }} />
-      {/* IMAGE OPTIMIZATION {wordpressPost.acf &&
-          wordpressPost.acf.page_builder_post &&
-          wordpressPost.acf.page_builder_post.map((layout, i) => {
-            if (layout.__typename === `WordPressAcf_image_gallery`) {
-              return (
-                <div key={`${i} image-gallery`}>
-                  <h2>ACF Image Gallery</h2>
-                  {layout.pictures.map(({ picture }) => {
-                    const img = picture.localFile.childImageSharp.fluid
-                    return (
-                      <Img
-                        css={{ marginBottom: rhythm(1) }}
-                        key={img.src}
-                        fluid={img}
-                      />
-                    )
-                  })}
-                </div>
-              )
-            }
-            if (layout.__typename === `WordPressAcf_post_photo`) {
-              const img = layout.photo.localFile.childImageSharp.fluid
-              return (
-                <div key={`${i}-photo`}>
-                  <h2>ACF Post Photo</h2>
-                  <Img
-                    css={{ marginBottom: rhythm(1) }}
-                    src={img.src}
-                    fluid={img}
-                  />
-                </div>
-              )
-            }
-            return null
-          })} */}
-      <ShareBar url={href} postTitle={wordpressPost.title} isFooter />
-      <Footer>
-        <About isFooter />
-      </Footer>
-    </Container>
-  </Layout>,
-]
+const PostTemplate = ({
+  data: { markdownRemark, imageSharp },
+  location: { href },
+}) => {
+  const { frontmatter, html } = markdownRemark
+  const postImage = imageSharp && imageSharp.sizes && imageSharp.sizes.src
+
+  return [
+    <SEO
+      key={`seo-${frontmatter.slug}`}
+      postImage={postImage}
+      postData={markdownRemark}
+      isBlogPost
+    />,
+    <Layout key={`layout-${frontmatter.slug}`} title={frontmatter.title} isPost>
+      <Container>
+        <HeaderPost dangerouslySetInnerHTML={{ __html: frontmatter.title }} />
+        <PostIcons
+          marginTopNegative
+          node={frontmatter}
+          css={{ marginBottom: rhythm(1 / 2) }}
+        />
+        <hr />
+        <ShareBar url={href} postTitle={frontmatter.title} />
+        <div>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </div>
+        <ShareBar url={href} postTitle={frontmatter.title} isFooter />
+        <Footer>
+          <About isFooter />
+        </Footer>
+      </Container>
+    </Layout>,
+  ]
+}
 
 PostTemplate.propTypes = {
   data: PropTypes.shape({
-    wordpressPost: PropTypes.object,
+    markdownRemark: PropTypes.object,
+    imageSharp: PropTypes.object,
+  }),
+  location: PropTypes.shape({
+    href: PropTypes.string,
   }),
 }
 
@@ -83,18 +62,23 @@ PostTemplate.defaultProps = {
 export default PostTemplate
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    wordpressPost(id: { eq: $id }) {
-      title
-      content
+  query($slug: String!, $thumbnailRegex: String!) {
+    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      html
       excerpt
-      slug
-      ...PostIcons
-    }
-    site {
-      siteMetadata {
+      frontmatter {
         title
-        subtitle
+        date
+        seo_title
+        slug
+        description
+        tags
+        thumbnail
+      }
+    }
+    imageSharp(original: { src: { regex: $thumbnailRegex } }) {
+      sizes {
+        src
       }
     }
   }

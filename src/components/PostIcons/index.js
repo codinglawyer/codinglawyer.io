@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, Link } from 'gatsby'
+import { format } from 'date-fns'
+import { Link } from 'gatsby'
 import ClockIcon from 'react-icons/lib/fa/clock-o'
 import TagIcon from 'react-icons/lib/fa/tag'
 import { PostIconsContainer, LinkRed, Date } from '../Styled'
@@ -17,15 +18,15 @@ const PostIcons = ({ node, marginTopNegative = false, className = `` }) => (
     <Date style={{ marginRight: rhythm(1) }}>
       <ClockIcon size={14} style={{ position: `relative`, bottom: 1 }} />
       {` `}
-      {node.date}
+      {format(node.date, 'MMMM DD, YYYY')}
     </Date>
     <div>
       {node.tags &&
         node.tags.map(tag => (
-          <span key={tag.name}>
+          <span key={tag}>
             <Link
-              to={`tags/${tag.slug}`}
-              key={tag.slug}
+              to={`tags/${tag}`}
+              key={tag}
               css={{
                 marginRight: `15px`,
                 fontSize: `0.7rem`,
@@ -33,7 +34,7 @@ const PostIcons = ({ node, marginTopNegative = false, className = `` }) => (
               <TagIcon size={14} style={{ position: `relative`, bottom: 1 }} />
               {` `}
               <LinkRed>
-                <span>{tag.name}</span>
+                <span>{tag}</span>
               </LinkRed>
             </Link>
           </span>
@@ -41,17 +42,6 @@ const PostIcons = ({ node, marginTopNegative = false, className = `` }) => (
     </div>
   </PostIconsContainer>
 )
-
-export const query = graphql`
-  fragment PostIcons on wordpress__POST {
-    date(formatString: "MMMM DD, YYYY")
-    tags {
-      slug
-      count
-      name
-    }
-  }
-`
 
 PostIcons.propTypes = {
   node: PropTypes.object.isRequired,
