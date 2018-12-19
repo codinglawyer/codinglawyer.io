@@ -1,76 +1,88 @@
-const _ = require(`lodash`)
-const Promise = require(`bluebird`)
 const path = require(`path`)
 const slash = require(`slash`)
 
-exports.createPages = ({ graphql, actions }) => {
+const getAllTags = allPosts =>
+  allPosts.data.allMarkdownRemark.edges.reduce(
+    (acc, val) => [
+      ...acc,
+      ...val.node.frontmatter.tags.map(tag => ({
+        name: tag,
+        count: 0,
+      })),
+    ],
+    [],
+  )
+
+const removeDuplicates = tags =>
+  tags.reduce((acc, val) => {
+    const tagExists = acc.find(tag => tag.name === val.name)
+    if (tagExists) {
+      return acc.map(
+        tag => (tag.name === val.name ? { ...tag, count: tag.count + 1 } : tag),
+      )
+    }
+    return [...acc, { name: val.name, count: 0 }]
+  }, [])
+
+exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
-  return new Promise((resolve, reject) => {
-    graphql(
-      `
-        {
-          allWordpressPost {
-            edges {
-              node {
-                id
-                slug
-                status
-                template
-                format
-              }
+
+  const postTemplate = path.resolve(`src/templates/post.js`)
+  return graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              title
+              date
+              seo_title
+              slug
+              description
+              tags
+              thumbnail
             }
           }
         }
-      `,
-    )
-      .then(result => {
-        if (result.errors) {
-          reject(result.errors)
-        }
-        const postTemplate = path.resolve(`./src/templates/post.js`)
-        _.each(result.data.allWordpressPost.edges, edge => {
-          createPage({
-            path: `posts/${edge.node.slug}`,
-            component: slash(postTemplate),
-            context: {
-              id: edge.node.id,
-            },
-          })
-        })
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      return Promise.reject(result.errors)
+    }
+
+    const allTags = removeDuplicates(getAllTags(result))
+    const posts = path.resolve(`./src/templates/posts.js`)
+    createPage({
+      path: '/posts',
+      component: slash(posts),
+      context: {
+        allTags,
+      },
+    })
+
+    const tagTemplate = path.resolve(`./src/templates/tag.js`)
+    allTags.forEach(tag => {
+      createPage({
+        path: `tags/${tag.name}`,
+        component: slash(tagTemplate),
+        context: {
+          name: tag.name,
+        },
       })
-      .then(() => {
-        graphql(
-          `
-            {
-              allWordpressTag {
-                edges {
-                  node {
-                    id
-                    slug
-                    count
-                    name
-                  }
-                }
-              }
-            }
-          `,
-        ).then(result => {
-          if (result.errors) {
-            reject(result.errors)
-          }
-          const tagTemplate = path.resolve(`./src/templates/tag.js`)
-          _.each(result.data.allWordpressTag.edges, edge => {
-            createPage({
-              path: `tags/${edge.node.slug}`,
-              component: slash(tagTemplate),
-              context: {
-                id: edge.node.id,
-                name: edge.node.name,
-              },
-            })
-          })
-          resolve()
-        })
+    })
+
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const thumbnail = node.frontmatter.thumbnail[0]
+
+      createPage({
+        path: `posts/${node.frontmatter.slug}`,
+        component: postTemplate,
+        context: {
+          slug: node.frontmatter.slug,
+          thumbnailRegex: `/${thumbnail}/`,
+        },
       })
+    })
   })
 }

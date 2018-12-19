@@ -4,11 +4,12 @@ import { graphql } from 'gatsby'
 import PostList from '../components/PostList'
 import Layout from '../layouts'
 
-const BlogIndex = ({ data }) => (
+const BlogIndex = ({ data, pageContext: { allTags } }) => (
   <Layout title="Posts">
     <PostList
       data={data}
       header="Posts"
+      allTags={allTags}
       subHeader="Written thoughts."
       withTags
     />
@@ -17,33 +18,18 @@ const BlogIndex = ({ data }) => (
 
 export const pageQuery = graphql`
   query {
-    allWordpressPage {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          id
-          title
           excerpt
-          slug
-          date(formatString: "MMMM DD, YYYY")
-        }
-      }
-    }
-    allWordpressPost(sort: { fields: [date], order: DESC }) {
-      edges {
-        node {
-          title
-          excerpt
-          slug
-          ...PostIcons
-        }
-      }
-    }
-    allWordpressTag {
-      edges {
-        node {
-          slug
-          count
-          name
+          frontmatter {
+            title
+            date
+            seo_title
+            slug
+            description
+            tags
+          }
         }
       }
     }
@@ -52,13 +38,16 @@ export const pageQuery = graphql`
 
 BlogIndex.propTypes = {
   data: PropTypes.shape({
-    allWordpressPost: PropTypes.object,
-    allWordpressTag: PropTypes.object,
+    allMarkdownRemark: PropTypes.object,
+  }),
+  pageContext: PropTypes.shape({
+    allTags: PropTypes.array,
   }),
 }
 
 BlogIndex.defaultProps = {
   data: {},
+  pageContext: { allTags: [] },
 }
 
 export default BlogIndex

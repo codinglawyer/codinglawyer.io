@@ -10,45 +10,37 @@ import {
   PostSnippet,
   Container,
   PostSnippetTitle,
+  PostSnippetDescription,
   TagHeader,
 } from '../Styled'
 import PostIcons from '../PostIcons'
 
-const PostList = ({ data, header, subHeader = '', withTags = false }) => (
+const PostList = ({
+  data,
+  header,
+  subHeader = '',
+  withTags = false,
+  allTags,
+}) => (
   <Container>
     {!withTags ? <TagHeader>{header}</TagHeader> : <Header>{header}</Header>}
     <SubHeader>{subHeader}</SubHeader>
-    {/* MARKDOWN <Box>
-          {posts
-            .filter(post => post.node.frontmatter.title.length > 0)
-            .map(({ node: post }, index) => {
-              return (
-                <Box key={post.id}>
-                  <Link to={post.fields.slug} className={linkStyles}>
-                    <Timestamp>{post.frontmatter.date}</Timestamp>
-                    <h3>{post.frontmatter.title}</h3>
-                    <p>{post.excerpt}</p>
-                  </Link>
-                </Box>
-              );
-            })}
-        </Box> */}
     <Break />
     <Tags>
       {withTags && (
         <Fragment>
-          {data.allWordpressTag.edges.map(({ node }) => (
+          {allTags.map(tag => (
             <Link
-              to={`tags/${node.slug}`}
-              key={node.slug}
+              to={`tags/${tag.name}`}
+              key={tag.name}
               css={{
                 marginRight: `15px`,
                 fontSize: `0.7rem`,
               }}>
               <LinkRed>
-                <span>{node.name}</span>
+                <span>{tag.name}</span>
                 <span>
-                  {` (${node.count})
+                  {` (${tag.count})
                   `}
                 </span>
               </LinkRed>
@@ -57,16 +49,18 @@ const PostList = ({ data, header, subHeader = '', withTags = false }) => (
         </Fragment>
       )}
     </Tags>
-    {data.allWordpressPost &&
-      data.allWordpressPost.edges.map(({ node }) => (
-        <PostSnippet key={node.slug}>
-          <Link to={`posts/${node.slug}`}>
+    {data.allMarkdownRemark &&
+      data.allMarkdownRemark.edges.map(({ node }) => (
+        <PostSnippet key={node.frontmatter.slug}>
+          <Link to={`posts/${node.frontmatter.slug}`}>
             <PostSnippetTitle
-              dangerouslySetInnerHTML={{ __html: node.title }}
+              dangerouslySetInnerHTML={{ __html: node.frontmatter.title }}
             />
           </Link>
-          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-          <PostIcons node={node} concise marginTopNegative />
+          <PostSnippetDescription
+            dangerouslySetInnerHTML={{ __html: node.excerpt }}
+          />
+          <PostIcons node={node.frontmatter} marginTopNegative />
         </PostSnippet>
       ))}
   </Container>
@@ -74,12 +68,12 @@ const PostList = ({ data, header, subHeader = '', withTags = false }) => (
 
 PostList.propTypes = {
   data: PropTypes.shape({
-    allWordpressPost: PropTypes.object,
-    allWordpressTag: PropTypes.object,
+    allMarkdownRemark: PropTypes.object,
   }),
   header: PropTypes.string,
   subHeader: PropTypes.string,
   withTags: PropTypes.bool,
+  allTags: PropTypes.array,
 }
 
 PostList.defaultProps = {
@@ -87,6 +81,7 @@ PostList.defaultProps = {
   header: '',
   subHeader: '',
   withTags: false,
+  allTags: [],
 }
 
 export default PostList

@@ -1,4 +1,4 @@
-import profilePhoto from '../../static/assets/images/profile.jpg'
+import profilePhoto from '../images/david-kopal.jpg'
 
 module.exports = {
   title: 'David Kopal · Coding lawyer',
@@ -6,4 +6,5 @@ module.exports = {
   url: 'https://codinglawyer.io',
   image: profilePhoto,
   twitter: '@coding_lawyer',
+  fbAppID: '',
 }
