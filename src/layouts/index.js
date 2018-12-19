@@ -25,10 +25,6 @@ const Layout = ({ title, isPost = false, isIndex = false, children }) => [
     defaultTitle="David Kopal">
     <meta charSet="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <meta
-      name="description"
-      content="Coding Lawyer's (David Kopal) homepage with a blog about programming focusing primarily on JavaScript and ReasonML"
-    />
     <title>{title}</title>
   </Helmet>,
   <Navigation key="app-main" isIndex={isIndex}>

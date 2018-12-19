@@ -12,7 +12,7 @@ const TagTemplate = ({ data, pathContext }) => (
 
 TagTemplate.propTypes = {
   data: PropTypes.shape({
-    wordpressPost: PropTypes.object,
+    allMarkdownRemark: PropTypes.object,
   }),
   pathContext: PropTypes.shape({
     id: PropTypes.string,
@@ -29,16 +29,18 @@ export default TagTemplate
 
 export const pageQuery = graphql`
   query($name: String!) {
-    allWordpressPost(filter: { tags: { name: { eq: $name } } }) {
+    allMarkdownRemark(filter: { frontmatter: { tags: { eq: $name } } }) {
       edges {
         node {
-          title
           excerpt
-          slug
-          tags {
-            name
+          frontmatter {
+            title
+            date
+            seo_title
+            slug
+            description
+            tags
           }
-          ...PostIcons
         }
       }
     }
