@@ -21,7 +21,7 @@ const removeDuplicates = tags =>
         tag => (tag.name === val.name ? { ...tag, count: tag.count + 1 } : tag),
       )
     }
-    return [...acc, { name: val.name, count: 0 }]
+    return [...acc, { name: val.name, count: 1 }]
   }, [])
 
 exports.createPages = ({ actions, graphql }) => {
