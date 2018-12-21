@@ -10,7 +10,7 @@ const AboutConcise = () => (
         👔
       </span>{' '}
       former{' '}
-      <Link to="/posts/stopped-lawyer-became-developer-awesome-2">
+      <Link to="/posts/i-stopped-being-a-lawyer">
         <LinkRed>lawyer</LinkRed>
       </Link>
     </Item>

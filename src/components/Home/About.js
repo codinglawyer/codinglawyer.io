@@ -25,12 +25,12 @@ const About = ({ isFooter = false }) => (
       </PictureContainer>
     )}
     <Description>I&apos;m a</Description>{' '}
-    <Link to="/posts/stopped-lawyer-became-developer-awesome-2">
+    <Link to="/posts/i-stopped-being-a-lawyer">
       <LinkRed>lawyer</LinkRed>
       <span role="img" aria-labelledby="book" />
     </Link>{' '}
     <Description>
-      turned software engineer living in Czech Republic.
+      turned software engineer living in the Czech Republic.
     </Description>{' '}
     <Description>
       I&apos;m passionate about sharing my experiences with the community via my

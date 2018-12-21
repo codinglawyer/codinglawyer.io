@@ -38,11 +38,13 @@ const PostList = ({
                 fontSize: `0.7rem`,
               }}>
               <LinkRed>
-                <span>{tag.name}</span>
-                <span>
-                  {` (${tag.count})
-                  `}
+                <span
+                  css={{
+                    whiteSpace: `nowrap`,
+                  }}>
+                  {`${tag.name} (${tag.count})`}
                 </span>
+                <span />
               </LinkRed>
             </Link>
           ))}
