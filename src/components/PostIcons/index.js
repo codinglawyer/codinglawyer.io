@@ -22,12 +22,24 @@ const PostIcons = ({
     }
     className={className}>
     <Date style={{ marginRight: rhythm(1) }}>
-      <CalendarIcon size={14} style={{ position: `relative`, bottom: 1 }} />
+      <CalendarIcon
+        size={14}
+        style={{
+          position: `relative`,
+          bottom: 1,
+          marginRight: `3px`,
+        }}
+      />
       {` `}
       {format(node.date, 'MMMM DD, YYYY')}
       <ClockIcon
         size={14}
-        style={{ position: `relative`, bottom: 1, marginLeft: `20px` }}
+        style={{
+          position: `relative`,
+          bottom: 1,
+          marginLeft: `20px`,
+          marginRight: `3px`,
+        }}
       />
       <span>{readingTime}</span>
     </Date>
