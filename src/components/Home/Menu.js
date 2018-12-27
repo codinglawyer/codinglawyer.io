@@ -58,11 +58,11 @@ const Menu = () => (
             <LinkRed>LinkedIn</LinkRed>
           </a>
         </Li>
-        <Li>
+        {/* <Li>
           <a href="/rss.xml" target="_blank" rel="noopener noreferrer">
             <LinkRed>RSS feed</LinkRed>
           </a>
-        </Li>
+        </Li> */}
       </Ol>
     </div>
   </div>
