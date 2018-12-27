@@ -29,7 +29,7 @@ const PostTemplate = ({
         <PostIcons
           marginTopNegative
           node={frontmatter}
-          readingTime={fields.readingTime.text}
+          readingTime={fields && fields.readingTime.text}
           css={{ marginBottom: rhythm(1 / 2) }}
         />
         <hr />

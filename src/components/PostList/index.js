@@ -64,7 +64,7 @@ const PostList = ({
           />
           <PostIcons
             node={node.frontmatter}
-            readingTime={node.fields.readingTime.text}
+            readingTime={node.fields && node.fields.readingTime.text}
             marginTopNegative
           />
         </PostSnippet>
