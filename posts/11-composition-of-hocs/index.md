@@ -23,35 +23,39 @@ To make it reusable again, we need to move the logic back to the `withTransformP
 
 We’ve already talked about the composition principle in of the *[previous posts](https://www.codinglawyer.io/posts/taste-the-principles-of-fp-in-react)*. It enables us to combine several functions into a new compound function. Here’s a quick reminder:
 
-    const number = 15
-    const increment = num => num + 5
-    const decrement = num => num - 3
-    const multiply = num => num * 2
-    
-    const operation = increment(decrement(multiply(number)))
-    console.log(operation)  //32
+```js
+const number = 15
+const increment = num => num + 5
+const decrement = num => num - 3
+const multiply = num => num * 2
+
+const operation = increment(decrement(multiply(number)))
+console.log(operation)  //32
+```
 
 We have a number and three functions. We wrap them all inside each other, and we get a compound function to which we pass the number.
 
 This works fine. However, the readability might get worse, if we wanted to compose even more functions. Fortunately, we can define a functional programming `compose` function to help us out. Keep in mind that it composes functions from right to left.
 
-    const compose = (...funcs) => value =>
-       funcs.reduceRight((acc, func) => func(acc)
-          , value)
-    
-    const number = 15
-    const increment = num => num + 5
-    const decrement = num => num - 3
-    const multiply = num => num * 2
-    
-    const funcComposition = compose(
-       increment,
-       decrement,
-       multiply
-    )
-    
-    const result = funcComposition(number)
-    console.log(result)  //32
+```js
+const compose = (...funcs) => value =>
+   funcs.reduceRight((acc, func) => func(acc)
+      , value)
+
+const number = 15
+const increment = num => num + 5
+const decrement = num => num - 3
+const multiply = num => num * 2
+
+const funcComposition = compose(
+   increment,
+   decrement,
+   multiply
+)
+
+const result = funcComposition(number)
+console.log(result)  //32
+```
 
 We no longer need to explicitly wrap the functions inside each other. Instead, we pass them all as the arguments to the `compose` function. When we do that, we get back a new compound function waiting for the `value` argument to be passed. We store it as a `funcComposition`.
 
@@ -63,61 +67,63 @@ Let’s take a look at how we could `compose` several HoCs. We’ve already lear
 
 First, let’s take a look at the HoC composition without a `compose` helper since it’s easier to understand what’s going on.
 
-    const withTransformProps = mapperFunc =>
-       BaseComponent => baseProps => {
-          const transformedProps = mapperFunc(baseProps)
-          return <BaseComponent {...transformedProps} />
-       }
-    
-    const withSimpleState = defaultState => BaseComponent => {
-       return class WithSimpleState extends React.Component {
-          constructor(props) {
-             super(props)
-             this.state = { value: defaultState }
-             this.updateState = this.updateState.bind(this)
-          }
-          updateState(value) {
-             this.setState({ value })
-          }
-          render() {
-             return (
-                <BaseComponent
-                   {...this.props}
-                   stateValue={this.state.value}
-                   stateHandler={this.updateState}
-                />
-             )
-          }
-       }
-    }
-    
-    const renderDisplayList = ({ list, stateHandler, otherSide }) => (
-       <div>
-          <button onClick={() => stateHandler(otherSide)}>Switch</button>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    )
-    
-    const FilteredList = withTransformProps(({ list, stateValue, stateHandler }) => {
-       const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-       return {
-          stateHandler,
-          otherSide,
-          list: list.filter(char => char.side === stateValue),
-       }
-    })(renderDisplayList)
-    
-    const ToggleableFilteredList = withSimpleState('dark')(FilteredList)
-    
-    ReactDOM.render (
-       <ToggleableFilteredList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+```js
+const withTransformProps = mapperFunc =>
+   BaseComponent => baseProps => {
+      const transformedProps = mapperFunc(baseProps)
+      return <BaseComponent {...transformedProps} />
+   }
+
+const withSimpleState = defaultState => BaseComponent => {
+   return class WithSimpleState extends React.Component {
+      constructor(props) {
+         super(props)
+         this.state = { value: defaultState }
+         this.updateState = this.updateState.bind(this)
+      }
+      updateState(value) {
+         this.setState({ value })
+      }
+      render() {
+         return (
+            <BaseComponent
+               {...this.props}
+               stateValue={this.state.value}
+               stateHandler={this.updateState}
+            />
+         )
+      }
+   }
+}
+
+const renderDisplayList = ({ list, stateHandler, otherSide }) => (
+   <div>
+      <button onClick={() => stateHandler(otherSide)}>Switch</button>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+)
+
+const FilteredList = withTransformProps(({ list, stateValue, stateHandler }) => {
+   const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+   return {
+      stateHandler,
+      otherSide,
+      list: list.filter(char => char.side === stateValue),
+   }
+})(renderDisplayList)
+
+const ToggleableFilteredList = withSimpleState('dark')(FilteredList)
+
+ReactDOM.render (
+   <ToggleableFilteredList list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 Nothing new here. We've seen all this code before. The new thing is that we are composing two HoCs — `withSimpleState` which provides us with the state utilities and `withTransformProps` which gives us the props transformation functionality.
 
@@ -148,16 +154,18 @@ As you’ve just seen, the **props are the only language that HoCs use to talk t
 
 Although our HoC composition works, the syntax itself is pretty verbose. We can make it simpler by getting rid of the `ToggleableFilteredList` variable and just wrap the HoCs inside each other.
 
-    const FilteredList = withSimpleState('dark')(
-       withTransformProps(({ list, stateValue, stateHandler }) => {
-          const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-          return {
-             stateHandler,
-             otherSide,
-             list: list.filter(char => char.side === stateValue),
-          }
-       })(renderDisplayList)
-    )
+```js
+const FilteredList = withSimpleState('dark')(
+   withTransformProps(({ list, stateValue, stateHandler }) => {
+      const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+      return {
+         stateHandler,
+         otherSide,
+         list: list.filter(char => char.side === stateValue),
+      }
+   })(renderDisplayList)
+)
+```
 
 This code is a little bit better. However, we are still manually wrapping all the components. Imagine that you wanted to add even more HoCs to this composition. In such a case, our composition will become difficult to read and understand. Just imagine all those parentheses!
 
@@ -165,23 +173,25 @@ This code is a little bit better. However, we are still manually wrapping all th
 
 Since this this post series is about FP principles, let’s use the `compose` helper.
 
-    const compose = (...hocs) => BaseComponent =>
-       hocs.reduceRight((acc, hoc) => hoc(acc)
-          , BaseComponent)
-    
-    const enhance = compose(
-       withSimpleState('dark'),
-       withTransformProps(({ list, stateValue, stateHandler }) => {
-          const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-          return {
-             stateHandler,
-             otherSide,
-             list: list.filter(char => char.side === stateValue),
-          }
-       })
-    )
-    
-    const FilteredList = enhance(renderDisplayList)
+```js
+const compose = (...hocs) => BaseComponent =>
+   hocs.reduceRight((acc, hoc) => hoc(acc)
+      , BaseComponent)
+
+const enhance = compose(
+   withSimpleState('dark'),
+   withTransformProps(({ list, stateValue, stateHandler }) => {
+      const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+      return {
+         stateHandler,
+         otherSide,
+         list: list.filter(char => char.side === stateValue),
+      }
+   })
+)
+
+const FilteredList = enhance(renderDisplayList)
+```
 
 We no longer need to explicitly wrap the HoCs inside each other. Instead, we pass them all as the arguments to the `compose` function. When we do that, we get back a new compound function waiting for the `BaseComponent` argument to be passed. We store this function as `enhance`. Then, we just pass the `renderDisplayList` as the base component to it, and `compose` will do all the component wrapping for us.
 

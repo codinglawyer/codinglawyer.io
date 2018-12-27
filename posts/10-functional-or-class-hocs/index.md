@@ -25,11 +25,13 @@ Since we want to follow the principles of FP, we should be using **functional co
 
 A functional HoC just wraps the base component, injects it with new props along with the original ones, and returns a new component. It doesn’t change the original component by modifying its prototype as the classes do. We saw such a HoC in *[the previous post](https://www.codinglawyer.io/posts/make-components-reusable)*. Here’s a quick reminder:
 
-    const withTransformProps = mapperFunc =>
-       BaseComponent => baseProps => {
-          const transformedProps = mapperFunc(baseProps)
-          return <BaseComponent {...transformedProps} />
-       }
+```js
+const withTransformProps = mapperFunc =>
+   BaseComponent => baseProps => {
+      const transformedProps = mapperFunc(baseProps)
+      return <BaseComponent {...transformedProps} />
+   }
+```
 
 This HoC doesn’t have any side effects. It doesn’t mutate anything. It’s a pure function.
 
@@ -39,50 +41,52 @@ When creating an HoC, we should define it as a functional component if possible.
 
 However, sooner or later, you’ll need to access the internal state or lifecycle methods in your component. You can’t achieve this without classes since this behavior is inherited from the *[React.Component](https://reactjs.org/docs/react-component.html)*, which can’t be accessed within the functional component. So, let’s define a class-based HoC.
 
-    const withSimpleState = defaultState => BaseComponent => {
-       return class WithSimpleState extends React.Component {
-          constructor(props) {
-             super(props)
-             this.state = { value: defaultState }
-             this.updateState = this.updateState.bind(this)
-          }
-          updateState(value) {
-             this.setState({ value })
-          }
-          render() {
-             return (
-                <BaseComponent
-                   {...this.props}
-                   stateValue={this.state.value}
-                   stateHandler={this.updateState}
-                />
-             )
-          }
-       }
-    }
+```js
+const withSimpleState = defaultState => BaseComponent => {
+   return class WithSimpleState extends React.Component {
+      constructor(props) {
+         super(props)
+         this.state = { value: defaultState }
+         this.updateState = this.updateState.bind(this)
+      }
+      updateState(value) {
+         this.setState({ value })
+      }
+      render() {
+         return (
+            <BaseComponent
+               {...this.props}
+               stateValue={this.state.value}
+               stateHandler={this.updateState}
+            />
+         )
+      }
+   }
+}
 
-    const renderDisplayList = ({ list, stateValue, stateHandler })=> {
-       const filteredList = list.filter(char => char.side === stateValue)
-       const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-       return (
-          <div>
-             <button onClick={() => stateHandler(otherSide)}>Switch</button>
-             {filteredList.map(char =>
-                <div key={char.name}>
-                   <div>Character: {char.name}</div>
-                   <div>Side: {char.side}</div>
-                </div>
-             )}
-          </div>
-       )
-    }
+const renderDisplayList = ({ list, stateValue, stateHandler })=> {
+   const filteredList = list.filter(char => char.side === stateValue)
+   const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+   return (
+      <div>
+         <button onClick={() => stateHandler(otherSide)}>Switch</button>
+         {filteredList.map(char =>
+            <div key={char.name}>
+               <div>Character: {char.name}</div>
+               <div>Side: {char.side}</div>
+            </div>
+         )}
+      </div>
+   )
+}
 
-    const FilteredList = withSimpleState('dark')(renderDisplayList)
+const FilteredList = withSimpleState('dark')(renderDisplayList)
 
-    ReactDOM.render (
-       <FilteredList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 Our new class-based HoC `withSimpleState` expects a configuration parameter `defaultState` which is pretty self-explanatory. It also maintains a state named `value` and defines an event handler `updateState` that can set the value of the state. Finally, it passes the state utilities along with the original props to the base component.
 

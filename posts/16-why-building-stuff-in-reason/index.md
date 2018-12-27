@@ -22,8 +22,10 @@ One of Reason’s powerful features is *[BuckleScript compiler](https://bucklesc
 
 The similarity with JavaScript is so close that some of Reason’s code doesn’t need to be changed by the compiler at all. So, you can enjoy the benefits of the statically typed language with no change to the code whatsoever.
 
-    let add = (a, b) => a + b;
-    add(6, 9);
+```js
+let add = (a, b) => a + b;
+add(6, 9);
+```
 
 This is valid code in both Reason and JavaScript.
 
@@ -79,10 +81,12 @@ Compared to these libraries, Reason’s type system requires less effort to main
 
 Having a type system doesn’t mean you need to explicitly define types for all your values. If you don’t want to write types manually, the compiler will figure out (infer) them for you. For example, if you’re using a value as an `integer`, the compiler will set the type to the `integer` automatically.
 
-    let plus = (a, b) => a + b
+```js
+let plus = (a, b) => a + b
 
-    /* type inference by compiler */
-    (int, int) => int
+/* type inference by compiler */
+(int, int) => int
+```
 
 This enables you to write your code faster without losing benefits of static typing.
 

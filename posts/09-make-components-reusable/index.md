@@ -21,36 +21,40 @@ Making components reusable means to **decouple them from the data**. This means 
 
 By using the HoC pattern in *[one of the previous posts](https://www.codinglawyer.io/posts/introducing-higher-order-components)*, we moved all the logic to the HoC, and just let the base component render the UI.
 
-    const withFilterProps = BaseComponent => ({ list, side }) => {
-       const transformedProps = list.filter(char => char.side === side)
-       return <BaseComponent list={transformedProps} />
-    }
-    
-    const renderDisplayList = ({ list }) =>
-       <div>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    
-    const FilteredList = withFilterProps(renderDisplayList)
-    
-    ReactDOM.render (
-       <FilteredList side='dark' list={starWarsChars} />,
-       document.getElementById('app')
-    )
+```js
+const withFilterProps = BaseComponent => ({ list, side }) => {
+   const transformedProps = list.filter(char => char.side === side)
+   return <BaseComponent list={transformedProps} />
+}
+
+const renderDisplayList = ({ list }) =>
+   <div>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+
+const FilteredList = withFilterProps(renderDisplayList)
+
+ReactDOM.render (
+   <FilteredList side='dark' list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 As a result, our **presentational component became reusable** since it just receives data as props and renders it to the screen.
 
 But it would be pretty difficult to reuse our HoC as well since it's too specific.
 
-    const withFilterProps = BaseComponent => ({ list, side }) => {
-       const transformedProps = list.filter(char => char.side === side)
-       return <BaseComponent list={transformedProps} />
-    }
+```js
+const withFilterProps = BaseComponent => ({ list, side }) => {
+   const transformedProps = list.filter(char => char.side === side)
+   return <BaseComponent list={transformedProps} />
+}
+```
 
 It can be applied only in the cases where the `list` and `side` props are present. You don’t want this kind of specificity in your application since you want reusable HoCs that can be used in various scenarios.
 
@@ -58,40 +62,42 @@ Let’s make the HoC reusable.
 
 ![alt text](./images/make-components-reusable.jpg "Make all the things meme")
 
-    const withTransformProps = transformFunc => {
-       const ConfiguredComponent = BaseComponent => {
-          return baseProps => {
-             const transformedProps = transformFunc(baseProps)
-             return <BaseComponent {...transformedProps} />
-          }
-       }
-       return ConfiguredComponent
-    }
-    
-    const renderDisplayList = ({ list }) =>
-       <div>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    
-    const FilteredList = withTransformProps(
-       ({ list, side }) => ({
-          list: list.filter(FilteredListchar =>
-             char.side === side)
-       })
-    )(renderDisplayList)
-    
-    ReactDOM.render (
-       <FilteredList
-          side='dark'
-          list={starWarsChars}
-       />,
-       document.getElementById('app')
-    )
+```js
+const withTransformProps = transformFunc => {
+   const ConfiguredComponent = BaseComponent => {
+      return baseProps => {
+         const transformedProps = transformFunc(baseProps)
+         return <BaseComponent {...transformedProps} />
+      }
+   }
+   return ConfiguredComponent
+}
+
+const renderDisplayList = ({ list }) =>
+   <div>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+
+const FilteredList = withTransformProps(
+   ({ list, side }) => ({
+      list: list.filter(FilteredListchar =>
+         char.side === side)
+   })
+)(renderDisplayList)
+
+ReactDOM.render (
+   <FilteredList
+      side='dark'
+      list={starWarsChars}
+   />,
+   document.getElementById('app')
+)
+```
 
 This code still does the same thing as the previous HoC example. We filter the props using the HoC component and then pass them to the base component. However, the old name would be misleading, since the HoC is no longer limited only to the filtering logic, so we renamed it `withTransformProps`.
 
@@ -103,11 +109,13 @@ The props get passed when we render the `FilteredList` component. Then, the tran
 
 However, our HoC syntax is pretty verbose. We don’t need to store the specialized HoC as the `ConfiguredComponent` inside a variable.
 
-    const withTransformProps = mapperFunc =>
-       BaseComponent => baseProps => {
-          const transformedProps = mapperFunc(baseProps)
-          return <BaseComponent {...transformedProps} />
-       }
+```js
+const withTransformProps = mapperFunc =>
+   BaseComponent => baseProps => {
+      const transformedProps = mapperFunc(baseProps)
+      return <BaseComponent {...transformedProps} />
+   }
+```
 
 This solution is much cleaner.
 
@@ -115,7 +123,9 @@ The idea behind this approach is to **have a reusable HoC that can be configured
 
 In our example, we passed a custom filtering function that could be different for every use case. And if we later decide that we want to change some of the HoC’s behavior, we just need to change it in a single reusable component and not in many different places of our application.
 
-    const HoC => config => BaseComponent => EnhancedComponent
+```js
+const HoC => config => BaseComponent => EnhancedComponent
+```
 
 The HoC and the base component are both **reusable** and **independent** of each other. The HoC doesn’t know where its data goes and the presentational component has no idea where its data is coming from.
 

@@ -59,17 +59,19 @@ Our app has a classic component structure, like any other React app. We’ll go 
 
 Let’s get started by taking a look at the top level `App` component.
 
-    let component = ReasonReact.statelessComponent("App");
-    let make = _children => {
-      ...component,
-      render: _self =>
-        <div>
-           <div className="title">
-             (ReasonReact.string("Tic Tac Toe"))
-           </div>
-           <Game />
-        </div>,
-    };
+```js
+let component = ReasonReact.statelessComponent("App");
+let make = _children => {
+  ...component,
+  render: _self =>
+    <div>
+        <div className="title">
+          (ReasonReact.string("Tic Tac Toe"))
+        </div>
+        <Game />
+    </div>,
+};
+```
 
 The component gets created when you call `ReasonReact.statelessComponent` and pass the name of the component to it. You don’t need any class keywords like in React, since Reason doesn’t have any whatsoever.
 
@@ -89,7 +91,9 @@ Instead, you need to pass such string into a `ReasonReact.string` helper functio
 
 Since this is a little bit verbose, and we’ll use this helper quite often, let’s store it in a `toString` variable. In Reason, you can use only the `let` keyword to do that.
 
-    let toString = ReasonReact.string;
+```js
+let toString = ReasonReact.string;
+```
 
 Before moving any further, let’s talk a bit about the `make` function’s arguments. Since we are not passing any props to the `App` component, it takes only the default `children` argument.
 
@@ -113,13 +117,15 @@ If you’ve had any experience with *[TypeScript](https://www.typescriptlang.org
 
 In Reason, we can distinguish between *[types](https://reasonml.github.io/docs/en/type.html)* and *[variant types](https://reasonml.github.io/docs/en/variant.html)* (in short variants). Types are for example `bool`, `string`, and `int`. On the other hand, variants are more complex. Think of them as of enumerable sets of values—or more precisely, constructors. Variants can be processed via pattern matching, as we’ll see later.
 
-    type player =
-      | Cross
-      | Circle;
+```js
+type player =
+  | Cross
+  | Circle;
 
-    type field =
-      | Empty
-      | Marked(player);
+type field =
+  | Empty
+  | Marked(player);
+```
 
 Here we define `player` and `field` **variants**. When defining a variant, you need to use a `type` keyword.
 
@@ -131,34 +137,42 @@ If you take a look at the `Marked` constructor, you can see that we are using it
 
 So, we’ve got the `field` variant. However, we need to define the whole playing board which consists of rows of fields.
 
-    type row = list(field);
-    type board = list(row);
+```js
+type row = list(field);
+type board = list(row);
+```
 
 Each `row` is a list of `field`s and the playing `board` is composed of a list of `row`s.
 
 The `list` is one of Reason’s data structures—similar to the JavaScript array. The difference is, it’s immutable. Reason also has an `array` as a mutable fixed-length list. We’ll come back to these structures later.
 
-    type gameState = 
-      | Playing(player)
-      | Winner(player)
-      | Draw;
+```js
+type gameState = 
+  | Playing(player)
+  | Winner(player)
+  | Draw;
+```
 
 Another variant we need to define is a `gameState`. The game can have three possible states. One of the `player`s can be `Playing`, be a `Winner`, or we can have a `Draw`.
 
 Now, we have all the types we need to compose the state of our game.
 
-    type state = {
-      board,
-      gameState,
-    };
+```js
+type state = {
+  board,
+  gameState,
+};
+```
 
 Our component’s state is a `record` composed of the `board` and the `gameState`.
 
 Before moving any further, I’d like to talk about modules. In Reason, files are modules. For example, we stored all our variants inside `SharedTypes.re` file. This code gets automatically wrapped inside the module like this:
 
-    module SharedTypes {
-      /* variant types code */
-    }
+```js
+module SharedTypes {
+  /* variant types code */
+}
+```
 
 If we wanted to access this module in a different file, we don’t need any `import` keyword. We can easily access our modules anywhere in our app using the dot notation — for example `SharedTypes.gameState`.
 
@@ -176,27 +190,31 @@ The `App` was a stateless component, similar to the functional component in Reac
 
 To see what’s going on in the `Game` component, let’s inspect the `make` function (the code is shortened).
 
-    let component = ReasonReact.reducerComponent("Game");
+```js
+let component = ReasonReact.reducerComponent("Game");
 
-    let make = _children => {
-      ...component,
-      initialState: () => initialState,
-      reducer: (action: action, state: state) => ...,
-      render: ({state, send}) => ...,
-    };
+let make = _children => {
+  ...component,
+  initialState: () => initialState,
+  reducer: (action: action, state: state) => ...,
+  render: ({state, send}) => ...,
+};
+```
 
 In the `App` component, we’ve overridden only the `render` method. Here, we are overriding `reducer` and `initialState` properties as well. We’ll talk about reducers later.
 
 `initialState` is a function that (surprisingly) returns the initial state which we stored in a variable.
 
-    let initialState = {
-      board: [
-        [Empty, Empty, Empty],
-        [Empty, Empty, Empty],
-        [Empty, Empty, Empty],
-      ],
-      gameState: Playing(Cross),
-    };
+```js
+let initialState = {
+  board: [
+    [Empty, Empty, Empty],
+    [Empty, Empty, Empty],
+    [Empty, Empty, Empty],
+  ],
+  gameState: Playing(Cross),
+};
+```
 
 If you scroll up a little bit and check our `state` type, you’ll see that the `initialState` has the same structure. It’s composed of the `board` that consists of `row`s of `field`s. At the beginning of the game all fields are `Empty`.
 
@@ -206,14 +224,16 @@ However, their status may change as the game goes on. Another part of the state 
 
 Let’s take a look at the `render` method of our `Game` component.
 
-    render: ({state, send}) =>
-        <div className="game">
-          <Board
-            state
-            onRestart=(_evt => send(Restart))
-            onMark=(id => send(ClickSquare(id)))
-          />
-        </div>,
+```js
+render: ({state, send}) =>
+    <div className="game">
+      <Board
+        state
+        onRestart=(_evt => send(Restart))
+        onMark=(id => send(ClickSquare(id)))
+      />
+    </div>,
+```
 
 We already knew that it receives the `self` argument. Here, we use destructuring to access the `state` and the `send` function. This works just like in JavaScript.
 
@@ -223,15 +243,17 @@ You might’ve noticed that we aren’t writing `state=state` when passing the `
 
 Now, we can take a look at the `Board` component. I’ve omitted most of the `render` method for the time being.
 
-    let component = ReasonReact.statelessComponent("Board");
+```js
+let component = ReasonReact.statelessComponent("Board");
 
-    let make = (~state: state, ~onMark, ~onRestart, _children) => {
-      ...component,
-      render: _ =>
-        <div className="game-board">
-          /* ... */
-        </div>,
-    };
+let make = (~state: state, ~onMark, ~onRestart, _children) => {
+  ...component,
+  render: _ =>
+    <div className="game-board">
+      /* ... */
+    </div>,
+};
+```
 
 The `Board` is a stateless component. As you might’ve noticed, the `make` function now takes several arguments. These are the props we’ve passed from the `Game` parent component.
 

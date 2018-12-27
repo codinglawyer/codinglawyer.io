@@ -16,7 +16,6 @@ thumbnail:
 
 ![alt text](./images/bus-sign.jpg "Bus sign")
 
-
 The maintainable component structure is a crucial prerequisite for a stable React application. You can achieve this by writing your code in a functional way using higher-order components (HoCs). If you stick to this pattern, you’ll end up with reusable components that are both readable and easy to test as each component is only responsible for a single task.
 
 In this article I’d love to share my experience, so you can easily utilize this approach in your own applications. Not only will you learn how to enhance your presentational components using one or several HoCs, but you’ll also understand the principles behind this pattern.
@@ -33,42 +32,44 @@ This article is also based on *[my first tech conference talk](https://www.codin
 
 Let’s get started by looking at some code:
 
-    const starWarsChars = [
-       { name:'Luke', side:'light' },
-       { name:'Darth Vader', side:'dark' },
-       { name:'Obi-wan Kenobi', side:'light'},
-       { name:'Palpatine', side:'dark'},
-    ]
+```js
+const starWarsChars = [
+   { name:'Luke', side:'light' },
+   { name:'Darth Vader', side:'dark' },
+   { name:'Obi-wan Kenobi', side:'light'},
+   { name:'Palpatine', side:'dark'},
+]
 
-    class FilteredList extends React.Component {
-       constructor(props) {
-          super(props)
-          this.state = { value: this.props.defaultState }
-       }
-       updateState(value) {
-          this.setState({ value })
-       }
-       render() {
-          const otherSide = this.state.value === 'dark' ? 'light' : 'dark'
-          const transformedProps = this.props.list.filter(char => char.side === this.state.value)
-          return (
-             <div>
-                <button onClick={() => this.updateState(otherSide)}>Switch</button>
-                {transformedProps.map(char =>
-                   <div key={char.name}>
-                      <div>Character: {char.name}</div>
-                      <div>Side: {char.side}</div>
-                   </div>
-                )}
-             </div>
-          )
-       }
-    }
+class FilteredList extends React.Component {
+   constructor(props) {
+      super(props)
+      this.state = { value: this.props.defaultState }
+   }
+   updateState(value) {
+      this.setState({ value })
+   }
+   render() {
+      const otherSide = this.state.value === 'dark' ? 'light' : 'dark'
+      const transformedProps = this.props.list.filter(char => char.side === this.state.value)
+      return (
+         <div>
+            <button onClick={() => this.updateState(otherSide)}>Switch</button>
+            {transformedProps.map(char =>
+               <div key={char.name}>
+                  <div>Character: {char.name}</div>
+                  <div>Side: {char.side}</div>
+               </div>
+            )}
+         </div>
+      )
+   }
+}
 
-    ReactDOM.render (
-       <FilteredList defaultState='dark' list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList defaultState='dark' list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 `FilteredList` is a huge component that does so many things. It maintains the state and filters the `list` of the Star Wars characters according to their side. Moreover, it renders the character list with a button to the screen.
 
@@ -86,7 +87,7 @@ Stay tuned.
 
 ## Taste the principles of functional programming
 
-To show you why you should stick to the principles of FP in a React application, I need to talk a little bit about the core principles of FP themselves.
+To show you why you should stick to the principles of FP in a React application,I need to talk a little bit about the core principles of FP themselves.
 
 The idea is to decompose a program into simple **reusable functions**.
 
@@ -96,10 +97,12 @@ So, it’s all about functions. To be more precise, it’s all about **simple fu
 
 In JavaScript, you can use a function like any other value. It can be passed as an argument to a function or it can be returned by it. A function that **returns or creates a new function** is called a higher-order function.
 
-    const numbers = [1, 5, 8, 10, 21]
-    const createAddingFunction = number => arr => arr.map(num => num + number)
-    const numbersPlusOne = createAddingFunction(1)
-    console.log(numbersPlusOne(numbers))  // [2, 6, 9, 11, 22]
+```js
+const numbers = [1, 5, 8, 10, 21]
+const createAddingFunction = number => arr => arr.map(num => num + number)
+const numbersPlusOne = createAddingFunction(1)
+console.log(numbersPlusOne(numbers))  // [2, 6, 9, 11, 22]
+```
 
 `createAddingFunctions` is a higher-order function. It takes a `number` and creates a new function waiting for the array to be passed. In the example, we pass it `1` and get back a new function waiting for an array. We store it as `numbersPlusOne`. Then we pass the `numbers` array to it. The function then iterates over the array’s elements and increases each by one.
 
@@ -115,23 +118,25 @@ However, in JavaScript, values such as objects and arrays are mutable. In order 
 
 For example, adhering to this principle, you won’t be able to accidentally mutate an object that was passed to a function as its parameter.
 
-    // pure function
-    const numbers = [1, 5, 8, 10, 21]
-    const createAddingFunction = number => arr => arr.map(num => num + number)
-    const numbersPlusOne = createAddingFunction(1)
-    console.log(numbersPlusOne(numbers))  //[2, 6, 9, 11, 22]
-    console.log(numbers)  // [1, 5, 8, 10, 21]
+```js
+// pure function
+const numbers = [1, 5, 8, 10, 21]
+const createAddingFunction = number => arr => arr.map(num => num + number)
+const numbersPlusOne = createAddingFunction(1)
+console.log(numbersPlusOne(numbers))  //[2, 6, 9, 11, 22]
+console.log(numbers)  // [1, 5, 8, 10, 21]
 
-    // impure function
-    const numbers = [1, 5, 8, 10, 21]
-    const numbersPlusOne = numbers => {
-       for(let i = 0; i < numbers.length; i++) {
-          numbers[i] = numbers[i] + 1
-       }
-       return numbers
-    }
-    numbersPlusOne(numbers) // [2, 6, 9, 11, 22]
-    console.log(numbers) // [2, 6, 9, 11, 22]
+// impure function
+const numbers = [1, 5, 8, 10, 21]
+const numbersPlusOne = numbers => {
+   for(let i = 0; i < numbers.length; i++) {
+      numbers[i] = numbers[i] + 1
+   }
+   return numbers
+}
+numbersPlusOne(numbers) // [2, 6, 9, 11, 22]
+console.log(numbers) // [2, 6, 9, 11, 22]
+```
 
 Here we have an example of a pure (same as in a previous example) and impure function. In the first case, the fact that we passed an array to the pure function didn’t affect the `numbers` array in any way.
 
@@ -141,13 +146,15 @@ However, in the second scenario, the array was mutated inside the impure functio
 
 By now, we know we should be creating simple pure functions. However, what if we need behavior that is so complex that it can’t be stored in a single function? We could achieve this by combining several functions into a new compound function using composition.
 
-    const number = 15
-    const increment = num => num + 5
-    const decrement = num => num - 3
-    const multiply = num => num * 2
+```js
+const number = 15
+const increment = num => num + 5
+const decrement = num => num - 3
+const multiply = num => num * 2
 
-    const operation = increment(decrement(multiply(number)))
-    console.log(operation)  //32
+const operation = increment(decrement(multiply(number)))
+console.log(operation)  //32
+```
 
 Composition means that we pass the output of the first function call as the input to the second function call, its output to the third function and so on. As a result, we get a compound function.
 
@@ -167,20 +174,22 @@ Now that we are familiar with the basic principles of FP, we can take a look at 
 
 React applications are composed of components. But what exactly is a component?
 
-    // Class-based component
-    class Button extends React.Component {
-       render(){
-          return <button>{this.props.title}</button>
-       }
-    }
+```js
+// Class-based component
+class Button extends React.Component {
+   render(){
+      return <button>{this.props.title}</button>
+   }
+}
 
-    // Functional component
-    const Button = (props) =>
-       <button>{props.title}</button>
+// Functional component
+const Button = (props) =>
+   <button>{props.title}</button>
+```
 
-Since the class is just syntactic sugar over functions and the functional component is basically a function, **components are just functions**. It’s a function that takes input data (props) and returns a tree of React elements (UI) which is rendered to the screen. However, it doesn’t need to return UI all the time. It can return a component as well as we’re going to see later.
+Since the class is just syntactic sugar over functions and the functional component is basically a function, **components are just functions**. It’s a function that takes input data (props) and returns a tree of React elements (UI)which is rendered to the screen. However, it doesn’t need to return UI all the time. It can return a component as well as we’re going to see later.
 
-So React UI is just a **composition of functions**. That sounds awfully like FP, right?
+So React UI is just a **composition of functions**. That sounds awfully like FP,right?
 
 ## Smart and presentational components
 
@@ -196,60 +205,64 @@ Each component should be responsible for a single task and written so generally 
 
 **smart class component**
 
-    class DisplayList extends Component {
-       constructor(props) {
-          super(props)
-          this.state = {
-             starWarsChars: [
-                { name:'Luke Skywalker', side:'light' },
-                { name:'Darth Vader', side:'dark' },
-                { name:'Obi-wan Kenobi', side:'light' },
-                { name:'Palpatine', side:'dark' },
-             ]
-          }
-       }
-       render() {
-          return (
-             <div>
-                {this.state.starWarsChars.map(char =>
-                   <div key={char.name}>
-                      <div>Character: {char.name}</div>
-                      <div>Side: {char.side}</div>
-                   </div>
-                )}
-             </div>
-          )
-       }
-    }
+```js
+class DisplayList extends Component {
+   constructor(props) {
+      super(props)
+      this.state = {
+         starWarsChars: [
+            { name:'Luke Skywalker', side:'light' },
+            { name:'Darth Vader', side:'dark' },
+            { name:'Obi-wan Kenobi', side:'light' },
+            { name:'Palpatine', side:'dark' },
+         ]
+      }
+   }
+   render() {
+      return (
+         <div>
+            {this.state.starWarsChars.map(char =>
+               <div key={char.name}>
+                  <div>Character: {char.name}</div>
+                  <div>Side: {char.side}</div>
+               </div>
+            )}
+         </div>
+      )
+   }
+}
 
-    ReactDOM.render(
-       <DisplayList />,
-       document.getElementById('app')
-    )
+ReactDOM.render(
+   <DisplayList />,
+   document.getElementById('app')
+)
+```
 
 **presentational functional component**
 
-    const starWarsChars = [
-       { name:'Luke', side:'light' },
-       { name:'Darth Vader', side:'dark' },
-       { name:'Obi-wan Kenobi', side:'light'},
-       { name:'Palpatine', side:'dark'},
-    ]
+```js
+const starWarsChars = [
+   { name:'Luke', side:'light' },
+   { name:'Darth Vader', side:'dark' },
+   { name:'Obi-wan Kenobi', side:'light'},
+   { name:'Palpatine', side:'dark'},
+]
 
-    const DisplayList = ({ list }) =>
-       <div>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
+const DisplayList = ({ list }) =>
+   <div>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
 
-    ReactDOM.render (
-       <DisplayList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <DisplayList list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 Let’s take a look at the functional component. It’s pretty reusable since it only takes care of the UI. So, if you want to display a list of Star Wars characters elsewhere in your application, you can easily reuse this component. It also doesn’t have any side effects since it doesn’t affect its outer scope in any way.
 
@@ -265,24 +278,26 @@ Let’s take a look at our functional component again. It takes a list of Star W
 
 Now, what if we wanted to display only characters belonging to the dark side? The simplest solution will be to filter the `list` prop inside the component.
 
-    const FilteredList = ({ list, side }) => {
-       const filteredList = list.filter(char => char.side === side)
-       return (
-          <div>
-             {filteredList.map(char =>
-                <div key={char.name}>
-                   <div>Character: {char.name}</div>
-                   <div>Side: {char.side}</div>
-                </div>
-             )}
-          </div>
-       )
-    }
+```js
+const FilteredList = ({ list, side }) => {
+   const filteredList = list.filter(char => char.side === side)
+   return (
+      <div>
+         {filteredList.map(char =>
+            <div key={char.name}>
+               <div>Character: {char.name}</div>
+               <div>Side: {char.side}</div>
+            </div>
+         )}
+      </div>
+   )
+}
 
-    ReactDOM.render (
-       <FilteredList side='dark' list={starWarsChars}/>,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList side='dark' list={starWarsChars}/>,
+   document.getElementById('app')
+)
+```
 
 This will do the trick. We renamed `DisplayList` to `FilteredList` since it now contains filtering functionality. We are also now passing the `side` prop according to which list will be filtered.
 
@@ -292,27 +307,29 @@ If we wanted to display characters elsewhere in our application without any filt
 
 Fortunately, there’s a **more elegant and declarative solution** that lets us keep our presentational component reusable. We are able to filter the characters list before it’s passed as the prop to the `DisplayList` component.
 
-    const withFilterProps = BaseComponent => ({ list, side }) => {
-       const transformedProps = list.filter(char => char.side === side)
-       return <BaseComponent list={transformedProps} />
-    }
+```js
+const withFilterProps = BaseComponent => ({ list, side }) => {
+   const transformedProps = list.filter(char => char.side === side)
+   return <BaseComponent list={transformedProps} />
+}
 
-    const renderDisplayList = ({ list }) =>
-       <div>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
+const renderDisplayList = ({ list }) =>
+   <div>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
 
-    const FilteredList = withFilterProps(renderDisplayList)
+const FilteredList = withFilterProps(renderDisplayList)
 
-    ReactDOM.render (
-       <FilteredList side='dark' list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList side='dark' list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 We renamed our functional component `renderDisplayList` to make it obvious that it’s responsible only for the UI rendering.
 
@@ -328,7 +345,9 @@ Let’s now talk about the nature of the higher-order function `withFilterProps`
 
 HoC is a **function** that **accepts** **a component** and **returns a new component that renders the passed one**. This new component is enhanced with an additional functionality.
 
-    const HoC = BaseComponent => EnhancedComponent
+```js
+const HoC = BaseComponent => EnhancedComponent
+```
 
 In our example, the `withFilterProps` HoC takes the `renderDisplayList` component and returns a new functional component that renders the `renderDisplayList`. The `renderDisplayList` component is enhanced with the filtering props logic.
 
@@ -348,35 +367,37 @@ Since you made it this far, let’s slow down a little bit and talk about food 
 
 At the beginning of this article, we saw this hard-to-reuse component that takes care of all the logic and presentation.
 
-    class FilteredList extends React.Component {
-       constructor(props) {
-          super(props)
-          this.state = { value: this.props.defaultState }
-       }
-       updateState(value) {
-          this.setState({ value })
-       }
-       render() {
-          const otherSide = this.state.value === 'dark' ? 'light' : 'dark'
-          const transformedProps = this.props.list.filter(char => char.side === this.state.value)
-          return (
-             <div>
-                <button onClick={() => this.updateState(otherSide)}>Switch</button>
-                {transformedProps.map(char =>
-                   <div key={char.name}>
-                      <div>Character: {char.name}</div>
-                      <div>Side: {char.side}</div>
-                   </div>
-                )}
-             </div>
-          )
-       }
-    }
+```js
+class FilteredList extends React.Component {
+   constructor(props) {
+      super(props)
+      this.state = { value: this.props.defaultState }
+   }
+   updateState(value) {
+      this.setState({ value })
+   }
+   render() {
+      const otherSide = this.state.value === 'dark' ? 'light' : 'dark'
+      const transformedProps = this.props.list.filter(char => char.side === this.state.value)
+      return (
+         <div>
+            <button onClick={() => this.updateState(otherSide)}>Switch</button>
+            {transformedProps.map(char =>
+               <div key={char.name}>
+                  <div>Character: {char.name}</div>
+                  <div>Side: {char.side}</div>
+               </div>
+            )}
+         </div>
+      )
+   }
+}
 
-    ReactDOM.render (
-       <FilteredList defaultState='dark' list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList defaultState='dark' list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 You can think of this component as **meatloaf**.
 
@@ -410,10 +431,12 @@ By using the HoC pattern in the previous example, we moved all the logic to the 
 
 But it would be pretty difficult to reuse our HoC as well since it’s too specific.
 
-    const withFilterProps = BaseComponent => ({ list, side }) => {
-       const transformedProps = list.filter(char => char.side === side)
-       return <BaseComponent list={transformedProps} />
-    }
+```js
+const withFilterProps = BaseComponent => ({ list, side }) => {
+   const transformedProps = list.filter(char => char.side === side)
+   return <BaseComponent list={transformedProps} />
+}
+```
 
 It can be applied only in the cases where the `list` and `side` props are present. You don’t want this kind of specificity in your application since you want reusable HoCs that can be used in various scenarios.
 
@@ -421,40 +444,42 @@ Let’s make the HoC reusable.
 
 ![alt text](./images/make-components-reusable.jpg "Make all the things meme")
 
-    const withTransformProps = transformFunc => {
-       const ConfiguredComponent = BaseComponent => {
-          return baseProps => {
-             const transformedProps = transformFunc(baseProps)
-             return <BaseComponent {...transformedProps} />
-          }
-       }
-       return ConfiguredComponent
-    }
+```js
+const withTransformProps = transformFunc => {
+   const ConfiguredComponent = BaseComponent => {
+      return baseProps => {
+         const transformedProps = transformFunc(baseProps)
+         return <BaseComponent {...transformedProps} />
+      }
+   }
+   return ConfiguredComponent
+}
 
-    const renderDisplayList = ({ list }) =>
-       <div>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
+const renderDisplayList = ({ list }) =>
+   <div>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
 
-    const FilteredList = withTransformProps(
-       ({ list, side }) => ({
-          list: list.filter(FilteredListchar =>
-             char.side === side)
-       })
-    )(renderDisplayList)
+const FilteredList = withTransformProps(
+   ({ list, side }) => ({
+      list: list.filter(FilteredListchar =>
+         char.side === side)
+   })
+)(renderDisplayList)
 
-    ReactDOM.render (
-       <FilteredList
-          side='dark'
-          list={starWarsChars}
-       />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList
+      side='dark'
+      list={starWarsChars}
+   />,
+   document.getElementById('app')
+)
+```
 
 This code still does the same thing as the previous HoC example. We filter the props using the HoC component and then pass them to the base component. However, the old name would be misleading, since the HoC is no longer limited only to the filtering logic, so we renamed it `withTransformProps`.
 
@@ -466,11 +491,13 @@ The props get passed when we render the `FilteredList` component. Then, the tran
 
 However, our HoC syntax is pretty verbose. We don’t need to store the specialized HoC as the `ConfiguredComponent` inside a variable.
 
-    const withTransformProps = mapperFunc =>
-       BaseComponent => baseProps => {
-          const transformedProps = mapperFunc(baseProps)
-          return <BaseComponent {...transformedProps} />
-       }
+```js
+const withTransformProps = mapperFunc =>
+   BaseComponent => baseProps => {
+      const transformedProps = mapperFunc(baseProps)
+      return <BaseComponent {...transformedProps} />
+   }
+```
 
 This solution is much cleaner.
 
@@ -478,11 +505,13 @@ The idea behind this approach is to **have a reusable HoC that can be configured
 
 In our example, we passed a custom filtering function that could be different for every use case. And if we later decide that we want to change some of the HoC’s behavior, we just need to change it in a single reusable component and not in many different places of our application.
 
-    const HoC = config => BaseComponent => EnhancedComponent
+```js
+const HoC = config => BaseComponent => EnhancedComponent
+```
 
 The HoC and the base component are both **reusable** and **independent** of each other. The HoC doesn’t know where its data goes and the presentational component has no idea where its data is coming from.
 
-Writing reusable HoCs and presentational components will help you to avoid unnecessary repetition and force you to write simpler components. **As a result, you’ll be writing cleaner, maintainable, and readable code.**
+Writing reusable HoCs and presentational components will help you to avoid unnecessary repetition and force you to write simpler components. **As a result,you’ll be writing cleaner, maintainable, and readable code.**
 
 Congratulations! By now you should be able to write reusable higher-order components yourself. I also hope you have a better understanding of the ideas behind this pattern.
 

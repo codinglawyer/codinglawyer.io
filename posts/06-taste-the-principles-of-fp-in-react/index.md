@@ -32,10 +32,12 @@ So, it’s all about functions. To be more precise, it’s all about **simple fu
 
 In JavaScript, you can use a function like any other value. It can be passed as an argument to a function or it can be returned by it. A function that returns or creates a new function is called a **higher-order function.**
 
-    const numbers = [1, 5, 8, 10, 21]
-    const createAddingFunction = number => arr => arr.map(num => num + number)
-    const numbersPlusOne = createAddingFunction(1)
-    console.log(numbersPlusOne(numbers))  // [2, 6, 9, 11, 22]
+```js
+const numbers = [1, 5, 8, 10, 21]
+const createAddingFunction = number => arr => arr.map(num => num + number)
+const numbersPlusOne = createAddingFunction(1)
+console.log(numbersPlusOne(numbers))  // [2, 6, 9, 11, 22]
+```
 
 `createAddingFunctions` is a higher-order function. It takes a `number` and creates a new function waiting for the array to be passed. In the example, we pass it `1` and get back a new function waiting for an array. We store it as `numbersPlusOne`. Then we pass the `numbers` array to it. The function then iterates over the array’s elements and increases each by one.
 
@@ -53,25 +55,26 @@ However, in JavaScript, values such as objects and arrays are mutable. In order 
 
 For example, adhering to this principle, you won’t be able to accidentally mutate an object that was passed to a function as its parameter.
 
-```Javascript
-    // pure function
-    const numbers = [1, 5, 8, 10, 21]
-    const createAddingFunction = number => arr => arr.map(num => num + number)
-    const numbersPlusOne = createAddingFunction(1)
-    console.log(numbersPlusOne(numbers))  //[2, 6, 9, 11, 22]
-    console.log(numbers)  // [1, 5, 8, 10, 21]
-    
-    // impure function
-    const numbers = [1, 5, 8, 10, 21]
-    const numbersPlusOne = numbers => {
-       for(let i = 0; i < numbers.length; i++) {
-          numbers[i] = numbers[i] + 1
-       }
-       return numbers
+```js
+// pure function
+const numbers = [1, 5, 8, 10, 21]
+const createAddingFunction = number => arr => arr.map(num => num + number)
+const numbersPlusOne = createAddingFunction(1)
+console.log(numbersPlusOne(numbers))  //[2, 6, 9, 11, 22]
+console.log(numbers)  // [1, 5, 8, 10, 21]
+
+// impure function
+const numbers = [1, 5, 8, 10, 21]
+const numbersPlusOne = numbers => {
+    for(let i = 0; i < numbers.length; i++) {
+        numbers[i] = numbers[i] + 1
     }
-    numbersPlusOne(numbers) // [2, 6, 9, 11, 22]
-    console.log(numbers) // [2, 6, 9, 11, 22]
+    return numbers
+}
+numbersPlusOne(numbers) // [2, 6, 9, 11, 22]
+console.log(numbers) // [2, 6, 9, 11, 22]
 ```
+
 Here we have an example of a pure (same as in a previous example) and impure function. In the first case, the fact that we passed an array to the pure function didn’t affect the `numbers` array in any way.
 
 However, in the second scenario, the array was mutated inside the impure function. Such behavior can make your code pretty unpredictable. And especially in the functional programming realm, we want to avoid that.
@@ -80,14 +83,14 @@ However, in the second scenario, the array was mutated inside the impure functio
 
 By now, we know we should be creating simple pure functions. However, what if we need behavior that is so complex that it can’t be stored in a single function? We could achieve this by combining several functions into a new compound function using composition.
 
-```Javascript
-    const number = 15
-    const increment = num => num + 5
-    const decrement = num => num - 3
-    const multiply = num => num * 2
-    
-    const operation = increment(decrement(multiply(number)))
-    console.log(operation)  //32
+```js
+const number = 15
+const increment = num => num + 5
+const decrement = num => num - 3
+const multiply = num => num * 2
+
+const operation = increment(decrement(multiply(number)))
+console.log(operation)  //32
 ```
 
 **Composition** means that we pass the output of the first function call as the input to the second function call, its output to the third function and so on. As a result, we get a compound function.

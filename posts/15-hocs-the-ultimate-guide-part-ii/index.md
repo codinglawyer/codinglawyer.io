@@ -28,11 +28,13 @@ Since we want to follow the principles of FP, we should be using **functional co
 
 A functional HoC just wraps the base component, injects it with new props along with the original ones, and returns a new component. It doesn’t change the original component by modifying its prototype as the classes do. We saw such an HoC above. Here’s a quick reminder:
 
-    const withTransformProps = mapperFunc =>
-       BaseComponent => baseProps => {
-          const transformedProps = mapperFunc(baseProps)
-          return <BaseComponent {...transformedProps} />
-       }
+```js
+const withTransformProps = mapperFunc =>
+   BaseComponent => baseProps => {
+      const transformedProps = mapperFunc(baseProps)
+      return <BaseComponent {...transformedProps} />
+   }
+```
 
 This HoC doesn’t have any side effects. It doesn’t mutate anything. It’s a pure function.
 
@@ -42,50 +44,52 @@ When creating an HoC, we should define it as a functional component if possible.
 
 However, sooner or later, you’ll need to access the internal state or lifecycle methods in your component. You can’t achieve this without classes since this behavior is inherited from the *[React.Component](https://reactjs.org/docs/react-component.html)*, which can’t be accessed within the functional component. So, let’s define a class-based HoC.
 
-    const withSimpleState = defaultState => BaseComponent => {
-       return class WithSimpleState extends React.Component {
-          constructor(props) {
-             super(props)
-             this.state = { value: defaultState }
-             this.updateState = this.updateState.bind(this)
-          }
-          updateState(value) {
-             this.setState({ value })
-          }
-          render() {
-             return (
-                <BaseComponent
-                   {...this.props}
-                   stateValue={this.state.value}
-                   stateHandler={this.updateState}
-                />
-             )
-          }
-       }
-    }
+```js
+const withSimpleState = defaultState => BaseComponent => {
+   return class WithSimpleState extends React.Component {
+      constructor(props) {
+         super(props)
+         this.state = { value: defaultState }
+         this.updateState = this.updateState.bind(this)
+      }
+      updateState(value) {
+         this.setState({ value })
+      }
+      render() {
+         return (
+            <BaseComponent
+               {...this.props}
+               stateValue={this.state.value}
+               stateHandler={this.updateState}
+            />
+         )
+      }
+   }
+}
 
-    const renderDisplayList = ({ list, stateValue, stateHandler })=> {
-       const filteredList = list.filter(char => char.side === stateValue)
-       const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-       return (
-          <div>
-             <button onClick={() => stateHandler(otherSide)}>Switch</button>
-             {filteredList.map(char =>
-                <div key={char.name}>
-                   <div>Character: {char.name}</div>
-                   <div>Side: {char.side}</div>
-                </div>
-             )}
-          </div>
-       )
-    }
+const renderDisplayList = ({ list, stateValue, stateHandler })=> {
+   const filteredList = list.filter(char => char.side === stateValue)
+   const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+   return (
+      <div>
+         <button onClick={() => stateHandler(otherSide)}>Switch</button>
+         {filteredList.map(char =>
+            <div key={char.name}>
+               <div>Character: {char.name}</div>
+               <div>Side: {char.side}</div>
+            </div>
+         )}
+      </div>
+   )
+}
 
-    const FilteredList = withSimpleState('dark')(renderDisplayList)
+const FilteredList = withSimpleState('dark')(renderDisplayList)
 
-    ReactDOM.render (
-       <FilteredList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 Our new class-based HoC `withSimpleState` expects a configuration parameter `defaultState` which is pretty self-explanatory. It also maintains a state named `value` and defines an event handler `updateState` that can set the value of the state. Finally, it passes the state utilities along with the original props to the base component.
 
@@ -119,35 +123,39 @@ To make it reusable again, we need to move the logic back to the `withTransformP
 
 We’ve already talked about the composition principle at the beginning. It enables us to combine several functions into a new compound function. Here’s a quick reminder:
 
-    const number = 15
-    const increment = num => num + 5
-    const decrement = num => num - 3
-    const multiply = num => num * 2
+```js
+const number = 15
+const increment = num => num + 5
+const decrement = num => num - 3
+const multiply = num => num * 2
 
-    const operation = increment(decrement(multiply(number)))
-    console.log(operation)  //32
+const operation = increment(decrement(multiply(number)))
+console.log(operation)  //32
+```
 
 We have a number and three functions. We wrap them all inside each other, and we get a compound function to which we pass the number.
 
 This works fine. However, the readability might get worse, if we wanted to compose even more functions. Fortunately, we can define a functional programming `compose` function to help us out. Keep in mind that it composes functions from **right to left**.
 
-    const compose = (...funcs) => value =>
-       funcs.reduceRight((acc, func) => func(acc)
-          , value)
+```js
+const compose = (...funcs) => value =>
+   funcs.reduceRight((acc, func) => func(acc)
+      , value)
 
-    const number = 15
-    const increment = num => num + 5
-    const decrement = num => num - 3
-    const multiply = num => num * 2
+const number = 15
+const increment = num => num + 5
+const decrement = num => num - 3
+const multiply = num => num * 2
 
-    const funcComposition = compose(
-       increment,
-       decrement,
-       multiply
-    )
+const funcComposition = compose(
+   increment,
+   decrement,
+   multiply
+)
 
-    const result = funcComposition(number)
-    console.log(result)  //32
+const result = funcComposition(number)
+console.log(result)  //32
+```
 
 We no longer need to explicitly wrap the functions inside each other. Instead, we pass them all as the arguments to the `compose` function. When we do that, we get back a new compound function waiting for the `value` argument to be passed. We store it as a `funcComposition`.
 
@@ -159,61 +167,63 @@ Let’s take a look at how we could `compose` several HoCs. We’ve already lear
 
 First, let’s take a look at the HoC composition without a `compose` helper since it’s easier to understand what’s going on.
 
-    const withTransformProps = mapperFunc =>
-       BaseComponent => baseProps => {
-          const transformedProps = mapperFunc(baseProps)
-          return <BaseComponent {...transformedProps} />
-       }
+```js
+const withTransformProps = mapperFunc =>
+   BaseComponent => baseProps => {
+      const transformedProps = mapperFunc(baseProps)
+      return <BaseComponent {...transformedProps} />
+   }
 
-    const withSimpleState = defaultState => BaseComponent => {
-       return class WithSimpleState extends React.Component {
-          constructor(props) {
-             super(props)
-             this.state = { value: defaultState }
-             this.updateState = this.updateState.bind(this)
-          }
-          updateState(value) {
-             this.setState({ value })
-          }
-          render() {
-             return (
-                <BaseComponent
-                   {...this.props}
-                   stateValue={this.state.value}
-                   stateHandler={this.updateState}
-                />
-             )
-          }
-       }
-    }
+const withSimpleState = defaultState => BaseComponent => {
+   return class WithSimpleState extends React.Component {
+      constructor(props) {
+         super(props)
+         this.state = { value: defaultState }
+         this.updateState = this.updateState.bind(this)
+      }
+      updateState(value) {
+         this.setState({ value })
+      }
+      render() {
+         return (
+            <BaseComponent
+               {...this.props}
+               stateValue={this.state.value}
+               stateHandler={this.updateState}
+            />
+         )
+      }
+   }
+}
 
-    const renderDisplayList = ({ list, stateHandler, otherSide }) => (
-       <div>
-          <button onClick={() => stateHandler(otherSide)}>Switch</button>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    )
+const renderDisplayList = ({ list, stateHandler, otherSide }) => (
+   <div>
+      <button onClick={() => stateHandler(otherSide)}>Switch</button>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+)
 
-    const FilteredList = withTransformProps(({ list, stateValue, stateHandler }) => {
-       const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-       return {
-          stateHandler,
-          otherSide,
-          list: list.filter(char => char.side === stateValue),
-       }
-    })(renderDisplayList)
+const FilteredList = withTransformProps(({ list, stateValue, stateHandler }) => {
+   const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+   return {
+      stateHandler,
+      otherSide,
+      list: list.filter(char => char.side === stateValue),
+   }
+})(renderDisplayList)
 
-    const ToggleableFilteredList = withSimpleState('dark')(FilteredList)
+const ToggleableFilteredList = withSimpleState('dark')(FilteredList)
 
-    ReactDOM.render (
-       <ToggleableFilteredList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <ToggleableFilteredList list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 Nothing new here. We’ve seen all this code before. The new thing is that we are composing two HoCs — `withSimpleState` which provides us with the state utilities and `withTransformProps` which gives us the props transformation functionality.
 
@@ -248,16 +258,18 @@ As you’ve just seen, the **props are the only language that HoCs use to talk t
 
 Although our HoC composition works, the syntax itself is pretty verbose. We can make it simpler by getting rid of the `ToggleableFilteredList` variable and just wrap the HoCs inside each other.
 
-    const FilteredList = withSimpleState('dark')(
-       withTransformProps(({ list, stateValue, stateHandler }) => {
-          const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-          return {
-             stateHandler,
-             otherSide,
-             list: list.filter(char => char.side === stateValue),
-          }
-       })(renderDisplayList)
-    )
+```js
+const FilteredList = withSimpleState('dark')(
+   withTransformProps(({ list, stateValue, stateHandler }) => {
+      const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+      return {
+         stateHandler,
+         otherSide,
+         list: list.filter(char => char.side === stateValue),
+      }
+   })(renderDisplayList)
+)
+```
 
 This code is a little bit better. However, we are still manually wrapping all the components. Imagine that you wanted to add even more HoCs to this composition. In such a case, our composition will become difficult to read and understand. Just imagine all those parentheses!
 
@@ -265,23 +277,25 @@ This code is a little bit better. However, we are still manually wrapping all th
 
 Since this talk is about FP principles, let’s use the `compose` helper.
 
-    const compose = (...hocs) => BaseComponent =>
-       hocs.reduceRight((acc, hoc) => hoc(acc)
-          , BaseComponent)
+```js
+const compose = (...hocs) => BaseComponent =>
+   hocs.reduceRight((acc, hoc) => hoc(acc)
+      , BaseComponent)
 
-    const enhance = compose(
-       withSimpleState('dark'),
-       withTransformProps(({ list, stateValue, stateHandler }) => {
-          const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-          return {
-             stateHandler,
-             otherSide,
-             list: list.filter(char => char.side === stateValue),
-          }
-       })
-    )
+const enhance = compose(
+   withSimpleState('dark'),
+   withTransformProps(({ list, stateValue, stateHandler }) => {
+      const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+      return {
+         stateHandler,
+         otherSide,
+         list: list.filter(char => char.side === stateValue),
+      }
+   })
+)
 
-    const FilteredList = enhance(renderDisplayList)
+const FilteredList = enhance(renderDisplayList)
+```
 
 We no longer need to explicitly wrap the HoCs inside each other. Instead, we pass them all as the arguments to the `compose` function. When we do that, we get back a new compound function waiting for the `BaseComponent` argument to be passed. We store this function as `enhance`. Then, we just pass the `renderDisplayList` as the base component to it, and `compose` will do all the component wrapping for us.
 
@@ -303,26 +317,28 @@ I’d like to talk more about the *[Recompose library](https://github.com/acdlit
 
 Let’s rewrite our HoC composition example using the predefined HoCs from Recompose.
 
-    import { withState, mapProps, compose } from 'recompose';
+```js
+import { withState, mapProps, compose } from 'recompose';
 
-    const enhance = compose(
-       withState('stateValue', 'stateHandler', 'dark'),
-       mapProps(({ list, stateValue, stateHandler }) => {
-          const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-          return {
-             stateHandler,
-             otherSide,
-             list: list.filter(char => char.side === stateValue),
-          }
-       }),
-    )
+const enhance = compose(
+   withState('stateValue', 'stateHandler', 'dark'),
+   mapProps(({ list, stateValue, stateHandler }) => {
+      const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+      return {
+         stateHandler,
+         otherSide,
+         list: list.filter(char => char.side === stateValue),
+      }
+   }),
+)
 
-    const FilteredList = enhance(renderDisplayList)
+const FilteredList = enhance(renderDisplayList)
 
-    ReactDOM.render (
-       <FilteredList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 Our two custom HoCs `withSimpleState` and `withTransformProps` are already predefined in Recompose as `withState` and `mapProps`. Moreover, the library also provides us with a predefined `compose` function. So, it’s really easy just to use these existing implementations, rather than defining our own.
 
@@ -334,55 +350,59 @@ As a result, we don’t need to define HoCs, which provide us with a general beh
 
 We can improve our composition using Recompose even more since there’s still one issue we haven’t addressed yet.
 
-    const renderDisplayList = ({ list, stateHandler, otherSide }) => (
-       <div>
-          <button onClick={() => stateHandler(otherSide)}>Switch</button>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    )
+```js
+const renderDisplayList = ({ list, stateHandler, otherSide }) => (
+   <div>
+      <button onClick={() => stateHandler(otherSide)}>Switch</button>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+)
+```
 
 If we check the `renderDisplayList` component again, we can see that it’s click handler function gets recreated each time the component re-renders. And we want to prevent any unnecessary recreation since it might hinder the performance of our application. Fortunately, we can add the `withHandlers` HoC to our composition to address this issue.
 
-    import { withState, mapProps, withHandlers, compose } from 'recompose';
+```js
+import { withState, mapProps, withHandlers, compose } from 'recompose';
 
-    const renderDisplayList = ({ list, handleSetState }) => (
-       <div>
-          <button onClick={handleSetState}>Switch</button>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    )
+const renderDisplayList = ({ list, handleSetState }) => (
+   <div>
+      <button onClick={handleSetState}>Switch</button>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+)
 
-    const enhance = compose(
-       withState('stateValue', 'stateHandler', 'dark'),
-       mapProps(({ list, stateValue, stateHandler }) => {
-          const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-          return {
-             stateHandler,
-             otherSide,
-             list: list.filter(char => char.side === stateValue),
-          }
-       }),
-       withHandlers({
-          handleSetState: ({ stateHandler, otherSide }) => () => stateHandler(otherSide)
-       })
-    )
+const enhance = compose(
+   withState('stateValue', 'stateHandler', 'dark'),
+   mapProps(({ list, stateValue, stateHandler }) => {
+      const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+      return {
+         stateHandler,
+         otherSide,
+         list: list.filter(char => char.side === stateValue),
+      }
+   }),
+   withHandlers({
+      handleSetState: ({ stateHandler, otherSide }) => () => stateHandler(otherSide)
+   })
+)
 
-    const FilteredList = enhance(renderDisplayList)
+const FilteredList = enhance(renderDisplayList)
 
-    ReactDOM.render (
-       <FilteredList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 `withHandlers` HoC takes an object of functions as a configuration argument. In our example, we pass an object with a single function `handleSetState`. When this happens, we get back an HoC expecting the base component and the props to be passed. When we pass them, the outer function in every key of the passed object receives the props object as an argument.
 
@@ -404,73 +424,77 @@ In real-world applications, you’ll be using these predefined HoCs quite often 
 
 Thanks to the principles of functional programming we were able to transform this not reusable huge component from the beginning…
 
-    class FilteredList extends React.Component {
-       constructor(props) {
-          super(props)
-          this.state = { value: this.props.defaultState }
-       }
-       updateState(value) {
-          this.setState({ value })
-       }
-       render() {
-          const otherSide = this.state.value === 'dark' ? 'light' : 'dark'
-          const transformedProps = this.props.list.filter(char => char.side === this.state.value)
-          return (
-             <div>
-                <button onClick={() => this.updateState(otherSide)}>Switch</button>
-                {transformedProps.map(char =>
-                   <div key={char.name}>
-                      <div>Character: {char.name}</div>
-                      <div>Side: {char.side}</div>
-                   </div>
-                )}
-             </div>
-          )
-       }
-    }
+```js
+class FilteredList extends React.Component {
+   constructor(props) {
+      super(props)
+      this.state = { value: this.props.defaultState }
+   }
+   updateState(value) {
+      this.setState({ value })
+   }
+   render() {
+      const otherSide = this.state.value === 'dark' ? 'light' : 'dark'
+      const transformedProps = this.props.list.filter(char => char.side === this.state.value)
+      return (
+         <div>
+            <button onClick={() => this.updateState(otherSide)}>Switch</button>
+            {transformedProps.map(char =>
+               <div key={char.name}>
+                  <div>Character: {char.name}</div>
+                  <div>Side: {char.side}</div>
+               </div>
+            )}
+         </div>
+      )
+   }
+}
 
-    ReactDOM.render (
-       <FilteredList defaultState='dark' list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList defaultState='dark' list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 …into this reusable, readable, and maintainable component composition.
 
-    import { withState, mapProps, withHandlers, compose } from 'recompose';
+```js
+import { withState, mapProps, withHandlers, compose } from 'recompose';
 
-    const renderDisplayList = ({ list, handleSetState }) => (
-       <div>
-          <button onClick={handleSetState}>Switch</button>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    )
+const renderDisplayList = ({ list, handleSetState }) => (
+   <div>
+      <button onClick={handleSetState}>Switch</button>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+)
 
-    const enhance = compose(
-       withState('stateValue', 'stateHandler', 'dark'),
-       mapProps(({ list, stateValue, stateHandler }) => {
-          const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-          return {
-             stateHandler,
-             otherSide,
-             list: list.filter(char => char.side === stateValue),
-          }
-       }),
-       withHandlers({
-          handleSetState: ({ stateHandler, otherSide }) => () => stateHandler(otherSide)
-       })
-    )
+const enhance = compose(
+   withState('stateValue', 'stateHandler', 'dark'),
+   mapProps(({ list, stateValue, stateHandler }) => {
+      const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+      return {
+         stateHandler,
+         otherSide,
+         list: list.filter(char => char.side === stateValue),
+      }
+   }),
+   withHandlers({
+      handleSetState: ({ stateHandler, otherSide }) => () => stateHandler(otherSide)
+   })
+)
 
-    const FilteredList = enhance(renderDisplayList)
+const FilteredList = enhance(renderDisplayList)
 
-    ReactDOM.render (
-       <FilteredList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+ReactDOM.render (
+   <FilteredList list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 We use these principles during application development quite often. Our aim is to use simple reusable components as much as possible. The HoC pattern helps us to achieve this since its idea is to move the logic to the HoC and let the presentational functional component take care of the UI rendering. As a result, we don’t need to use classes for our presentational components anymore, only for the HoCs if we need a class-specific behavior.
 

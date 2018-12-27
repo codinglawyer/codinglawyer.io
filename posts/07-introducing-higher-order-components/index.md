@@ -19,17 +19,17 @@ thumbnail:
 
 React applications are composed of components. But what exactly is a component?
 
-```Javascript
-    // Class-based component
-    class Button extends React.Component {
-       render(){
-          return <button>{this.props.title}</button>
-       }
-    }
-    
-    // Functional component
-    const Button = (props) =>
-       <button>{props.title}</button>
+```js
+// Class-based component
+class Button extends React.Component {
+   render(){
+      return <button>{this.props.title}</button>
+   }
+}
+
+// Functional component
+const Button = (props) =>
+   <button>{props.title}</button>
 ```
 
 Since the class is just syntactic sugar over functions and the functional component is basically a function, **components are just functions**. It’s a function that takes input data (props) and returns a tree of React elements (UI) which is rendered to the screen. However, it doesn’t need to return UI all the time. It can return a component as well as we’re going to see later.
@@ -48,63 +48,63 @@ Each component should be responsible for a single task and written so generally 
 
 **Smart class component:**
 
-```Javascript
-    class DisplayList extends Component {
-       constructor(props) {
-          super(props)
-          this.state = {
-             starWarsChars: [
-                { name:'Luke Skywalker', side:'light' },
-                { name:'Darth Vader', side:'dark' },
-                { name:'Obi-wan Kenobi', side:'light' },
-                { name:'Palpatine', side:'dark' },
-             ]
-          }
-       }
-       render() {
-          return (
-             <div>
-                {this.state.starWarsChars.map(char =>
-                   <div key={char.name}>
-                      <div>Character: {char.name}</div>
-                      <div>Side: {char.side}</div>
-                   </div>
-                )}
-             </div>
-          )
-       }
-    }
-    
-    ReactDOM.render(
-       <DisplayList />,
-       document.getElementById('app')
-    )
+```js
+class DisplayList extends Component {
+   constructor(props) {
+      super(props)
+      this.state = {
+         starWarsChars: [
+            { name:'Luke Skywalker', side:'light' },
+            { name:'Darth Vader', side:'dark' },
+            { name:'Obi-wan Kenobi', side:'light' },
+            { name:'Palpatine', side:'dark' },
+         ]
+      }
+   }
+   render() {
+      return (
+         <div>
+            {this.state.starWarsChars.map(char =>
+               <div key={char.name}>
+                  <div>Character: {char.name}</div>
+                  <div>Side: {char.side}</div>
+               </div>
+            )}
+         </div>
+      )
+   }
+}
+
+ReactDOM.render(
+   <DisplayList />,
+   document.getElementById('app')
+)
 ```
 
 **Presentational functional component:**
 
-```Javascript
-    const starWarsChars = [
-       { name:'Luke', side:'light' },
-       { name:'Darth Vader', side:'dark' },
-       { name:'Obi-wan Kenobi', side:'light'},
-       { name:'Palpatine', side:'dark'},
-    ]
-    
-    const DisplayList = ({ list }) =>
-       <div>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    
-    ReactDOM.render (
-       <DisplayList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+```js
+const starWarsChars = [
+   { name:'Luke', side:'light' },
+   { name:'Darth Vader', side:'dark' },
+   { name:'Obi-wan Kenobi', side:'light'},
+   { name:'Palpatine', side:'dark'},
+]
+
+const DisplayList = ({ list }) =>
+   <div>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+
+ReactDOM.render (
+   <DisplayList list={starWarsChars} />,
+   document.getElementById('app')
+)
 ```
 
 Let’s take a look at the functional component. It’s pretty reusable since it only takes care of the UI. So, if you want to display a list of Star Wars characters elsewhere in your application, you can easily reuse this component. It also doesn’t have any side effects since it doesn’t affect its outer scope in any way.
@@ -115,32 +115,31 @@ Not only is that React application a composition of functions in general, but it
 
 ![alt text](./images/smoke.jpg "Smoke")
 
-
 As we’ve learned in the previous post, pure functions are the basic building blocks of FP. So if we prefer using functional components, we will be able to **apply various FP techniques** such as the higher-order components in our code.
 
 Let’s take a look at our functional component again. It takes a list of Star Wars characters as a prop and renders them to the screen. It’s pretty reusable since it doesn’t contain any logic.
 
 Now, what if we wanted to display only characters belonging to the dark side? The simplest solution will be to filter the `list` prop inside the component.
 
-```Javascript
-    const FilteredList = ({ list, side }) => {
-       const filteredList = list.filter(char => char.side === side)
-       return (
-          <div>
-             {filteredList.map(char =>
-                <div key={char.name}>
-                   <div>Character: {char.name}</div>
-                   <div>Side: {char.side}</div>
-                </div>
-             )}
-          </div>
-       )
-    }
-    
-    ReactDOM.render (
-       <FilteredList side='dark' list={starWarsChars}/>,
-       document.getElementById('app')
-    )
+```js
+const FilteredList = ({ list, side }) => {
+   const filteredList = list.filter(char => char.side === side)
+   return (
+      <div>
+         {filteredList.map(char =>
+            <div key={char.name}>
+               <div>Character: {char.name}</div>
+               <div>Side: {char.side}</div>
+            </div>
+         )}
+      </div>
+   )
+}
+
+ReactDOM.render (
+   <FilteredList side='dark' list={starWarsChars}/>,
+   document.getElementById('app')
+)
 ```
 
 This will do the trick. We renamed `DisplayList` to `FilteredList` since it now contains filtering functionality. We are also now passing the `side` prop according to which list will be filtered.
@@ -151,28 +150,28 @@ If we wanted to display characters elsewhere in our application without any filt
 
 Fortunately, there’s a **more elegant and declarative solution** that lets us keep our presentational component reusable. We are able to filter the characters list before it’s passed as the prop to the `DisplayList` component.
 
-```Javascript
-    const withFilterProps = BaseComponent => ({ list, side }) => {
-       const transformedProps = list.filter(char => char.side === side)
-       return <BaseComponent list={transformedProps} />
-    }
-    
-    const renderDisplayList = ({ list }) =>
-       <div>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    
-    const FilteredList = withFilterProps(renderDisplayList)
-    
-    ReactDOM.render (
-       <FilteredList side='dark' list={starWarsChars} />,
-       document.getElementById('app')
-    )
+```js
+const withFilterProps = BaseComponent => ({ list, side }) => {
+   const transformedProps = list.filter(char => char.side === side)
+   return <BaseComponent list={transformedProps} />
+}
+
+const renderDisplayList = ({ list }) =>
+   <div>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+
+const FilteredList = withFilterProps(renderDisplayList)
+
+ReactDOM.render (
+   <FilteredList side='dark' list={starWarsChars} />,
+   document.getElementById('app')
+)
 ```
 
 We renamed our functional component `renderDisplayList` to make it obvious that it’s responsible only for the UI rendering.
@@ -187,8 +186,8 @@ Let’s now talk about the nature of the higher-order function `withFilterProps`
 
 HoC is a **function** that **expects** **a component** and **returns a new component that renders the passed one.** This new component is enhanced with an additional functionality.
 
-```Javascript
-    const HoC = BaseComponent => EnhancedComponent
+```js
+const HoC = BaseComponent => EnhancedComponent
 ```
 
 In our example, the `withFilterProps` HoC takes the `renderDisplayList` component and returns a new functional component that renders the `renderDisplayList`. The `renderDisplayList` component is enhanced with the filtering props logic.

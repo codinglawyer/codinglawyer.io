@@ -22,26 +22,28 @@ I would like to talk more about the Recompose library, which provides us with d
 
 Let’s rewrite our HoC composition example from the *[previous post](https://www.codinglawyer.io/posts/composition-of-hocs)* using the predefined HoCs from Recompose.
 
-    import { withState, mapProps, compose } from 'recompose';
-    
-    const enhance = compose(
-       withState('stateValue', 'stateHandler', 'dark'),
-       mapProps(({ list, stateValue, stateHandler }) => {
-          const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-          return {
-             stateHandler,
-             otherSide,
-             list: list.filter(char => char.side === stateValue),
-          }
-       }),
-    )
-    
-    const FilteredList = enhance(renderDisplayList)
-    
-    ReactDOM.render (
-       <FilteredList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+```js
+import { withState, mapProps, compose } from 'recompose';
+
+const enhance = compose(
+   withState('stateValue', 'stateHandler', 'dark'),
+   mapProps(({ list, stateValue, stateHandler }) => {
+      const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+      return {
+         stateHandler,
+         otherSide,
+         list: list.filter(char => char.side === stateValue),
+      }
+   }),
+)
+
+const FilteredList = enhance(renderDisplayList)
+
+ReactDOM.render (
+   <FilteredList list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 Our *[two custom](https://www.codinglawyer.io/posts/composition-of-hocs)* HoCs `withSimpleState` and `withTransformProps` are already predefined in Recompose as `withState` and `mapProps`. Moreover, the library also provides us with a predefined `compose` function. So, it’s really easy just to use these existing implementations, rather than defining our own.
 
@@ -53,55 +55,59 @@ The Recompose version of the HoC composition isn’t that different from ours. J
 
 We can improve our composition using Recompose even more since there’s still one issue we haven’t addressed yet.
 
-    const renderDisplayList = ({ list, stateHandler, otherSide }) => (
-       <div>
-          <button onClick={() => stateHandler(otherSide)}>Switch</button>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    )
+```js
+const renderDisplayList = ({ list, stateHandler, otherSide }) => (
+   <div>
+      <button onClick={() => stateHandler(otherSide)}>Switch</button>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+)
+```
 
 If we check the `renderDisplayList` component, we've *[defined earlier](https://www.codinglawyer.io/posts/composition-of-hocs)*, we can see that its click handler function gets recreated each time the component re-renders. And we want to prevent any unnecessary recreation since it might hinder the performance of our application. Fortunately, we can add the `withHandlers` HoC to our composition to address this issue.
 
-    import { withState, mapProps, withHandlers, compose } from 'recompose';
+```js
+import { withState, mapProps, withHandlers, compose } from 'recompose';
 
-    const renderDisplayList = ({ list, handleSetState }) => (
-       <div>
-          <button onClick={handleSetState}>Switch</button>
-          {list.map(char =>
-             <div key={char.name}>
-                <div>Character: {char.name}</div>
-                <div>Side: {char.side}</div>
-             </div>
-          )}
-       </div>
-    )
-    
-    const enhance = compose(
-       withState('stateValue', 'stateHandler', 'dark'),
-       mapProps(({ list, stateValue, stateHandler }) => {
-          const otherSide = stateValue === 'dark' ? 'light' : 'dark'
-          return {
-             stateHandler,
-             otherSide,
-             list: list.filter(char => char.side === stateValue),
-          }
-       }),
-       withHandlers({
-          handleSetState: ({ stateHandler, otherSide }) => () => stateHandler(otherSide)
-       })
-    )
-    
-    const FilteredList = enhance(renderDisplayList)
-    
-    ReactDOM.render (
-       <FilteredList list={starWarsChars} />,
-       document.getElementById('app')
-    )
+const renderDisplayList = ({ list, handleSetState }) => (
+   <div>
+      <button onClick={handleSetState}>Switch</button>
+      {list.map(char =>
+         <div key={char.name}>
+            <div>Character: {char.name}</div>
+            <div>Side: {char.side}</div>
+         </div>
+      )}
+   </div>
+)
+
+const enhance = compose(
+   withState('stateValue', 'stateHandler', 'dark'),
+   mapProps(({ list, stateValue, stateHandler }) => {
+      const otherSide = stateValue === 'dark' ? 'light' : 'dark'
+      return {
+         stateHandler,
+         otherSide,
+         list: list.filter(char => char.side === stateValue),
+      }
+   }),
+   withHandlers({
+      handleSetState: ({ stateHandler, otherSide }) => () => stateHandler(otherSide)
+   })
+)
+
+const FilteredList = enhance(renderDisplayList)
+
+ReactDOM.render (
+   <FilteredList list={starWarsChars} />,
+   document.getElementById('app')
+)
+```
 
 `withHandlers` HoC takes an object of functions as a configuration argument. In our example, we pass an object with a single function `handleSetState`. When this happens, we get back an HoC expecting the base component and the props to be passed. When we pass them, the outer function in every key of the passed object receives the props object as an argument.
 
