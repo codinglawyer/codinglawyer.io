@@ -56,12 +56,13 @@ const PostIcons = ({
 
 PostIcons.propTypes = {
   node: PropTypes.object.isRequired,
-  readingTime: PropTypes.string.isRequired,
+  readingTime: PropTypes.string,
   marginTopNegative: PropTypes.bool,
   className: PropTypes.string,
 }
 
 PostIcons.defaultProps = {
+  readingTime: ``,
   marginTopNegative: false,
   className: ``,
 }
