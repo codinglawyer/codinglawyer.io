@@ -3,11 +3,17 @@ import PropTypes from 'prop-types'
 import { format } from 'date-fns'
 import { Link } from 'gatsby'
 import ClockIcon from 'react-icons/lib/fa/clock-o'
+import CalendarIcon from 'react-icons/lib/fa/calendar'
 import TagIcon from 'react-icons/lib/fa/tag'
 import { PostIconsContainer, LinkRed, Date } from '../Styled'
 import { rhythm } from '../../utils/typography'
 
-const PostIcons = ({ node, marginTopNegative = false, className = `` }) => (
+const PostIcons = ({
+  node,
+  readingTime,
+  marginTopNegative = false,
+  className = ``,
+}) => (
   <PostIconsContainer
     css={
       marginTopNegative
@@ -16,9 +22,14 @@ const PostIcons = ({ node, marginTopNegative = false, className = `` }) => (
     }
     className={className}>
     <Date style={{ marginRight: rhythm(1) }}>
-      <ClockIcon size={14} style={{ position: `relative`, bottom: 1 }} />
+      <CalendarIcon size={14} style={{ position: `relative`, bottom: 1 }} />
       {` `}
       {format(node.date, 'MMMM DD, YYYY')}
+      <ClockIcon
+        size={14}
+        style={{ position: `relative`, bottom: 1, marginLeft: `20px` }}
+      />
+      <span>{readingTime}</span>
     </Date>
     <div>
       {node.tags &&
@@ -45,6 +56,7 @@ const PostIcons = ({ node, marginTopNegative = false, className = `` }) => (
 
 PostIcons.propTypes = {
   node: PropTypes.object.isRequired,
+  readingTime: PropTypes.string.isRequired,
   marginTopNegative: PropTypes.bool,
   className: PropTypes.string,
 }

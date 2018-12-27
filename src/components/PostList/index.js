@@ -62,7 +62,11 @@ const PostList = ({
           <PostSnippetDescription
             dangerouslySetInnerHTML={{ __html: node.excerpt }}
           />
-          <PostIcons node={node.frontmatter} marginTopNegative />
+          <PostIcons
+            node={node.frontmatter}
+            readingTime={node.fields.readingTime.text}
+            marginTopNegative
+          />
         </PostSnippet>
       ))}
   </Container>

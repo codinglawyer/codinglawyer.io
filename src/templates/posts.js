@@ -30,6 +30,11 @@ export const pageQuery = graphql`
             description
             tags
           }
+          fields {
+            readingTime {
+              text
+            }
+          }
         }
       }
     }

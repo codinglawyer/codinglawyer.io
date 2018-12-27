@@ -13,7 +13,7 @@ const PostTemplate = ({
   data: { markdownRemark, imageSharp },
   location: { href },
 }) => {
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter, html, fields } = markdownRemark
   const postImage = imageSharp && imageSharp.sizes && imageSharp.sizes.src
 
   return [
@@ -29,6 +29,7 @@ const PostTemplate = ({
         <PostIcons
           marginTopNegative
           node={frontmatter}
+          readingTime={fields.readingTime.text}
           css={{ marginBottom: rhythm(1 / 2) }}
         />
         <hr />
@@ -74,6 +75,11 @@ export const pageQuery = graphql`
         description
         tags
         thumbnail
+      }
+      fields {
+        readingTime {
+          text
+        }
       }
     }
     imageSharp(original: { src: { regex: $thumbnailRegex } }) {
