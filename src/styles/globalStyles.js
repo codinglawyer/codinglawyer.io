@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { injectGlobal } from 'emotion'
+import { css } from 'emotion'
 
 injectGlobal`
   a {
@@ -23,5 +24,8 @@ injectGlobal`
   }
   .gatsby-resp-image-wrapper {
     display: inline !important
+  }
+  .language-js code{
+    font-size: 0.65rem;
   }
 `
