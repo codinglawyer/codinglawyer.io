@@ -14,6 +14,8 @@ thumbnail:
 - function
 ---
 
+***This post was also [translated to Korean](https://ideveloper2.tistory.com/162?fbclid=IwAR0vUSKvBvr8nFwp0Qg3KstcukPdQ2Dr-yV370zk1ef_tpauFpFWw5ihivA)***
+
 ![alt text](./images/code.jpg "Code on a computer screen")
 
 The maintainable component structure is a crucial prerequisite for a stable React application. You can achieve this by writing your code in a functional way using higher-order components (HoCs). The idea is to separate logic from presentation in your components. If you stick to this pattern, you’ll end up with reusable components that are both readable and easy to test as each component is only responsible for a single task.
