@@ -21,7 +21,7 @@ Now, let’s talk about the difference between functional HoCs and class-based o
 
 Since we want to follow the principles of FP, we should be using **functional components** as much as possible. We’re already doing this with presentational components as we’ve seen in *[the previous post](https://www.codinglawyer.io/posts/make-components-reusable)*. And we should do this with HoCs as well.
 
-## Functional HoC
+### Functional HoC
 
 A functional HoC just wraps the base component, injects it with new props along with the original ones, and returns a new component. It doesn’t change the original component by modifying its prototype as the classes do. We saw such a HoC in *[the previous post](https://www.codinglawyer.io/posts/make-components-reusable)*. Here’s a quick reminder:
 
@@ -37,7 +37,7 @@ This HoC doesn’t have any side effects. It doesn’t mutate anything. It’s a
 
 When creating an HoC, we should define it as a functional component if possible.
 
-## Class-based HoCs
+### Class-based HoCs
 
 However, sooner or later, you’ll need to access the internal state or lifecycle methods in your component. You can’t achieve this without classes since this behavior is inherited from the *[React.Component](https://reactjs.org/docs/react-component.html)*, which can’t be accessed within the functional component. So, let’s define a class-based HoC.
 
@@ -98,7 +98,7 @@ At the end of the example, we render the component by passing the props to it. W
 
 `renderDisplayList` then filters the `list` prop according to the passed state value and sets the `otherSide` variable. Finally, it renders the filtered list to the screen along with the button with the attached state handler. When the button is clicked, the state is set to the `otherSide` variable.
 
-## Does it matter?
+### Does it matter?
 
 ![alt text](./images/question-mark.jpg "Question mark")
 

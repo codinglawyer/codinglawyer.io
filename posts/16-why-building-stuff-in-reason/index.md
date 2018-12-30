@@ -14,7 +14,7 @@ thumbnail:
 
 Why should you give ReasonML a try? It's a functional programming language that provides you with strong type system, powerful JavaScript interop and many other built-in features that will improve your developer experience. Let's talk about these features a little bit more.
 
-## BuckleScript
+### BuckleScript
 
 ![alt text](./images/bucklescript.jpg "BuckleScript logo")
 
@@ -41,7 +41,7 @@ As you can see, the resulting JavaScript code is pretty readable. It seems like 
 
 Not only does Reason compile to JavaScript, but to native and bytecode as well. So, you can write a single application using Reason syntax and be able to run it in the browser on MacOS, Android, and iOS phones. There’s a game called *[Gravitron](https://github.com/jaredly/gravitron)* by Jared Forsyth which is written in Reason and it can be run on all the platforms I’ve just mentioned.
 
-## JavaScript interop
+### JavaScript interop
 
 BuckleScript also provides us with Javascript *[interoperability](https://en.wikipedia.org/wiki/Interoperability)*. Not only can you paste your working JavaScript code in your Reason codebase, but your Reason code can also interact with that JavaScript one. This means you can easily integrate Reason code into your existing JavaScript codebase. Moreover, you can use all the JavaScript packages from the NPM ecosystem in your Reason code. For example, you can combine Flow, TypeScript, and Reason together in a single project.
 
@@ -55,7 +55,7 @@ However, if you didn’t find your library, you’ll need to write Reason bindin
 
 When you need some functionality from a JavaScript library, you don’t need to write the Reason bindings for a library as a whole. You can do that only for the functions or components you need to use.
 
-## Functional programming
+### Functional programming
 
 Although OCaml itself is a *[multi-paradigm language](https://en.wikipedia.org/wiki/OCaml)* — combining functional with object-oriented programming — Reason put more emphasis on its functional programming side.
 
@@ -67,7 +67,7 @@ If you were a JavaScript developer before Reason came out and wanted to learn a 
 
 Reason opens the entire functional programming realm to all interested JavaScript developers. It provides us with an opportunity to use all those cool OCaml features using syntax we dearly know.
 
-## Type system
+### Type system
 
 ![alt text](./images/lipsticks.jpg "Picture of lipsticks")
 
@@ -98,7 +98,7 @@ Moreover, static typing in Reason will give you awesome developer experience sin
 
 If you’re a newcomer, learning static types will take you some time. However, Reason will help you with that since it won’t compile your code if your types are wrong and it’ll provide you with readable warning and error messages.
 
-## Reason formatter
+### Reason formatter
 
 In JavaScript, we have *[Prettier](https://prettier.io/)* (inspired by Reason formatter) that provides us with many options for formatting our code. In Reason, you don’t have this flexibility. This decision was made by the creators of the language themselves. So, Reason’s formatter provides you with a standard way to format your code. As a result, every Reason code you’ll encounter will be formatted the same way.
 

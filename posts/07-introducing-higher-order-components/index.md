@@ -36,7 +36,7 @@ Since the class is just syntactic sugar over functions and the functional compon
 
 So, React UI is just a composition of functions. That sounds awfully like FP, right?
 
-## Smart and presentational components
+### Smart and presentational components
 
 A component is typically composed of logic and presentation. However, if we decide to write all our components as such, we would end up with dozens of components having only a single purpose. On the other hand, if we try to *[separate these concerns](https://en.wikipedia.org/wiki/Separation_of_concerns)*, we will be able to create simple reusable components. Following this idea, we should prefer defining our components as smart (logic) and presentational (UI).
 
@@ -180,7 +180,7 @@ First, let’s take a look at the `FilteredList` component. This component gets 
 
 We render the `FilteredList` component at the end of the example by passing the props. It filters the character list from the props according to the `side` prop. The filtered list is then passed as the props to the `renderDisplayList,` which subsequently renders the list of characters to the screen.
 
-## Introducing higher-order components
+### Introducing higher-order components
 
 Let’s now talk about the nature of the higher-order function `withFilterProps`. In React’s vocabulary, such a function is called a higher-order component (HoC). Just as the higher-order function creates a new function, the HoC creates a new component.
 

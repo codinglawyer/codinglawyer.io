@@ -33,13 +33,13 @@ Reason, on the other hand, opens the entire FP realm to all interested JavaScrip
 
 Last but not least, we can write our *[React](https://reasonml.github.io/reason-react/)* or *[React Native](https://github.com/reasonml-community/bs-react-native)* apps using Reason.
 
-## Why should you give Reason a try?
+### Why should you give Reason a try?
 
 I hope you’ll discover the answer for yourself by the time you've finished reading this series of posts.
 
 As we go through the source code of the classic Tic Tac Toe game — written in Reason, using React — I’ll explain the core features of the language. You’ll see the benefits of the strong type system, immutability, pattern matching, functional composition using pipe, and so on. Unlike JavaScript, these features are intrinsic to Reason itself.
 
-## Warming up
+### Warming up
 
 Before getting your hands dirty, you need to install Reason on your machine following *[this guide](https://reasonml.github.io/docs/en/installation)*.
 
@@ -49,7 +49,7 @@ To view your app in the browser, you need to compile your Reason files to JavaSc
 
 In other words, when you run `npm start` (in the ReasonScripts project), your Reason code gets compiled to JavaScript. The result of the compilation is then rendered to the browser. You can see for yourself how readable the compiled code is by checking the `lib` folder inside your app.
 
-## Our first component
+### Our first component
 
 ![](./images/piano.jpg)
 
@@ -101,7 +101,7 @@ However, we are not using it. We can make this explicit by writing an underscore
 
 Understandable error and warning messages are another cool feature that’ll improve your developer experience, compared to JavaScript.
 
-## Setting up variant types
+### Setting up variant types
 
 ![](./images/bees.jpg)
 
@@ -178,7 +178,7 @@ If we wanted to access this module in a different file, we don’t need any `imp
 
 Since we are using our variants quite often, we can make it more concise by writing `open SharedTypes` at the top of the file in which we want to access our module. This allows us to drop the dot notation since we can use our module in the scope of our file.
 
-## Establishing state
+### Establishing state
 
 ![](./images/wall-constructing.jpg)
 
@@ -220,7 +220,7 @@ If you scroll up a little bit and check our `state` type, you’ll see that the 
 
 However, their status may change as the game goes on. Another part of the state is the `gameState` which is initially set to the`Cross` player who plays first.
 
-## Rendering board
+### Rendering board
 
 Let’s take a look at the `render` method of our `Game` component.
 

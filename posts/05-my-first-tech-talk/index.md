@@ -17,7 +17,7 @@ thumbnail:
 
 Two years ago, I wrote my first JavaScript function. A year and half ago, I got my first job as a front-end developer. Three weeks ago, I had my first tech talk at a JavaScript conference. I've already written a post about the first two things. Now, I want to share with you my experience from my first tech talk. I'll talk about my motivation to apply, the application to the conference, the preparation of the talk and about the presentation itself.
 
-## Motivation
+### Motivation
 
 I would like to take you six months back and tell you a little bit about why I even applied to the conference in the first place. Maybe you're waiting for me to say something like: "I always wanted to speak at conferences...". However, this isn't the case.
 
@@ -25,7 +25,7 @@ One of the things I love about programming is the community. It's the community 
 
 Back to the original question. I applied to the conference because I wanted to share my knowledge with the community.
 
-## Application
+### Application
 
 The first step was to think of a topic. I knew that it should be a JavaScript talk, and that it must somehow be related to React, since I work with it a lot. The talk also needed to be useful for fellow developers in a way that they would gain new knowledge. Since I was using the higher-order component pattern a lot during the application development of my side projects as well as at work, I decided that this could be a great topic.
 
@@ -43,7 +43,7 @@ I had roughly five months to prepare my talk. Did I mention that it was suppose
 
 ![](./images/bunny.jpg)
 
-## Preparation
+### Preparation
 
 As I've already mentioned, the talk was about higher-order components (HoCs). The main idea was to show the audience how HoCs could help them to develop maintainable React applications.
 
@@ -66,7 +66,7 @@ This metaphor turned out to be a very good choice. Not only did it lighten the 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">With <a href="https://twitter.com/hashtag/React?src=hash&amp;ref_src=twsrc%5Etfw">#React</a> you can decorate your application like pancakes with raspberries. <a href="https://twitter.com/coding_lawyer?ref_src=twsrc%5Etfw">@coding_lawyer</a> tries to make us hungry for more <a href="https://twitter.com/hashtag/IJS17?src=hash&amp;ref_src=twsrc%5Etfw">#IJS17</a> <a href="https://twitter.com/hashtag/IPC17?src=hash&amp;ref_src=twsrc%5Etfw">#IPC17</a> <a href="https://t.co/82iVKzhw1j">pic.twitter.com/82iVKzhw1j</a></p>&mdash; JavaScriptCon (@JavaScriptCon) <a href="https://twitter.com/JavaScriptCon/status/923114046005694464?ref_src=twsrc%5Etfw">October 25, 2017</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-## Presentation
+### Presentation
 
 One week before the conference, I learned that the capacity of the lecture hall where I would be giving the talk was a hundred people. Due to my lack of any comparable previous experience, it was difficult for me to imagine that I'd be speaking in front of so many JavaScript professionals. However, I guess it doesn't make much difference if it's twenty or a hundred people.
 
@@ -78,7 +78,7 @@ The talk itself went smoothly. It took me about 52 minutes. Afterwards, I answer
 
 ![](./images/community.jpg)
 
-## Conclusion
+### Conclusion
 
 This whole conference talk venture was a step outside my comfort zone and it helped me to move forward. During the whole process, I learned so many things that will help me and not only in my programming career. My confidence improved a lot as well since I know I'm now able to give a public talk about programming for almost an hour in front of many professionals. Moreover, being a speaker made the conference a lot more awesome.
 

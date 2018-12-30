@@ -20,7 +20,7 @@ I’ll also mention a couple of resources that helped me to learn these basics.
 
 Another reason behind this post is that many aspiring web developers tend to skip learning core JavaScript concepts such as hoisting, closures, or prototypes. They go straight to the hottest frameworks such as React or Angular 2. I’ll show you why this approach is not the most convenient one.
 
-## Everybody wants developers with knowledge of ${addTheHotFramework}…
+### Everybody wants developers with knowledge of ${addTheHotFramework}…
 
 So, is there any reason why you should bother learning Vanilla JavaScript?
 
@@ -30,7 +30,7 @@ I understand that the majority of aspiring web developers want to get hired as s
 
 It seems much easier to do a crash course on JavaScript basics, jump into some fancy framework, make a ToDo list (*[let a puppy die](https://medium.freecodecamp.com/every-time-you-build-a-to-do-list-app-a-puppy-dies-505b54637a5d)*), upload it to GitHub, then start looking for a job.
 
-## …but investing time in Vanilla JavaScript will pay off in the long run
+### …but investing time in Vanilla JavaScript will pay off in the long run
 
 Don’t get me wrong here. I am not biased against JavaScript frameworks in any way. It’s exactly the opposite. Many of them help you to write more readable and maintainable code. They let you write more abstract code that is often easier to debug.
 
@@ -52,7 +52,7 @@ This should convince anyone that knowledge of a pure JavaScript is a must in the
 
 ![](./images/keep-calm.jpg)
 
-## Personal experience
+### Personal experience
 
 Not long ago, I looked back at my *[journey](https://www.codinglawyer.io/posts/i-stopped-being-a-lawyer)* from a lawyer to a web developer. It has already been 18 months since I wrote my first JavaScript function, and my 10th month working as a professional front-end developer.
 
@@ -70,7 +70,7 @@ If you want to understand how these frameworks work under the hood, you need to 
 
 You can **test your knowledge** of pure JavaScript by reading the source code of your favorite framework. \*\*\*\*Not only will this give you a picture of how it works under the hood, it will also teach you a lot about its logic, which you can use in your own code. You will see that framework’s functions that seems to be doing a lot of magic in your application are just compositions of basic JavaScript concepts.
 
-## Give me something I can learn from
+### Give me something I can learn from
 
 The question you might be asking now is “What are some good resources that can help me to acquire decent knowledge of Vanilla JavaScript?”.
 
@@ -90,7 +90,7 @@ If you’re more a video course person, you can watch *[Kyle’s online courses]
 
 Another video course that I find useful is *[Javascript: Understanding the Weird Parts](https://www.udemy.com/understand-javascript/)* by Anthony Alicea. It explains what happens under the hood of JavaScript in an approachable way. It covers advanced concepts such as prototypical inheritance, functional programming and scope chains.
 
-## Learn Vanilla JavaScript, now
+### Learn Vanilla JavaScript, now
 
 If you invest your precious time in learning Vanilla JavaScript, you won’t regret it. Not only does it contains the word **vanilla**, but it will have a beneficial impact on programming skills.
 

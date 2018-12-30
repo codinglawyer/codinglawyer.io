@@ -16,7 +16,7 @@ thumbnail:
 
 *[In the first part](https://www.codinglawyer.io/posts/hocs-the-ultimate-guide-part-i)*, you learned how to write reusable higher-order components (HoC) and hopefully understood the ideas behind this pattern as well. Now, you are going to learn the difference between class HoC and the functional one and we'll spend a good amount of time understanding how the composition of several higher-order components works.
 
-## Functional or class-based HoCs?
+### Functional or class-based HoCs?
 
 ![alt text](./images/avocado.jpg "Avocado")
 
@@ -24,7 +24,7 @@ Let’s talk a little bit about the difference between functional HoCs and class
 
 Since we want to follow the principles of FP, we should be using **functional components** as much as possible. We’re already doing this with presentational components as we’ve seen above. And we should do this with HoCs as well.
 
-## Functional HoC
+### Functional HoC
 
 A functional HoC just wraps the base component, injects it with new props along with the original ones, and returns a new component. It doesn’t change the original component by modifying its prototype as the classes do. We saw such an HoC above. Here’s a quick reminder:
 
@@ -40,7 +40,7 @@ This HoC doesn’t have any side effects. It doesn’t mutate anything. It’s a
 
 When creating an HoC, we should define it as a functional component if possible.
 
-## Class-based HoCs
+### Class-based HoCs
 
 However, sooner or later, you’ll need to access the internal state or lifecycle methods in your component. You can’t achieve this without classes since this behavior is inherited from the *[React.Component](https://reactjs.org/docs/react-component.html)*, which can’t be accessed within the functional component. So, let’s define a class-based HoC.
 
@@ -101,7 +101,7 @@ At the end of the example, we render the component by passing the props to it. W
 
 `renderDisplayList` then filters the `list` prop according to the passed state value and sets the `otherSide` variable. Finally, it renders the filtered list to the screen along with the button with the attached state handler. When the button is clicked, the state is set to the `otherSide` variable.
 
-## Does it matter?
+### Does it matter?
 
 As you’ve just seen, our new HoC `withSimpleState` returns a class, instead of a functional component. You might say it doesn’t look like a **pure function** since it contains impure class-specific behavior (state). However, let’s take a closer look.
 
@@ -111,13 +111,13 @@ The HoC (pure function) enables us to encapsulate the impure class-related code 
 
 If you find yourself in a situation where you simply can’t write a functional component because you need a class-related behavior, wrap the impure code inside the HoC, which is the pure function instead, just as we did in the example.
 
-## What’s next?
+### What’s next?
 
 If you check our example again, you’ll see that we have a new problem. The `renderDisplayList` component is no longer reusable since we moved the filtering logic inside it.
 
 To make it reusable again, we need to move the logic back to the `withTransformProps` HoC. To achieve this, we need to figure out how to use the `withTransformProps` and `withSimpleState` HoCs with the base component at the same time and allow the `renderDisplayList` to only be responsible for the presentation again. We can achieve this behavior using composition.
 
-## Composition
+### Composition
 
 ![alt text](./images/skyscraper.jpg "Two skyscrapers")
 
@@ -161,7 +161,7 @@ We no longer need to explicitly wrap the functions inside each other. Instead, w
 
 Finally, we pass the `number` as the `value` to the `funcComposition` function. When this happens, the `compose` passes the `value` to the `multiply` (rightmost) function. The returned value is then passed as an input to the `decrement` function and so on until all the functions in the composition have been called. We store the final value as a `result`.
 
-## Composition of HoCs
+### Composition of HoCs
 
 Let’s take a look at how we could `compose` several HoCs. We’ve already learned that our reusable HoCs should only be responsible for a single task. However, what if we needed to implement complex logic that can’t be stored in a single HoC? To achieve this, we want to be able to **combine several HoCs together and wrap them around the base component.**
 
@@ -254,7 +254,7 @@ As you’ve just seen, the **props are the only language that HoCs use to talk t
 
 ![alt text](./images/hands.jpg "Audience")
 
-## Refactor
+### Refactor
 
 Although our HoC composition works, the syntax itself is pretty verbose. We can make it simpler by getting rid of the `ToggleableFilteredList` variable and just wrap the HoCs inside each other.
 
@@ -273,7 +273,7 @@ const FilteredList = withSimpleState('dark')(
 
 This code is a little bit better. However, we are still manually wrapping all the components. Imagine that you wanted to add even more HoCs to this composition. In such a case, our composition will become difficult to read and understand. Just imagine all those parentheses!
 
-## Using compose
+### Using compose
 
 Since this talk is about FP principles, let’s use the `compose` helper.
 
@@ -299,7 +299,7 @@ const FilteredList = enhance(renderDisplayList)
 
 We no longer need to explicitly wrap the HoCs inside each other. Instead, we pass them all as the arguments to the `compose` function. When we do that, we get back a new compound function waiting for the `BaseComponent` argument to be passed. We store this function as `enhance`. Then, we just pass the `renderDisplayList` as the base component to it, and `compose` will do all the component wrapping for us.
 
-## Pancakes again
+### Pancakes again
 
 I’d like to come back to our **pancake** analogy. Before, we were decorating our pancakes with only a single flavorful layer. But as we all know, pancakes taste much better when you combine more flavors together. How about a pancake with melted chocolate and banana or with cream and caramel? You know what I’m talking about…
 
@@ -309,7 +309,7 @@ Just as you can decorate your pancake using one or several decorating layers dep
 
 If you need a complex logic for your presentational component, you don’t need to store it all inside a single component or in a single HoC. Instead, you just compose several simple HoCs together and enhance your presentational component with them.
 
-## Recompose
+### Recompose
 
 So far, you’ve seen some simple HoCs. However, this pattern is so powerful that it has been used in many React-based libraries (such as React-Redux, React router, Recompose).
 
@@ -346,7 +346,7 @@ The Recompose version of the HoC composition isn’t that different from ours. J
 
 As a result, we don’t need to define HoCs, which provide us with a general behavior.
 
-## More improvements
+### More improvements
 
 We can improve our composition using Recompose even more since there’s still one issue we haven’t addressed yet.
 
@@ -420,7 +420,7 @@ In real-world applications, you’ll be using these predefined HoCs quite often 
 
 ![alt text](./images/strings.jpg "Strings")
 
-## Conclusion
+### Conclusion
 
 Thanks to the principles of functional programming we were able to transform this not reusable huge component from the beginning…
 

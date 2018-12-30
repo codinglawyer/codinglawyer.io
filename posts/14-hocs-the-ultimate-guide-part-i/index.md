@@ -20,7 +20,7 @@ The maintainable component structure is a crucial prerequisite for a stable Reac
 
 In this article I’d love to share my experience, so you can easily utilize this approach in your own applications. Not only will you learn how to enhance your presentational components using one or several HoCs, but you’ll also understand the principles behind this pattern.
 
-## Why is this post so long?
+### Why is this post so long?
 
 When I started learning HoCs myself, I had no problem finding resources dealing with this topic. However, many of them assumed certain previous knowledge of complex topics, such as functional programming (FP) principles. As a result, it was challenging for me to understand what was going on under the hood and how the composition of several HoCs works.
 
@@ -28,7 +28,7 @@ It was this experience that motivated me to write this article in a broader and 
 
 This article is also based on *[my first tech conference talk](https://www.codinglawyer.io/posts/my-first-tech-talk)* I gave at the International JavaScript Conference (iJS) 2017 in Munich. You can find all the source code on *[Github](https://github.com/codinglawyer/hocs-code)*.
 
-## Getting started
+### Getting started
 
 Let’s get started by looking at some code:
 
@@ -85,7 +85,7 @@ At the end of this article, we’ll be able to write a fully reusable version of
 
 Stay tuned.
 
-## Taste the principles of functional programming
+### Taste the principles of functional programming
 
 To show you why you should stick to the principles of FP in a React application,I need to talk a little bit about the core principles of FP themselves.
 
@@ -93,7 +93,7 @@ The idea is to decompose a program into simple **reusable functions**.
 
 So, it’s all about functions. To be more precise, it’s all about **simple functions**. This means that each function should only be responsible for a single task. The simpler the function, the more reusable it is.
 
-## Higher-order functions
+### Higher-order functions
 
 In JavaScript, you can use a function like any other value. It can be passed as an argument to a function or it can be returned by it. A function that **returns or creates a new function** is called a higher-order function.
 
@@ -108,7 +108,7 @@ console.log(numbersPlusOne(numbers))  // [2, 6, 9, 11, 22]
 
 As you can see, we’re telling the JavaScript engine **what** we want to do — we want to map over the array’s elements. This code is self-explanatory. You just see the code and you immediately know what’s going on. Such code is called **declarative**. Functional programming is all about declarative code.
 
-## Avoid side effects
+### Avoid side effects
 
 As a functional programmer, you want to avoid side effects in your functions as much as possible. In other words, a function shouldn’t be changing anything that’s not local to the function itself. You can reuse such a function easily, anywhere in your application. Functions without side effects are called **pure.** They always return the same output, given the same arguments.
 
@@ -142,7 +142,7 @@ Here we have an example of a pure (same as in a previous example) and impure fun
 
 However, in the second scenario, the array was mutated inside the impure function. Such behavior can make your code pretty unpredictable. And especially in the functional programming realm, we want to avoid that.
 
-## Composition
+### Composition
 
 By now, we know we should be creating simple pure functions. However, what if we need behavior that is so complex that it can’t be stored in a single function? We could achieve this by combining several functions into a new compound function using composition.
 
@@ -160,7 +160,7 @@ Composition means that we pass the output of the first function call as the inpu
 
 In our example, we have a `number` and three functions. We wrap them all inside each other, and we get a compound function waiting for the `number` argument. By using composition, we don’t need to create variables for storing the result of the single functions.
 
-## Combined
+### Combined
 
 To really see the benefits of all these FP principles, you need to combine them together.
 
@@ -168,7 +168,7 @@ Ideally, your application should be composed of **pure functions** whose data ar
 
 By sticking to FP principles, you’ll end up with simple reusable functions that can be composed together.
 
-## Functional programming and React
+### Functional programming and React
 
 Now that we are familiar with the basic principles of FP, we can take a look at how to use them to our advantage in React.
 
@@ -191,7 +191,7 @@ Since the class is just syntactic sugar over functions and the functional compon
 
 So React UI is just a **composition of functions**. That sounds awfully like FP,right?
 
-## Smart and presentational components
+### Smart and presentational components
 
 A component is typically composed of logic and presentation. However, if we decide to write all our components as such, we would end up with dozens of components having only a single purpose. On the other hand, if we try to *[separate these concerns](https://en.wikipedia.org/wiki/Separation_of_concerns)*, we’ll be able to create simple reusable components. Following this idea, we should prefer defining our components as smart (logic) and presentational (UI).
 
@@ -272,7 +272,7 @@ Not only is that React application a composition of functions in general, but it
 
 As we’ve already learned, pure functions are the basic building blocks of FP. So if we prefer using functional components, we’ll be able to **apply various FP techniques** such as the higher-order components in our code.
 
-## Adding more logic
+### Adding more logic
 
 Let’s take a look at our functional component again. It takes a list of Star Wars characters as a prop and renders them to the screen. It’s pretty reusable since it doesn’t contain any logic.
 
@@ -337,7 +337,7 @@ First, let’s take a look at the `FilteredList` component. This component gets 
 
 We render the `FilteredList` component at the end of the example by passing the props. It filters the character list from the props according to the `side` prop. The filtered list is then passed as the props to the `renderDisplayList,` which subsequently renders the list of characters to the screen.
 
-## Introducing higher-order components
+### Introducing higher-order components
 
 ![alt text](./images/chip.jpg "Computer chip")
 
@@ -363,7 +363,7 @@ If we again consider the distinction between smart and presentational components
 
 Since you made it this far, let’s slow down a little bit and talk about food :)
 
-## Meatloaf or Pancake
+### Meatloaf or Pancake
 
 At the beginning of this article, we saw this hard-to-reuse component that takes care of all the logic and presentation.
 
@@ -421,7 +421,7 @@ However, you can’t do that with the component that is responsible for all the 
 
 I hope that this metaphor gave you a better understanding of the HoC pattern. If not, at least I made you hungry :).
 
-## Make all the components reusable again
+### Make all the components reusable again
 
 Now, that we know how to create a HoC, we’ll take a look at how to make it reusable.
 
@@ -515,7 +515,7 @@ Writing reusable HoCs and presentational components will help you to avoid unnec
 
 Congratulations! By now you should be able to write reusable higher-order components yourself. I also hope you have a better understanding of the ideas behind this pattern.
 
-## Stay tuned for Part II
+### Stay tuned for Part II
 
 *[In the second post](https://www.codinglawyer.io/posts/hocs-the-ultimate-guide-part-ii)*, you’ll learn the difference between class HoC and the functional one. We’ll also spend a good amount of time understanding how the composition of several higher-order components works. All of this will allow us to enhance our base components with even more behavior that can be easily reused throughout our application.
 

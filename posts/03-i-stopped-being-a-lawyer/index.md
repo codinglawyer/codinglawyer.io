@@ -16,7 +16,7 @@ thumbnail:
 
 *Originally, I published this post more than [half  a year ago](https://ideas.ataccama.com/i-stopped-being-a-lawyer-became-a-developer-and-its-awesome-5311e8d74882?gi=af6efc52acc8). After a couple of months in my first programming job, I decided to describe my journey from a lawyer to a developer and mention the resources that helped me to achieve my programming dream. I’m sure that this post will be helpful to anyone who wants to become a developer and inspiring to those who already began their exciting journeys. Enjoy!*
 
-## Are you satisfied with your current job?
+### Are you satisfied with your current job?
 
 Does your career fulfill you and move you in the right direction? Have you ever sat down to really think about it? For too long, I went with the flow and took whatever reasonable professional options came up, not giving them any thought. Or at least not enough.
 
@@ -26,9 +26,9 @@ Take some time to really think about your future, too. If you’re not satisfied
 
 I hope my experience will convince you that it’s never too late to make a change. Read on to learn how I transformed from lawyer to programmer, and discover resources that helped me along the way.
 
-## My coding journey
+### My coding journey
 
-### I need a change
+#### I need a change
 
 I dedicated years of my life to law. I enjoyed my studies, graduated, and got my first job. I always thought I’d make a successful lawyer, but after a few years in the field, I had doubts about the direction of my career.
 
@@ -39,7 +39,7 @@ In the end, I decided that five years wasn’t very long compared to the prospec
 With this in mind, I decided to look into other fields where I could learn, do work I’d enjoy, and not hate Monday mornings.
 
 
-### Which way to go?
+#### Which way to go?
 I’d had positive experiences with online courses in the past, and started my search there. Initially, I came across a *[course](https://www.edx.org/course/science-cooking-haute-cuisine-soft-harvardx-spu27x-0)* that combined science and cooking. I love to cook and definitely enjoyed it, but still felt that cooking was more of a hobby than profession for me.
 
 The course helped me realize that although I never studied science, I understood formulas and calculations when applied to something I enjoyed. This meant that I didn’t have to limit my future to the social sciences.
@@ -50,7 +50,7 @@ My programming journey started with *[The Web Developer Bootcamp](https://www.ud
 
 ![](./images/studio.jpg)
 
-### Develop it!
+#### Develop it!
 
 While learning front-end foundations, I discovered another important element of coding: developing web applications from scratch. It’s relatively easy to code with guidance from an experienced programmer, but starting with empty files is a completely different matter.
 
@@ -62,7 +62,7 @@ The Web Developer Bootcamp and Free Code Camp provided me with exactly this �
 
 From then on, I developed applications from scratch using technologies learned along the way. In my view, this is the best way to understand and master a particular technology.
 
-## Getting advanced
+### Getting advanced
 
 Although I was able to develop my own applications, they were built in *[vanilla (generic) JavaScript](https://snipcart.com/blog/learn-vanilla-javascript-before-using-js-frameworks)* or a basic framework (jQuery). I was still at the beginning of my programming journey, and I clearly needed to broaden my JavaScript knowledge to keep moving forward.
 
@@ -70,7 +70,7 @@ My gateway to this realm was *[JavaScript: Understanding the Weird Parts](https:
 
 Thanks to these resources (really, thanks so much!), I was able to understand more sophisticated technologies such as a React library.
 
-### Let’s React
+#### Let’s React
 
 With these advanced concepts in mind, I delved into React, a simple component library that enabled me to develop complex applications. As a bonus, I later found out that many employers require it.
 
@@ -78,7 +78,7 @@ With these advanced concepts in mind, I delved into React, a simple component li
 
 ![](./images/shoes.jpg)
 
-## Ready? I think so.
+### Ready? I think so.
 
 These resources helped me reach the point where I was ready to apply for a front-end developer position, but the right resources can only take you so far. My motivation pushed me to where I wanted to be. I set myself a goal and pursued it.
 
@@ -87,7 +87,7 @@ These resources helped me reach the point where I was ready to apply for a front
 
 **One year later, I’m writing this article from my desk as a front-end developer— a job that truly satisfies me.**
 
-## Postscript
+### Postscript
 
 You might be wondering what I like about being a programmer. The *thing* for me is creating something that actually works and may even be useful to people.
 

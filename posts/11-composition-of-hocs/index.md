@@ -19,7 +19,7 @@ If you check our example from the *[previous post](https://www.codinglawyer.io/p
 
 To make it reusable again, we need to move the logic back to the `withTransformProps` HoC. To achieve this, we need to figure out how to use the `withTransformProps` and `withSimpleState` HoCs with the base component at the same time and allow the `renderDisplayList` to only be responsible for the presentation again. We can achieve this behavior using composition.
 
-## Composition
+### Composition
 
 We’ve already talked about the composition principle in of the *[previous posts](https://www.codinglawyer.io/posts/taste-the-principles-of-fp-in-react)*. It enables us to combine several functions into a new compound function. Here’s a quick reminder:
 
@@ -61,7 +61,7 @@ We no longer need to explicitly wrap the functions inside each other. Instead, w
 
 Finally, we pass the `number` as the `value` to the `funcComposition` function. When this happens, the `compose` passes the `value` to the `multiply` (rightmost) function. The returned value is then passed as an input to the `decrement` function and so on until all the functions in the composition have been called. We store the final value as a `result`.
 
-## Composition of HoCs
+### Composition of HoCs
 
 Let’s take a look at how we could `compose` several HoCs. We’ve already learned that our reusable HoCs should only be responsible for a single task. However, what if we needed to implement complex logic that can’t be stored in a single HoC? To achieve this, we want to be able to **combine several HoCs together and wrap them around the base component.**
 
@@ -150,7 +150,7 @@ Here’s a detailed description of the HoC composition:
 
 As you’ve just seen, the **props are the only language that HoCs use to talk to each other inside a composition**. Each HoC performs a specific action which results in an enhancement or a modification of the props object.
 
-## Refactor
+### Refactor
 
 Although our HoC composition works, the syntax itself is pretty verbose. We can make it simpler by getting rid of the `ToggleableFilteredList` variable and just wrap the HoCs inside each other.
 
@@ -169,7 +169,7 @@ const FilteredList = withSimpleState('dark')(
 
 This code is a little bit better. However, we are still manually wrapping all the components. Imagine that you wanted to add even more HoCs to this composition. In such a case, our composition will become difficult to read and understand. Just imagine all those parentheses!
 
-## Using compose
+### Using compose
 
 Since this this post series is about FP principles, let’s use the `compose` helper.
 
@@ -195,7 +195,7 @@ const FilteredList = enhance(renderDisplayList)
 
 We no longer need to explicitly wrap the HoCs inside each other. Instead, we pass them all as the arguments to the `compose` function. When we do that, we get back a new compound function waiting for the `BaseComponent` argument to be passed. We store this function as `enhance`. Then, we just pass the `renderDisplayList` as the base component to it, and `compose` will do all the component wrapping for us.
 
-## Pancakes again
+### Pancakes again
 
 I would like to come back to our **pancake** analogy from one of the *[previous posts](https://www.codinglawyer.io/posts/higher-order-components-as-pancakes)*. Before, we were decorating our pancakes with only a single flavorful layer. But as we all know, pancakes taste much better when you combine more flavors together. How about a pancake with melted chocolate and banana or with cream and caramel? You know what I’m talking about…
 

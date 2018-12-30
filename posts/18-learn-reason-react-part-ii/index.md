@@ -21,7 +21,7 @@ thumbnail:
 
 We’ll continue where we left off—that is, in the `render` method of the `Board` component. Since we are dealing with lists there, we’ll talk about them a little bit more now, before inspecting the rest of the `render` method.
 
-## Excursion I: list and array
+### Excursion I: list and array
 
 In Reason, we have two data structures resembling JavaScript arrays — `list` and `array`. The `list` is immutable and resizable, whereas the `array` is mutable and has a fixed length. We are using a `list` due to its flexibility and efficiency which really shines when we use it recursively.
 
@@ -155,7 +155,7 @@ We’re passing a couple of props to the `Square`. Since we want our `id` to be 
 
 Finally, we pass a `gameState` and the `onMark` handler which will get invoked when a particular `Square` is clicked.
 
-## Entering fields
+### Entering fields
 
 ![](./images/stickers.jpg)
 
@@ -294,7 +294,7 @@ For the `board` state update, we’ll call the `updateBoard` function. It uses t
 
 Since the `id` of each square is a composition of ids from both mappings, we’ll use it to find the field which the player clicked. When we find it, we’ll use the pattern matching to determine what to do with it. Otherwise, we’ll leave the square’s `value` unmodified.
 
-## Excursion II: pattern matching
+### Excursion II: pattern matching
 
 ![](./images/pattern.jpg)
 
@@ -337,7 +337,7 @@ ReasonReact.Update({
 
 We update the `board` state using the result of the pattern matching. When updating the `gameState`, we call the `checkGameState3x3` helper which calculates the state of the game for us.
 
-## Do we have a winner?
+### Do we have a winner?
 
 Let’s take a look what the `checkGameState3x3` does.
 
@@ -403,7 +403,7 @@ let checkGameState =
 
 First, we check if the board state is different from the previous one. If that’s not the case, we’ll return the unchanged `gameState`. Otherwise, we’ll calculate the new game state.
 
-## Calculating new states
+### Calculating new states
 
 ![](./images/calculating.jpg)
 

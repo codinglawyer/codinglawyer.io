@@ -101,5 +101,3 @@ As a result, our application is composed of a bunch of presentational components
 A cool feature about our approach is that, if you take a look at a particular HoC composition, you immediately know what kind of logic it uses. You just need to check the `compose` function where you can see all the logic contained in the HoCs. If you decide to add more logic, you just insert a new HoC into the `compose` function. Furthermore, if you wanted to see what handlers the component uses, you just need to check the `withHandlers` HoC.
 
 Another cool thing about HoCs is that they’re not tied to React. You don’t write `import React from ‘react'` in your HoCs. This means you can use them in your other applications that haven’t been written in React.
-
-![alt text](./images/the-end.jpg "The end sign")

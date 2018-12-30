@@ -51,7 +51,7 @@ The Recompose version of the HoC composition isn’t that different from ours. J
 
 **As a result, we don’t need to define HoCs, which provide us with a general behavior ourselves.**
 
-## More improvements
+### More improvements
 
 We can improve our composition using Recompose even more since there’s still one issue we haven’t addressed yet.
 
