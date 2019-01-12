@@ -1,6 +1,8 @@
 const path = require(`path`)
 const slash = require(`slash`)
 
+const sortTagsAlpha = tags => tags.sort((a, b) => a.name.localeCompare(b.name))
+
 const getAllTags = allPosts =>
   allPosts.data.allMarkdownRemark.edges.reduce(
     (acc, val) => [
@@ -51,7 +53,7 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const allTags = removeDuplicates(getAllTags(result))
+    const allTags = sortTagsAlpha(removeDuplicates(getAllTags(result)))
     const posts = path.resolve(`./src/templates/posts.js`)
     createPage({
       path: '/posts',
