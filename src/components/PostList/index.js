@@ -15,62 +15,71 @@ import {
 } from '../Styled'
 import PostIcons from '../PostIcons'
 
+const sortPostsByDate = posts =>
+  [...posts].sort(
+    (a, b) =>
+      new Date(b.node.frontmatter.date) - new Date(a.node.frontmatter.date),
+  )
+
 const PostList = ({
   data,
   header,
   subHeader = '',
   withTags = false,
   allTags,
-}) => (
-  <Container>
-    {!withTags ? <TagHeader>{header}</TagHeader> : <Header>{header}</Header>}
-    <SubHeader>{subHeader}</SubHeader>
-    <Break />
-    <Tags>
-      {withTags && (
-        <Fragment>
-          {allTags.map(tag => (
-            <Link
-              to={`tags/${tag.name}`}
-              key={tag.name}
-              css={{
-                marginRight: `15px`,
-                fontSize: `0.7rem`,
-              }}>
-              <LinkRed>
-                <span
-                  css={{
-                    whiteSpace: `nowrap`,
-                  }}>
-                  {`${tag.name} (${tag.count})`}
-                </span>
-                <span />
-              </LinkRed>
+}) => {
+  const sortedPosts = sortPostsByDate(data.allMarkdownRemark.edges)
+  return (
+    <Container>
+      {!withTags ? <TagHeader>{header}</TagHeader> : <Header>{header}</Header>}
+      <SubHeader>{subHeader}</SubHeader>
+      <Break />
+      <Tags>
+        {withTags && (
+          <Fragment>
+            {allTags.map(tag => (
+              <Link
+                to={`tags/${tag.name}`}
+                key={tag.name}
+                css={{
+                  marginRight: `15px`,
+                  fontSize: `14px`,
+                }}>
+                <LinkRed>
+                  <span
+                    css={{
+                      whiteSpace: `nowrap`,
+                    }}>
+                    {`${tag.name} (${tag.count})`}
+                  </span>
+                  <span />
+                </LinkRed>
+              </Link>
+            ))}
+          </Fragment>
+        )}
+      </Tags>
+      {sortedPosts &&
+        sortedPosts.map(({ node }) => (
+          <PostSnippet key={node.frontmatter.slug}>
+            <Link to={`posts/${node.frontmatter.slug}`}>
+              <PostSnippetTitle
+                dangerouslySetInnerHTML={{ __html: node.frontmatter.title }}
+              />
             </Link>
-          ))}
-        </Fragment>
-      )}
-    </Tags>
-    {data.allMarkdownRemark &&
-      data.allMarkdownRemark.edges.map(({ node }) => (
-        <PostSnippet key={node.frontmatter.slug}>
-          <Link to={`posts/${node.frontmatter.slug}`}>
-            <PostSnippetTitle
-              dangerouslySetInnerHTML={{ __html: node.frontmatter.title }}
+            <PostSnippetDescription
+              dangerouslySetInnerHTML={{ __html: node.excerpt }}
             />
-          </Link>
-          <PostSnippetDescription
-            dangerouslySetInnerHTML={{ __html: node.excerpt }}
-          />
-          <PostIcons
-            node={node.frontmatter}
-            readingTime={node.fields && node.fields.readingTime.text}
-            marginTopNegative
-          />
-        </PostSnippet>
-      ))}
-  </Container>
-)
+            <PostIcons
+              node={node.frontmatter}
+              readingTime={node.fields && node.fields.readingTime.text}
+              marginTopNegative
+            />
+          </PostSnippet>
+        ))}
+    </Container>
+  )
+}
 
 PostList.propTypes = {
   data: PropTypes.shape({

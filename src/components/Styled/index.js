@@ -77,9 +77,10 @@ export const Footer = styled.footer`
 `
 
 export const Tags = styled.div`
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   font-size: 0.9rem;
   display: none;
+  line-height: 30px;
   ${mq.large(css`
     font-size: 1rem;
     display: block;

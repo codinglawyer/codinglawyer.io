@@ -18,7 +18,7 @@ const BlogIndex = ({ data, pageContext: { allTags } }) => (
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark {
       edges {
         node {
           excerpt
