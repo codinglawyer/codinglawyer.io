@@ -42,17 +42,11 @@ const PostList = ({
                 to={`tags/${tag.name}`}
                 key={tag.name}
                 css={{
-                  marginRight: `15px`,
-                  fontSize: `14px`,
+                  paddingRight: `15px`,
+                  display: `inline-block`,
                 }}>
                 <LinkRed>
-                  <span
-                    css={{
-                      whiteSpace: `nowrap`,
-                    }}>
-                    {`${tag.name} (${tag.count})`}
-                  </span>
-                  <span />
+                  {tag.name} ({tag.count})
                 </LinkRed>
               </Link>
             ))}

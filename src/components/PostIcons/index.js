@@ -53,8 +53,9 @@ const PostIcons = ({
               css={{
                 marginRight: `15px`,
                 fontSize: `0.7rem`,
+                display: `inline-block`,
               }}>
-              <TagIcon size={14} style={{ position: `relative`, bottom: 1 }} />
+              <TagIcon size={14} />
               {` `}
               <LinkRed>
                 <span>{tag}</span>
