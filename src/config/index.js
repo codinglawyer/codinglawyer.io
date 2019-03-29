@@ -1,6 +1,6 @@
 import profilePhoto from '../images/david-kopal.jpg'
 
-module.exports = {
+export default {
   title: 'David Kopal · Coding lawyer',
   description: '',
   url: 'https://codinglawyer.io',
