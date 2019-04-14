@@ -32,8 +32,16 @@ const About = ({ isFooter = false }) => (
     <Description>
       turned software engineer living in the Czech Republic.
     </Description>{' '}
+    <Description>I&apos;m an author of</Description>{' '}
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://learnreasonml.com/">
+      <LinkRed>learnReasonML.com</LinkRed>
+    </a>{' '}
     <Description>
-      I&apos;m passionate about sharing my experiences with the community via my
+      video course. I&apos;m passionate about sharing my experiences with the
+      community via my
     </Description>{' '}
     <Link to="/posts">
       <LinkRed>posts</LinkRed>
@@ -42,9 +50,12 @@ const About = ({ isFooter = false }) => (
     <Link to="/talks">
       <LinkRed>speaker</LinkRed>
     </Link>{' '}
+    <Description>at conferences and meetups.</Description>
+    <br />
+    <br />
     <Description>
-      at conferences and meetups. If I&apos;m not spending time with my lovely
-      girlfriend, I keep myself busy by organizing ReasonML
+      If I&apos;m not spending time with my lovely girlfriend, I keep myself
+      busy by organizing ReasonML
     </Description>{' '}
     <a
       target="_blank"

@@ -6,14 +6,18 @@ import { LinkRed } from '../Styled'
 const AboutConcise = () => (
   <Fragment>
     <Item>
-      <span role="img" aria-labelledby="Shirt">
-        👔
+      <span role="img" aria-labelledby="Laptop">
+        🎥
       </span>{' '}
-      former{' '}
-      <Link to="/posts/i-stopped-being-a-lawyer">
-        <LinkRed>lawyer</LinkRed>
-      </Link>
+      author of{' '}
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://learnreasonml.com/">
+        <LinkRed>learnReasonML.com</LinkRed>
+      </a>
     </Item>
+
     <Item>
       <span role="img" aria-labelledby="Laptop">
         💻
@@ -25,6 +29,15 @@ const AboutConcise = () => (
         href="https://www.blueberry.io/">
         <LinkRed>engineer</LinkRed>
       </a>
+    </Item>
+    <Item>
+      <span role="img" aria-labelledby="Shirt">
+        👔
+      </span>{' '}
+      former{' '}
+      <Link to="/posts/i-stopped-being-a-lawyer">
+        <LinkRed>lawyer</LinkRed>
+      </Link>
     </Item>
     <Item>
       <span role="img" aria-labelledby="Head">
