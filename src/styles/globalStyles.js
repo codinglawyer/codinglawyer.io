@@ -28,4 +28,8 @@ injectGlobal`
   .language-js code{
     font-size: 0.65rem;
   }
+  .bm-menu &:focus {
+      outline: none !important;
+  }
+
 `

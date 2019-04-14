@@ -1,5 +1,32 @@
 export default [
   {
+    id: 15,
+    eventName: "ReasonConf '19",
+    eventLink: 'https://www.reason-conf.com/',
+    eventDate: '13. 4. 2018',
+    eventLocation: 'Vienna, Austria',
+    title: 'My way of contributing to the ReasonML community',
+    type: 'lightning talk',
+    duration: 10,
+    codeLink: '',
+    slidesLink: '',
+    videoLink: '',
+  },
+  {
+    id: 13,
+    eventName: 'Tech Meetup Ostrava',
+    eventLink: 'https://www.meetup.com/TechMeetupOstrava/',
+    eventDate: '27. 3. 2018',
+    eventLocation: 'Ostrava, Czech Republic',
+    title: 'Write better React with ReasonML',
+    type: 'talk',
+    duration: 30,
+    codeLink: 'https://github.com/codinglawyer/reason-tic-tac-toe',
+    slidesLink:
+      'https://speakerdeck.com/codinglawyer/use-reasonml-in-your-react-applications-ruhrjs-2018',
+    videoLink: '',
+  },
+  {
     id: 12,
     eventName: 'Codemotion Milan',
     eventLink: 'https://milan2018.codemotionworld.com/',
