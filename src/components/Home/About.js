@@ -53,10 +53,7 @@ const About = ({ isFooter = false }) => (
     <Description>at conferences and meetups.</Description>
     <br />
     <br />
-    <Description>
-      If I&apos;m not spending time with my lovely girlfriend, I keep myself
-      busy by organizing ReasonML
-    </Description>{' '}
+    <Description>I keep myself busy by organizing ReasonML</Description>{' '}
     <a
       target="_blank"
       rel="noopener noreferrer"
