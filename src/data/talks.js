@@ -1,7 +1,20 @@
 export default [
   {
+    id: 16,
+    eventName: 'enterJs',
+    eventLink: 'https://www.enterjs.de/',
+    eventDate: '25. - 28. 6. 2018',
+    eventLocation: 'Darmstadt, Germany',
+    title: 'Up and running with ReasonML',
+    type: 'talk',
+    duration: 40,
+    codeLink: '',
+    slidesLink: '',
+    videoLink: '',
+  },
+  {
     id: 15,
-    eventName: "React.NotAConf",
+    eventName: 'React.NotAConf',
     eventLink: 'http://react-not-a-conf.com/',
     eventDate: '11. 5. 2019',
     eventLocation: 'Sofia, Bulgaria',
@@ -11,7 +24,7 @@ export default [
     codeLink: '',
     slidesLink:
       'https://speakerdeck.com/codinglawyer/write-better-react-v3-reasonreact',
-    videoLink: '',
+    videoLink: 'https://www.youtube.com/watch?v=pS1YSew89Gg',
   },
   {
     id: 14,
@@ -52,7 +65,7 @@ export default [
     codeLink: 'https://github.com/codinglawyer/reason-tic-tac-toe',
     slidesLink:
       'https://speakerdeck.com/codinglawyer/use-reasonml-in-your-react-applications-ruhrjs-2018',
-    videoLink: '',
+    videoLink: 'https://www.youtube.com/watch?v=DIc0_GvAtOM',
   },
   {
     id: 11,
@@ -205,3 +218,4 @@ export default [
     videoLink: 'https://www.youtube.com/watch?v=jAsU-FejzIE',
   },
 ]
+
