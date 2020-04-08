@@ -26,7 +26,7 @@ const AboutConcise = () => (
       <a
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.blueberry.io/">
+        href="https://www.dnanexus.com/">
         <LinkRed>engineer</LinkRed>
       </a>
     </Item>

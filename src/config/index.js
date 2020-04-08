@@ -1,4 +1,4 @@
-import profilePhoto from '../images/david-kopal.jpg'
+import profilePhoto from '../images/david-kopal.png'
 
 export default {
   title: 'David Kopal · Coding lawyer',

@@ -76,8 +76,8 @@ const About = ({ isFooter = false }) => (
     <a
       target="_blank"
       rel="noopener noreferrer"
-      href="https://www.blueberry.io/">
-      <LinkRed>Blueberry</LinkRed>
+      href="https://www.dnanexus.com/">
+      <LinkRed>DNAnexus</LinkRed>
     </a>
     <span role="img" aria-label="Sparkles">
       ✨

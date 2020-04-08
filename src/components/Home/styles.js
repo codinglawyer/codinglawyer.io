@@ -1,7 +1,7 @@
 import styled from 'react-emotion'
 import { css } from 'emotion'
 import mq from '../../utils/styling'
-import profilePhoto from '../../images/david-kopal.jpg'
+import profilePhoto from '../../images/david-kopal.png'
 
 export const Title = styled.h1`
   font-size: 1.1rem;
