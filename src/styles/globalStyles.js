@@ -22,9 +22,6 @@ injectGlobal`
   .graf--figure, a, img {
     height: auto
   }
-  .gatsby-resp-image-wrapper {
-    display: inline !important
-  }
   .language-js code{
     font-size: 0.65rem;
   }
