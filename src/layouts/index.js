@@ -1,22 +1,22 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core'
 import Navigation from '../components/Navigation'
-import { rhythm } from '../utils/typography'
 import { Signature } from './styles'
 import '../styles/globalStyles'
 
-const containerStyle = {
-  maxWidth: 700,
-  margin: `0 auto`,
-  padding: rhythm(3 / 4),
-}
+const containerStyle = css`
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.125rem;
+`
 
-const containerStylePost = {
-  maxWidth: 800,
-  margin: `0 auto`,
-  padding: rhythm(3 / 4),
-}
+const containerStylePost = css`
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.125rem;
+`
 
 const Layout = ({ title, isPost = false, isIndex = false, children }) => [
   <Helmet

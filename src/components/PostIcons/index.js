@@ -1,27 +1,21 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 import { Link } from 'gatsby'
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core'
 import ClockIcon from 'react-icons/lib/fa/clock-o'
 import CalendarIcon from 'react-icons/lib/fa/calendar'
 import TagIcon from 'react-icons/lib/fa/tag'
 import { PostIconsContainer, LinkRed, Date } from '../Styled'
-import { rhythm } from '../../utils/typography'
 
-const PostIcons = ({
-  node,
-  readingTime,
-  marginTopNegative = false,
-  className = ``,
-}) => (
+const PostIcons = ({ node, readingTime, className }) => (
   <PostIconsContainer
-    css={
-      marginTopNegative
-        ? { marginTop: rhythm(-1 / 2) }
-        : { marginTop: rhythm(2) }
-    }
+    css={css`
+      margin-top: -0.75rem;
+      margin-bottom: 0.75rem;
+    `}
     className={className}>
-    <Date style={{ marginRight: rhythm(1) }}>
+    <Date style={{ marginRight: `1.5rem` }}>
       <CalendarIcon
         size={14}
         style={{
@@ -31,7 +25,7 @@ const PostIcons = ({
         }}
       />
       {` `}
-      {format(node.date, 'MMMM DD, YYYY')}
+      {node.date && format(parseISO(node.date), 'MMMM dd, yyyy')}
       <ClockIcon
         size={14}
         style={{
@@ -50,11 +44,11 @@ const PostIcons = ({
             <Link
               to={`tags/${tag}`}
               key={tag}
-              css={{
-                marginRight: `15px`,
-                fontSize: `0.7rem`,
-                display: `inline-block`,
-              }}>
+              css={css`
+                margin-right: 15px;
+                font-size: 0.7rem;
+                display: inline-block;
+              `}>
               <TagIcon size={14} />
               {` `}
               <LinkRed>
@@ -70,13 +64,11 @@ const PostIcons = ({
 PostIcons.propTypes = {
   node: PropTypes.object.isRequired,
   readingTime: PropTypes.string,
-  marginTopNegative: PropTypes.bool,
   className: PropTypes.string,
 }
 
 PostIcons.defaultProps = {
   readingTime: ``,
-  marginTopNegative: false,
   className: ``,
 }
 

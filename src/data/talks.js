@@ -3,7 +3,7 @@ export default [
     id: 16,
     eventName: 'enterJs',
     eventLink: 'https://www.enterjs.de/',
-    eventDate: '25. - 28. 6. 2018',
+    eventDate: '25. - 28. 6. 2019',
     eventLocation: 'Darmstadt, Germany',
     title: 'Up and running with ReasonML',
     type: 'talk',

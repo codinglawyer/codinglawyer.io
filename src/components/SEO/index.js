@@ -2,7 +2,7 @@ import path from 'path'
 import React from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 import config from '../../config'
 
 const getSchemaOrgJSONLD = ({
@@ -82,7 +82,7 @@ const SEO = ({ postData, postImage, isBlogPost }) => {
   const url = postMeta.slug
     ? `${config.url}${path.sep}posts/${postMeta.slug}`
     : config.url
-  const datePublished = isBlogPost ? format(postMeta.date, 'YYYY-MM-DD') : false
+  const datePublished = isBlogPost ? format(parseISO(postMeta.date), 'yyyy-MM-dd') : false
   const schemaOrgJSONLD = getSchemaOrgJSONLD({
     isBlogPost,
     url,

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { injectGlobal } from 'emotion'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 
 injectGlobal`
   a {
