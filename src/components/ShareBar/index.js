@@ -2,12 +2,10 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import {
   FacebookShareButton,
-  GooglePlusShareButton,
   LinkedinShareButton,
   TwitterShareButton,
   FacebookIcon,
   TwitterIcon,
-  GooglePlusIcon,
   LinkedinIcon,
 } from 'react-share'
 import { Message, SocialContainer, ShareButtonStyles } from './styles'
@@ -37,9 +35,6 @@ const ShareBar = ({ url, postTitle, isFooter = false }) => (
         quote={postTitle}>
         <FacebookIcon size={40} />
       </FacebookShareButton>
-      <GooglePlusShareButton className={ShareButtonStyles} url={url}>
-        <GooglePlusIcon size={40} />
-      </GooglePlusShareButton>
       <LinkedinShareButton
         className={ShareButtonStyles}
         url={url}

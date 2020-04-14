@@ -3,9 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { Link } from 'gatsby'
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
-import ClockIcon from 'react-icons/lib/fa/clock-o'
-import CalendarIcon from 'react-icons/lib/fa/calendar'
-import TagIcon from 'react-icons/lib/fa/tag'
+import {FaRegCalendarAlt, FaRegClock, FaTag} from 'react-icons/fa'
 import { PostIconsContainer, LinkRed, Date } from '../Styled'
 
 const PostIcons = ({ node, readingTime, className }) => (
@@ -14,9 +12,10 @@ const PostIcons = ({ node, readingTime, className }) => (
       margin-top: -0.75rem;
       margin-bottom: 0.75rem;
     `}
-    className={className}>
+    className={className}
+  >
     <Date style={{ marginRight: `1.5rem` }}>
-      <CalendarIcon
+      <FaRegCalendarAlt
         size={14}
         style={{
           position: `relative`,
@@ -26,7 +25,7 @@ const PostIcons = ({ node, readingTime, className }) => (
       />
       {` `}
       {node.date && format(parseISO(node.date), 'MMMM dd, yyyy')}
-      <ClockIcon
+      <FaRegClock
         size={14}
         style={{
           position: `relative`,
@@ -49,7 +48,7 @@ const PostIcons = ({ node, readingTime, className }) => (
                 font-size: 0.7rem;
                 display: inline-block;
               `}>
-              <TagIcon size={14} />
+              <FaTag size={14} />
               {` `}
               <LinkRed>
                 <span>{tag}</span>

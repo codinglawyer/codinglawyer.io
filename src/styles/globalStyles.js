@@ -28,5 +28,8 @@ injectGlobal`
   .bm-menu &:focus {
       outline: none !important;
   }
+  .react-icons {
+    vertical-align: middle;
+  }
 
 `
