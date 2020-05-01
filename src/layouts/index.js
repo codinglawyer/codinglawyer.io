@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { css, jsx } from '@emotion/core'
 import Navigation from '../components/Navigation'
 import { Signature } from './styles'
-import '../styles/globalStyles'
+import GlobalStyles from '../styles/globalStyles'
 
 const containerStyle = css`
   max-width: 700px;
@@ -19,6 +19,7 @@ const containerStylePost = css`
 `
 
 const Layout = ({ title, isPost = false, isIndex = false, children }) => [
+  <GlobalStyles />,
   <Helmet
     key="app-head"
     titleTemplate="%s · David Kopal"

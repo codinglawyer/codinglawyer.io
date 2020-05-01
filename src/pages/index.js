@@ -1,17 +1,16 @@
 /** @jsx jsx */
-import { css, jsx, CacheProvider } from '@emotion/core'
-import { cache } from 'emotion'
+import { css, jsx } from '@emotion/core'
 import { IconContext } from "react-icons";
 import Layout from '../layouts'
 import AboutConcise from '../components/Home/AboutConcise'
 import Menu from '../components/Home/Menu'
 import { Break, Container } from '../components/Styled'
 import Profile from '../components/Home/Profile'
-import '../styles/globalStyles'
+import GlobalStyles from '../styles/globalStyles'
 
 const Home = () => (
-  <CacheProvider value={cache}>
-    <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+  <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+    <GlobalStyles />
       <Layout title="Home" isIndex>
         <div
           css={css`
@@ -27,8 +26,7 @@ const Home = () => (
           </Container>
         </div>
       </Layout>
-    </IconContext.Provider>
-  </CacheProvider>
+  </IconContext.Provider>
 )
 
 export default Home
