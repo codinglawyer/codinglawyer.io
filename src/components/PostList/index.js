@@ -1,6 +1,8 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core'
 import {
   Header,
   SubHeader,
@@ -41,10 +43,10 @@ const PostList = ({
               <Link
                 to={`tags/${tag.name}`}
                 key={tag.name}
-                css={{
-                  paddingRight: `15px`,
-                  display: `inline-block`,
-                }}>
+                css={css`
+                  padding-right: 15px;
+                  display: inline-block;
+                `}>
                 <LinkRed>
                   {tag.name} ({tag.count})
                 </LinkRed>
@@ -67,7 +69,6 @@ const PostList = ({
             <PostIcons
               node={node.frontmatter}
               readingTime={node.fields && node.fields.readingTime.text}
-              marginTopNegative
             />
           </PostSnippet>
         ))}

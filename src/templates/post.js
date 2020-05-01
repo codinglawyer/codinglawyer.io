@@ -1,12 +1,12 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core'
 import { graphql } from 'gatsby'
 import { Footer, HeaderPost, Container } from '../components/Styled'
 import PostIcons from '../components/PostIcons'
 import Layout from '../layouts'
 import ShareBar from '../components/ShareBar'
 import About from '../components/Home/About'
-import { rhythm } from '../utils/typography'
 import SEO from '../components/SEO'
 
 const PostTemplate = ({
@@ -27,10 +27,11 @@ const PostTemplate = ({
       <Container>
         <HeaderPost dangerouslySetInnerHTML={{ __html: frontmatter.title }} />
         <PostIcons
-          marginTopNegative
           node={frontmatter}
           readingTime={fields && fields.readingTime.text}
-          css={{ marginBottom: rhythm(1 / 2) }}
+          css={css`
+            margin-bottom: 1.5rem;
+          `}
         />
         <hr />
         <ShareBar url={href} postTitle={frontmatter.title} />

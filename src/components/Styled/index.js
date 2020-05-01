@@ -1,5 +1,5 @@
-import styled from 'react-emotion'
-import { css } from 'emotion'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 import mq from '../../utils/styling'
 
 export const Container = styled.div`

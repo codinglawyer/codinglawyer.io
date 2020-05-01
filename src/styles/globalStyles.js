@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { injectGlobal } from 'emotion'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 
 injectGlobal`
   a {
@@ -22,14 +22,14 @@ injectGlobal`
   .graf--figure, a, img {
     height: auto
   }
-  .gatsby-resp-image-wrapper {
-    display: inline !important
-  }
   .language-js code{
     font-size: 0.65rem;
   }
   .bm-menu &:focus {
       outline: none !important;
+  }
+  .react-icons {
+    vertical-align: middle;
   }
 
 `

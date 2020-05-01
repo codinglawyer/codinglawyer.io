@@ -1,5 +1,5 @@
-import styled from 'react-emotion'
-import { css } from 'emotion'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 
 export const SocialContainer = styled.div`
   display: inline-flex;

@@ -1,6 +1,8 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core'
 import { Description, LinkRed } from '../Styled'
 import { FooterImage, PictureContainer, Image } from './styles'
 
@@ -16,11 +18,11 @@ const About = ({ isFooter = false }) => (
     {!isFooter && (
       <PictureContainer>
         <Image
-          css={{
-            margin: '0 auto 40px auto',
-            height: '140px',
-            width: '140px',
-          }}
+          css={css`
+            margin: 0 auto 40px auto;
+            height: 140px;
+            width: 140px;
+''          `}
         />
       </PictureContainer>
     )}
