@@ -9,8 +9,7 @@ description:
 tags:
 - react
 - functional programming
-thumbnail:
-- pancake-cover
+featuredImage: ./images/pancake-cover.jpg
 ---
 
 ![alt text](./images/pancake-cover.jpg "Pancakes decorated with fruit")

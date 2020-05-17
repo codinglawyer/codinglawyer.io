@@ -10,8 +10,7 @@ tags:
 - react
 - functional programming
 - recompose
-thumbnail:
-- bus-sign
+featuredImage: ./images/bus-sign.jpg
 ---
 
 ![alt text](./images/bus-sign.jpg "Bus sign")

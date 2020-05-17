@@ -9,8 +9,7 @@ description:
 tags:
 - react
 - functional programming
-thumbnail:
-- avocado
+featuredImage: ./images/avocado.jpg
 ---
 
 ![alt text](./images/avocado.jpg "Avocado and mango")

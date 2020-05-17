@@ -8,8 +8,7 @@ description:
     Why should you give ReasonML a try? It's a functional programming language that provides you with strong type system, powerful JavaScript interop and many other built-in features that will improve your developer experience.
 tags:
 - reason
-thumbnail:
-- compiled-code
+featuredImage: ./images/compiled-code.jpg
 ---
 
 Why should you give ReasonML a try? It's a functional programming language that provides you with strong type system, powerful JavaScript interop and many other built-in features that will improve your developer experience. Let's talk about these features a little bit more.

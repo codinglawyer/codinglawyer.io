@@ -10,8 +10,7 @@ tags:
 - functional programming
 - javascript
 - react
-thumbnail:
-- function
+featuredImage: ./images/code.jpg
 ---
 
 ***This post was also [translated to Korean](https://ideveloper2.tistory.com/162?fbclid=IwAR0vUSKvBvr8nFwp0Qg3KstcukPdQ2Dr-yV370zk1ef_tpauFpFWw5ihivA)***

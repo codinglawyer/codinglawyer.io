@@ -4,15 +4,13 @@ date: 2018-10-15
 title: Learn ReasonML by building Tic Tac Toe in React (part II)
 seo_title: Learn ReasonML by building Tic Tac Toe in React (part II)
 slug: learn-reason-react-part-ii
-description:
-  As we go through the source code of the Tic Tac Toe game — written in ReasonML, using React — I’ll explain the core features of ReasonML.
+description: As we go through the source code of the Tic Tac Toe game — written in ReasonML, using React — I’ll explain the core features of ReasonML.
 tags:
 - reason
 - react
 - reason react
 - tutorial
-thumbnail:
-- post-box
+featuredImage: ./images/post-box.jpg
 ---
 
 ![](./images/post-box.jpg)

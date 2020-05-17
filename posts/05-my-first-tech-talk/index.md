@@ -9,8 +9,7 @@ description:
 tags:
 - motivation
 - speaking
-thumbnail:
-- stage
+featuredImage: ./images/stage.jpg
 ---
 
 ![](./images/stage.jpg)

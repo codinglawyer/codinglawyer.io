@@ -42,7 +42,6 @@ exports.createPages = ({ actions, graphql }) => {
               slug
               description
               tags
-              thumbnail
             }
           }
         }
@@ -75,14 +74,11 @@ exports.createPages = ({ actions, graphql }) => {
     })
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      const thumbnail = node.frontmatter.thumbnail[0]
-
       createPage({
         path: `posts/${node.frontmatter.slug}`,
         component: postTemplate,
         context: {
           slug: node.frontmatter.slug,
-          thumbnailRegex: `/${thumbnail}/`,
         },
       })
     })

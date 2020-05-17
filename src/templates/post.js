@@ -64,7 +64,7 @@ PostTemplate.defaultProps = {
 export default PostTemplate
 
 export const pageQuery = graphql`
-  query($slug: String!, $thumbnailRegex: String!) {
+  query($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       excerpt
@@ -75,17 +75,11 @@ export const pageQuery = graphql`
         slug
         description
         tags
-        thumbnail
       }
       fields {
         readingTime {
           text
         }
-      }
-    }
-    imageSharp(original: { src: { regex: $thumbnailRegex } }) {
-      sizes {
-        src
       }
     }
   }

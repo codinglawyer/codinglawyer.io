@@ -55,7 +55,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-twitter`,
-    `gatsby-plugin-sharp`,
     // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-typography`,

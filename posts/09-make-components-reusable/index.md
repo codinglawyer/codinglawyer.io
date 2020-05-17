@@ -9,8 +9,7 @@ description:
 tags:
 - react
 - functional programming
-thumbnail:
-- brushes
+featuredImage: ./images/brushes.jpg
 ---
 
 ![alt text](./images/brushes.jpg "Many brushes")

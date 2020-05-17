@@ -8,8 +8,8 @@ description:
   It's been exactly one year since I got the job. I feel that now it's the right time to start blogging again.
 tags:
 - motivation
-thumbnail:
-- welcome
+featuredImage: ./images/welcome.jpg
+
 ---
 
 ![](./images/welcome.jpg)

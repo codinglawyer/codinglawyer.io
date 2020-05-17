@@ -10,8 +10,7 @@ tags:
 - react
 - functional programming
 - recompose
-thumbnail:
-- avocado
+featuredImage: ./images/avocado.jpg
 ---
 
 *[In the first part](https://www.codinglawyer.io/posts/hocs-the-ultimate-guide-part-i)*, you learned how to write reusable higher-order components (HoC) and hopefully understood the ideas behind this pattern as well. Now, you are going to learn the difference between class HoC and the functional one and we'll spend a good amount of time understanding how the composition of several higher-order components works.

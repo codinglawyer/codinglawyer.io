@@ -10,8 +10,7 @@ tags:
 - react
 - functional programming
 - recompose
-thumbnail:
-- tree-question-mark
+featuredImage: ./images/tree-question-mark.jpg
 ---
 
 ![alt text](./images/tree-question-mark.jpg "Question marks written trees")

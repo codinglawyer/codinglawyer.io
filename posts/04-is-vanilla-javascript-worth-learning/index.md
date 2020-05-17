@@ -8,8 +8,7 @@ description:
   I'll emphasize the importance of JavaScript fundamentals for every front-end developer. I’m going to tell you why you should have a good knowledge of Vanilla JavaScript.
 tags:
   - javascript
-thumbnail:
-  - vanilla
+featuredImage: ./images/vanilla.jpg
 ---
 
 ![](./images/vanilla.jpg)

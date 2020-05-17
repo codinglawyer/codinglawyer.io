@@ -11,8 +11,7 @@ tags:
 - react
 - reason react
 - tutorial
-thumbnail:
-- be-reasonable
+featuredImage: ./images/be-reasonable.jpg
 ---
 
 ![](./images/be-reasonable.jpg)

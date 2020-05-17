@@ -9,8 +9,7 @@ description:
 tags:
 - react
 - functional programming
-thumbnail:
-- skyscraper
+featuredImage: ./images/skyscraper.jpg
 ---
 
 ![alt text](./images/skyscraper.jpg "Two skyscrapers")

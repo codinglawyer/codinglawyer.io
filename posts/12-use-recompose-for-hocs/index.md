@@ -10,8 +10,7 @@ tags:
 - react
 - functional programming
 - recompose
-thumbnail:
-- composing
+featuredImage: ./images/composing.jpg
 ---
 
 ![alt text](./images/composing.jpg "DJ's equipment")

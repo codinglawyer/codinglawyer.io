@@ -8,8 +8,7 @@ description:
   Does your career fulfill you and move you in the right direction? Have you ever sat down to really think about it?I'm going to tell you how I switched from a lawyer to a developer in seven months!
 tags:
 - motivation
-thumbnail:
-- one-way
+featuredImage: ./images/one-way.jpg
 ---
 
 ![](./images/one-way.jpg)

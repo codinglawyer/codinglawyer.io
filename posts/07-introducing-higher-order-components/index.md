@@ -9,8 +9,7 @@ description:
 tags: 
 - react
 - functional programming
-thumbnail:
-- chip
+featuredImage: ./images/chip.jpg
 ---
 
 ![alt text](./images/chip.jpg "Computer chip")

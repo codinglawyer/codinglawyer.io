@@ -9,8 +9,7 @@ description:
 tags:
 - javascript
 - tutorial
-thumbnail:
-- old-calculator
+featuredImage: ./images/old-calculator.jpg
 ---
 
 ![alt text](./images/old-calculator.jpg "Old calculator")
